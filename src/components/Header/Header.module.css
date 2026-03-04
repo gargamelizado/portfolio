@@ -1,0 +1,82 @@
+.header {
+  border-bottom: 2px solid var(--color-gray);
+  
+  width: 100%;
+  
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.wrapperHeader {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1rem;
+}
+.logoButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.logoButton img {
+  width: 50px;
+  height: 50px;
+  
+}
+.ulMenu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  
+}
+.ulMenu .navLi a {
+  color: var(--color-white);
+  transition: 0.3s ease-in;
+}
+
+.navLi a:hover {
+  color: var(--color-red);
+  transition: 0.3s ease-in-out;
+}
+
+#buttonMobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: none;
+  }
+  #buttonMobile{
+    display: block;
+    background: transparent;
+  }
+  #mnuIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .active nav {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    background-color: #000000;
+    z-index: 1;
+  }
+
+  .active .ulMenu {
+    padding: 16px 20px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .active .navLi {
+    text-align: center;
+  }
+}

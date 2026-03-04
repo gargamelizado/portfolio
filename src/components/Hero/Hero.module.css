@@ -1,0 +1,26 @@
+.hero{
+    margin: 10px auto;
+}
+
+.heroWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.fotoPerfil{
+    
+    
+    padding: 10px;
+}
+
+.fotoPerfil img{
+    width: 250px;
+    height: 250px;
+    border-radius: 16px;
+}
+.boxText{
+    max-width: 40ch;
+}
