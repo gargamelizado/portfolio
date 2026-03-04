@@ -1,5 +1,9 @@
 .hero{
     margin: 10px auto;
+    border: 3px solid #3b82f6;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
 .heroWrapper{
@@ -20,6 +24,8 @@
     width: 250px;
     height: 250px;
     border-radius: 16px;
+    border: 3px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 .boxText{
     max-width: 40ch;
