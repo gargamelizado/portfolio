@@ -1,14 +1,21 @@
 import React from 'react';
+import html from '../../assets/html.png';
+import css from '../../assets/css.png';
+import js from '../../assets/js.png';
+import react from '../../assets/react.png';
+import node from '../../assets/node.png';
+import git from '../../assets/git.png';
+import figma from '../../assets/figma.png';
 import styles from './Skills.module.css';
 
 const skills = [
-  { name: 'HTML5', icon: '🌐' },
-  { name: 'CSS3', icon: '🎨' },
-  { name: 'JavaScript', icon: '🟨' },
-  { name: 'React', icon: '⚛️' },
-  { name: 'Node.js', icon: '🟩' },
-  { name: 'Git', icon: '🔧' },
-  { name: 'Figma', icon: '🎴' },
+  { name: 'HTML5', icon: html },
+  { name: 'CSS3', icon: css },
+  { name: 'JavaScript', icon: js },
+  { name: 'React', icon: react },
+  { name: 'Node.js', icon: node },
+  { name: 'Git', icon: git },
+  { name: 'Figma', icon: figma },
   // Adicione mais skills conforme necessário
 ];
 
@@ -19,7 +26,7 @@ export default function Skills() {
       <div className={styles.skillsGrid}>
         {skills.map((skill) => (
           <div key={skill.name} className={styles.skillCard}>
-            <span className={styles.icon}>{skill.icon}</span>
+            <img src={skill.icon} alt={skill.name} className={styles.icon} />
             <span>{skill.name}</span>
           </div>
         ))}

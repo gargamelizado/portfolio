@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import Button from "../Button/button"
-import LogoHeader from "../../assets/logo.png";
+import LogoHeader from "../../assets/log2.jpg";
 import { useState } from "react";
 import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${menuActive ? styles.active : ""}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' }}>
       <div className={styles.wrapperHeader}>
-        <div>
+        <div className={styles.logoButton}>
           
             <img src={LogoHeader} alt="logo" />
           
