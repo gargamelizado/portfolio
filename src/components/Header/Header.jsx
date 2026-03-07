@@ -29,9 +29,9 @@ const Header = () => {
     <header className={`${styles.header} ${menuActive ? styles.active : ""}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' }}>
       <div className={styles.wrapperHeader}>
         <div>
-          <button className={styles.logoButton} onClick={() => scrollToSection('home')}>
+          
             <img src={LogoHeader} alt="logo" />
-          </button>
+          
         </div>
         <button onClick={toggleMenu} id={styles.buttonMobile}>
           <img src={menuActive ? iconCloser : iconBars} id={styles.menuIcon} alt="" />

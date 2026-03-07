@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Contact.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -16,10 +17,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
-      <h2 style={{ fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>Contato</h2>
-      <form onSubmit={handleSubmit} style={{ maxWidth: '500px', margin: '0 auto' }}>
-        <div style={{ marginBottom: '1rem' }}>
+    <section id="contact">
+      <h2>Contato</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
+        <div className="form-group">
           <input
             type="text"
             name="name"
@@ -27,10 +28,9 @@ export default function Contact() {
             value={formData.name}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '0.5rem', fontSize: '1rem' }}
           />
         </div>
-        <div style={{ marginBottom: '1rem' }}>
+        <div className="form-group">
           <input
             type="email"
             name="email"
@@ -38,10 +38,9 @@ export default function Contact() {
             value={formData.email}
             onChange={handleChange}
             required
-            style={{ width: '100%', padding: '0.5rem', fontSize: '1rem' }}
           />
         </div>
-        <div style={{ marginBottom: '1rem' }}>
+        <div className="form-group">
           <textarea
             name="message"
             placeholder="Sua mensagem"
@@ -49,22 +48,9 @@ export default function Contact() {
             onChange={handleChange}
             required
             rows="5"
-            style={{ width: '100%', padding: '0.5rem', fontSize: '1rem' }}
           />
         </div>
-        <button
-          type="submit"
-          style={{
-            width: '100%',
-            padding: '0.7rem',
-            fontSize: '1rem',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-          }}
-        >
+        <button type="submit" className="submit-btn">
           Enviar
         </button>
       </form>
