@@ -7,7 +7,7 @@ export default function About() {
       <h2>Sobre Mim</h2>
       <div className="about-content">
         <p>
-          Sou um desenvolvedor Front-end especializado em criar interfaces modernas, responsivas e acessíveis. 
+          Sou um desenvolvedor Full Stack especializado em criar interfaces modernas, responsivas e acessíveis. 
           Com sólida experiência em HTML5, CSS3, JavaScript (ES6+) e React, transformo conceitos em experiências 
           web de alta qualidade, focando sempre em performance e usabilidade.
         </p>
