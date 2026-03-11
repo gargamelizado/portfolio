@@ -1,0 +1,57 @@
+.container_capa {
+  display: flex;
+  justify-content: center;
+  
+  height: 90vh;
+  background-image: url(../../../public/capa.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  position: absolute;
+
+  top: 50%;
+  left: 25%;
+  background: linear-gradient(47deg, #00011300 0%, #04061d00 80%, #04061d00 100%);
+}
+.container_text p,
+.container_text h1 {
+  max-width: 500px;
+  background: none;
+  font-weight: 500;
+}
+.container_text p {
+  font-size: 18px;
+  color: #C4C4C4;
+}
+.container_text h1 {
+  width: 23vw;
+  font-size: 40px;
+  font-weight: 600;
+  color: #FFF;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container_capa {
+    height: 70vh;
+  }
+  .container_text p,
+  .container_text h1 {
+    width: 70%;
+  }
+}
+@media (min-width: 375px ) and (max-width: 767px) {
+  .container_text {
+    background: linear-gradient(26deg, #000113 0%, #04061d4f 80%, #04061d00 100%);
+  }
+  .container_capa {
+    background-position: 75%;
+  }
+  .container_text p,
+  .container_text h1 {
+    width: 80%;
+  }
+}

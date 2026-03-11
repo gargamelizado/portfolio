@@ -1,0 +1,8 @@
+.container_rodape {
+  text-align: center;
+}
+.container_rodape p {
+  background: #05031b;
+  color: #FFF;
+  padding: 20px;
+}

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container_topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1024px;
+  width: 100vw;
+  padding: 20px;
+}
+.logo_topo {
+  width: auto;
+  height: 50px;
+}
+.link_topo {
+  display: flex;
+  gap: 20px;  
+}
+.link_text {
+  color: #000000;  
+  text-decoration: none;  
+}
+@media (max-width: 1024px) {
+  .container_topo {
+    width: 90vw;
+  }
+}
+@media (max-width: 768px) {
+  .container_topo {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .link_topo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 100px;
+    border-top: 2px solid #8b8484;
+    padding-top: 15px;
+  }
+}
+@media (min-width: 375px ) and (max-width: 767px) {
+  .logo_topo {
+    height: 40%;
+  }
+  .link_topo {
+    gap: 40px;
+  }
+  .link_text {
+    font-size: 14px;
+  }
+}

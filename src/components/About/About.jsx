@@ -7,12 +7,15 @@ export default function About() {
       <h2>Sobre Mim</h2>
       <div className="about-content">
         <p>
-          Sou uma desenvolvedora Front-end apaixonada por criar interfaces intuitivas e responsivas.
-          Com experiência em HTML, CSS, JavaScript e React, transformo ideias em soluções web funcionais.
+          Sou um desenvolvedor Front-end especializado em criar interfaces modernas, responsivas e acessíveis. 
+          Com sólida experiência em HTML5, CSS3, JavaScript (ES6+) e React, transformo conceitos em experiências 
+          web de alta qualidade, focando sempre em performance e usabilidade.
         </p>
         <p>
-          Quando não estou codificando, gerencio uma confeitaria familiar, combinando criatividade 
-          em dois mundos: o visual do código e a delicia dos doces artesanais.
+          Minha abordagem combina senso estético com boas práticas de desenvolvimento. Estou em constante 
+          aprendizado, explorando novas tecnologias e padrões de design para entregar soluções inovadoras. 
+          Quando não estou codificando, gerencio uma confeitaria onde aplico os mesmos princípios: atenção 
+          aos detalhes e satisfação do cliente.
         </p>
       </div>
     </section>

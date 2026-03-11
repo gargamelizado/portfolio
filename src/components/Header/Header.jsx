@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import Button from "../Button/button"
+
 import LogoHeader from "../../assets/log2.jpg";
 import { useState } from "react";
 import iconCloser from "../../assets/menu-closer.svg";
@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`${styles.header} ${menuActive ? styles.active : ""}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' }}>
+    <header className={`${styles.header} ${menuActive ? styles.active : ""}`}>
       <div className={styles.wrapperHeader}>
         <div className={styles.logoButton}>
           
@@ -39,25 +39,25 @@ const Header = () => {
         <nav className={menuActive ? styles.active : ""}>
           <ul className={styles.ulMenu}>
             <li className={styles.navLi}>
-              <a href="#home" onClick={() => scrollToSection('home')} style={{ margin: '0 1rem', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Home</a>
+              <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
             </li>
             <li className={styles.navLi}>
-              <a href="#about" onClick={() => scrollToSection('about')} style={{ margin: '0 1rem', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Sobre</a>
+              <a href="#about" onClick={() => scrollToSection('about')}>Sobre</a>
             </li>
             <li className={styles.navLi}>
-              <a href="#skills" onClick={() => scrollToSection('skills')} style={{ margin: '0 1rem', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Skills</a>
+              <a href="#skills" onClick={() => scrollToSection('skills')}>Skills</a>
             </li>
             <li className={styles.navLi}>
-              <a href="#projects" onClick={() => scrollToSection('projects')} style={{ margin: '0 1rem', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Projetos</a>
+              <a href="#projects" onClick={() => scrollToSection('projects')}>Projetos</a>
             </li>
             <li className={styles.navLi}>
-              <a href="#contact" onClick={() => scrollToSection('contact')} style={{ margin: '0 1rem', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>Contato</a>
+              <a href="#contact" onClick={() => scrollToSection('contact')}>Contato</a>
             </li>
           </ul>
         </nav>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginLeft: '1.5rem' }}>
+        <div className={styles.socialLinks}>
           {socialLinks.map(link => (
-            <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" title={link.label} style={{ fontSize: '1.5rem', textDecoration: 'none' }}>
+            <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" title={link.label} className={styles.socialLink}>
               {link.icon}
             </a>
           ))}

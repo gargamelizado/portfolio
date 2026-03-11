@@ -1,21 +1,22 @@
+import styles from "./Project.module.css";
 import CardProject from "../CardProject/CardProject";
 
 const projectsData = [
   {
-    title: 'Projeto 1',
-    description: 'Descrição do projeto 1',
+    title: 'Portfólio Pessoal',
+    description: 'Site responsivo desenvolvido com React e CSS Modules. Apresenta projetos, habilidades e informações profissionais com design moderno.',
     link: 'https://github.com/gargamelizado',
     image: null,
   },
   {
-    title: 'Projeto 2',
-    description: 'Descrição do projeto 2',
+    title: 'Landing Page Agência',
+    description: 'Página promocional para agência digital com foco em conversão. Implementado com React, animações CSS e otimizações de performance.',
     link: 'https://github.com/gargamelizado',
     image: null,
   },
   {
-    title: 'Projeto 3',
-    description: 'Descrição do projeto 3',
+    title: 'E-commerce Responsivo',
+    description: 'Plataforma de e-commerce com carrinhos de compras, filtros avançados e integração de pagamentos. Desenvolvido com React e Node.js.',
     link: 'https://github.com/gargamelizado',
     image: null,
   },
@@ -23,9 +24,9 @@ const projectsData = [
 
 export default function Project() {
   return (
-    <section id="projects" style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', textAlign: 'center' }}>🚀 Projetos</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+    <section id="projects" className={styles.projectSection}>
+      <h1 className={styles.projectTitle}>🚀 Projetos</h1>
+      <div className={styles.projectGrid}>
         {projectsData.map((project, index) => (
           <CardProject
             key={index}

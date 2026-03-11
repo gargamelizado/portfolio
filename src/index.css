@@ -1,11 +1,31 @@
+/* 
+  ================== RESPONSIVE BREAKPOINTS ==================
+  Este projeto utiliza 4 breakpoints principais de responsividade:
+  
+  🖥️  Desktop:        1025px ou maior (layout completo)
+  📱 Tablet Medium:    721px - 1024px (layout adaptado)
+  📱 Mobile Medium:    601px - 720px  (stack vertical)
+  📱 Mobile Small:     321px - 600px  (comprimido)
+  📱 Mobile XSmall:    até 320px      (muito comprimido)
+  
+  Media Queries Implementados:
+  - max-width: 1024px   (Tablet Large)
+  - max-width: 720px    (Mobile Medium)
+  - max-width: 600px    (Mobile Small)
+  - max-width: 320px    (Mobile XSmall)
+  
+  Todos os componentes têm media queries implementadas!
+  ===========================================================
+*/
+
 :root {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #1a1a1a;
-  background-color: whitesmoke;
+  color-scheme: dark;
+  color: #f1f5f9;
+  background-color: #0f172a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,19 +35,20 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #60a5fa;
   text-decoration: inherit;
+  transition: color 0.3s ease;
 }
 a:hover {
-  color: #535bf2;
+  color: #93c5fd;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background-attachment: fixed;
 }
 
 h1 {
