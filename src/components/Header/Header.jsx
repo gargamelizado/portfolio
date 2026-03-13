@@ -11,7 +11,7 @@ const socialLinks = [
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
 ];
 
-const Header = () => {
+const Header = ({ screenGlowEnabled, onToggleScreenGlow }) => {
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => {
     setMenuActive(!menuActive);
@@ -55,6 +55,16 @@ const Header = () => {
             </li>
           </ul>
         </nav>
+
+        <button
+          type="button"
+          className={styles.screenGlowButton}
+          onClick={onToggleScreenGlow}
+          aria-pressed={screenGlowEnabled}
+        >
+          {screenGlowEnabled ? 'Desativar clara tela' : 'Ativar clara tela'}
+        </button>
+
         <div className={styles.socialLinks}>
           {socialLinks.map(link => (
             <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" title={link.label} className={styles.socialLink}>

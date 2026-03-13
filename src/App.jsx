@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
@@ -8,9 +9,26 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
 function App() {
+  const [screenGlowEnabled, setScreenGlowEnabled] = useState(true)
+
+  useEffect(() => {
+    document.body.classList.toggle('screen-glow-disabled', !screenGlowEnabled)
+
+    return () => {
+      document.body.classList.remove('screen-glow-disabled')
+    }
+  }, [screenGlowEnabled])
+
+  const toggleScreenGlow = () => {
+    setScreenGlowEnabled((prev) => !prev)
+  }
+
   return (
     <>
-      <Header />
+      <Header
+        screenGlowEnabled={screenGlowEnabled}
+        onToggleScreenGlow={toggleScreenGlow}
+      />
       <Home />
       <About />
       <Skills />

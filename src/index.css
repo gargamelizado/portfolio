@@ -67,6 +67,11 @@ body::before {
   animation: screenGlow 9s ease-in-out infinite alternate;
 }
 
+body.screen-glow-disabled::before {
+  opacity: 0;
+  animation: none;
+}
+
 @keyframes screenGlow {
   0% {
     opacity: 0.72;
