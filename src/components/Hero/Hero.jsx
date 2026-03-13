@@ -1,6 +1,6 @@
 
 import style from './Hero.module.css'
-import Perfil from '../../assets/log3.jpg'
+import Perfil from '../../assets/foto perfil.jpeg'
 
 export default function Hero() {
   return (

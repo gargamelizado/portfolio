@@ -8,7 +8,7 @@
   max-width: var(--max-width);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1.25rem 1rem;
 }
 
@@ -52,8 +52,14 @@
   font-size: 1.5rem;
   text-decoration: none;
   transition: transform 0.3s ease;
+  
 }
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  
 
+}
 .socialLink:hover {
   transform: scale(1.2);
 }

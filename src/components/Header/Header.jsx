@@ -1,13 +1,13 @@
 import styles from "./Header.module.css";
-
-import LogoHeader from "../../assets/log2.jpg";
+import LogoGithub from "../../assets/github-logo.png";
+import LogoHeader from "../../assets/log2.jpeg";
 import { useState } from "react";
 import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
 
 // Ícones de redes sociais (pode usar SVGs ou emojis)
 const socialLinks = [
-  { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: '🐙' },
+  { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} /> },
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
 ];
 

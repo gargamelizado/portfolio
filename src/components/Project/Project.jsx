@@ -20,6 +20,12 @@ const projectsData = [
     link: 'https://github.com/gargamelizado',
     image: null,
   },
+  {
+    title: 'Projeto Pessoas',
+    description: 'Projeto focado em gestão e visualização de informações de pessoas. Desenvolvido com React para melhor experiência do usuário.',
+    link: 'https://github.com/gargamelizado',
+    image: null,
+  },
 ];
 
 export default function Project() {
