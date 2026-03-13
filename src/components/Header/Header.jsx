@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import LogoGithub from "../../assets/github-logo.png";
+import LogoGithub from "../../assets/github-logo2.png";
 import LogoHeader from "../../assets/log2.jpeg";
 import { useState } from "react";
 import iconCloser from "../../assets/menu-closer.svg";

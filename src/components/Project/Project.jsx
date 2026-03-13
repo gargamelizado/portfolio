@@ -26,6 +26,18 @@ const projectsData = [
     link: 'https://github.com/gargamelizado',
     image: null,
   },
+  {
+    title: 'App de Tarefas',
+    description: 'Aplicativo de gerenciamento de tarefas com funcionalidades de criação, edição e exclusão. Desenvolvido com React Native para dispositivos móveis.',
+    link: 'https://github.com/gargamelizado',
+    image: null,
+  },
+  {
+    title: 'Blog Pessoal',
+    description: 'Blog pessoal com sistema de postagem, comentários e categorias. Desenvolvido com React e Firebase para backend.',
+    link: 'https://github.com/gargamelizado',
+    image: null,
+  }
 ];
 
 export default function Project() {
