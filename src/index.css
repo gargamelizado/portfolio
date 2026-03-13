@@ -49,6 +49,34 @@ body {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(147, 197, 253, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.1), transparent 45%);
+  filter: blur(2px);
+  animation: screenGlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes screenGlow {
+  0% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
 }
 
 h1 {
