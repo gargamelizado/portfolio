@@ -70,6 +70,21 @@
   border: none;
   cursor: pointer;
 }
+.darkModeToggle {
+  margin-left: 1rem;
+}
+.darkModeButton{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.dark-mode{
+  background-color: #0f5fdf;
+  color: #f1f5f9;
+
+
+}
 
 /* Tablet (720px - 1024px) */
 @media (max-width: 1024px) {

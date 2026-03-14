@@ -10,13 +10,19 @@ const socialLinks = [
   { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} /> },
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
 ];
+const darkModeClass = 'dark-mode';
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => {
     setMenuActive(!menuActive);
   };
-
+ const [darkMdode, setDarkMode] = useState(false);
+const toggleDarkMode = () => {
+  setDarkMode(!darkMdode);
+  document.body.classList.toggle('dark-mode', !darkMdode);
+  
+}
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -24,7 +30,7 @@ const Header = () => {
     }
     setMenuActive(false);
   };
-
+  
   return (
     <header className={`${styles.header} ${menuActive ? styles.active : ""}`}>
       <div className={styles.wrapperHeader}>
@@ -61,6 +67,11 @@ const Header = () => {
               {link.icon}
             </a>
           ))}
+        <div className={styles.darkModeToggle}>
+          <button onClick={toggleDarkMode} className={styles.darkModeButton}>
+            {darkMdode ? '🌞' : '🌙'}
+          </button>
+        </div>
         </div>
       </div>
     </header>
