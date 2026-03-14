@@ -49,69 +49,6 @@ body {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   background-attachment: fixed;
-<<<<<<< ours
-=======
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(96, 165, 250, 0.28), transparent 36%),
-    radial-gradient(circle at 80% 10%, rgba(186, 230, 253, 0.24), transparent 40%),
-    radial-gradient(circle at 50% 85%, rgba(125, 211, 252, 0.18), transparent 45%);
-  filter: blur(1px);
-  animation: screenGlow 9s ease-in-out infinite alternate;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.22), transparent 40%),
-    radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.12), transparent 34%),
-    radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.16), transparent 32%);
-  mix-blend-mode: screen;
-  animation: screenGlowHighlight 7s ease-in-out infinite alternate;
-}
-
-body.screen-glow-disabled::before,
-body.screen-glow-disabled::after {
-  opacity: 0;
-  animation: none;
-}
-
-@keyframes screenGlow {
-  0% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1.06);
-  }
-}
-
-@keyframes screenGlowHighlight {
-  0% {
-    opacity: 0.5;
-    transform: translateY(0) scale(1);
-  }
-
-  100% {
-    opacity: 0.9;
-    transform: translateY(-2%) scale(1.03);
-  }
->>>>>>> theirs
 }
 
 h1 {
