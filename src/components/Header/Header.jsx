@@ -19,7 +19,7 @@ const Header = () => {
  const [darkMdode, setDarkMode] = useState(false);
 const toggleDarkMode = () => {
   setDarkMode(!darkMdode);
-  document.body.classList.toggle('dark-mode', !darkMdode);
+  document.body.classList.toggle('darkmode', !darkMdode);
   
 }
   const scrollToSection = (id) => {

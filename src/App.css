@@ -1,7 +1,10 @@
 #root {
   min-height: 100vh;
 }
+body{
+    background: #011330;
 
+}
 .logo {
   height: 4rem;
   padding: 1.5em;
@@ -21,4 +24,8 @@
 
 .read-the-docs {
   color: #f1f5f9;
+}
+.darkmode{
+  background-color: #013282;
+  ;
 }
