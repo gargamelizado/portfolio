@@ -10,7 +10,6 @@ const socialLinks = [
   { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} /> },
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
 ];
-const darkModeClass = 'dark-mode';
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -67,11 +66,11 @@ const toggleDarkMode = () => {
               {link.icon}
             </a>
           ))}
+        </div>
         <div className={styles.darkModeToggle}>
           <button onClick={toggleDarkMode} className={styles.darkModeButton}>
             {darkMdode ? '🌞' : '🌙'}
           </button>
-        </div>
         </div>
       </div>
     </header>
