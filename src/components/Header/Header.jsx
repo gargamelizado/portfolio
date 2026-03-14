@@ -66,11 +66,11 @@ const toggleDarkMode = () => {
               {link.icon}
             </a>
           ))}
-        </div>
         <div className={styles.darkModeToggle}>
           <button onClick={toggleDarkMode} className={styles.darkModeButton}>
             {darkMdode ? '🌞' : '🌙'}
           </button>
+        </div>
         </div>
       </div>
     </header>
