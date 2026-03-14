@@ -12,10 +12,10 @@ function App() {
   const [screenGlowEnabled, setScreenGlowEnabled] = useState(true)
 
   useEffect(() => {
-    document.body.classList.toggle('screen-glow-disabled', !screenGlowEnabled)
+    document.body.classList.toggle('screen-glow-light', screenGlowEnabled)
 
     return () => {
-      document.body.classList.remove('screen-glow-disabled')
+      document.body.classList.remove('screen-glow-light')
     }
   }, [screenGlowEnabled])
 
@@ -40,4 +40,3 @@ function App() {
 }
 
 export default App
-

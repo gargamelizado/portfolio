@@ -62,7 +62,7 @@ const Header = ({ screenGlowEnabled, onToggleScreenGlow }) => {
           onClick={onToggleScreenGlow}
           aria-pressed={screenGlowEnabled}
         >
-          {screenGlowEnabled ? 'Desativar clara tela' : 'Ativar clara tela'}
+          {screenGlowEnabled ? 'Usar fundo padrão' : 'Usar fundo mais claro'}
         </button>
 
         <div className={styles.socialLinks}>
