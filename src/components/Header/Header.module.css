@@ -170,7 +170,7 @@
 }
 
 
-.screenGlowButton {
+.backgroundSwapButton {
   border: 1px solid rgba(96, 165, 250, 0.5);
   background: rgba(30, 41, 59, 0.8);
   color: #f1f5f9;
@@ -181,20 +181,20 @@
   transition: all 0.3s ease;
 }
 
-.screenGlowButton:hover {
+.backgroundSwapButton:hover {
   border-color: #93c5fd;
   background: rgba(51, 65, 85, 0.92);
 }
 
 @media (max-width: 1024px) {
-  .screenGlowButton {
+  .backgroundSwapButton {
     font-size: 0.75rem;
     padding: 0.4rem 0.65rem;
   }
 }
 
 @media (max-width: 720px) {
-  .screenGlowButton {
+  .backgroundSwapButton {
     display: none;
   }
 }

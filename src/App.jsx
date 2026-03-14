@@ -9,25 +9,25 @@ import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
 function App() {
-  const [screenGlowEnabled, setScreenGlowEnabled] = useState(true)
+  const [lighterBackgroundEnabled, setLighterBackgroundEnabled] = useState(false)
 
   useEffect(() => {
-    document.body.classList.toggle('screen-glow-disabled', !screenGlowEnabled)
+    document.body.classList.toggle('lighter-background', lighterBackgroundEnabled)
 
     return () => {
-      document.body.classList.remove('screen-glow-disabled')
+      document.body.classList.remove('lighter-background')
     }
-  }, [screenGlowEnabled])
+  }, [lighterBackgroundEnabled])
 
-  const toggleScreenGlow = () => {
-    setScreenGlowEnabled((prev) => !prev)
+  const toggleLighterBackground = () => {
+    setLighterBackgroundEnabled((prev) => !prev)
   }
 
   return (
     <>
       <Header
-        screenGlowEnabled={screenGlowEnabled}
-        onToggleScreenGlow={toggleScreenGlow}
+        lighterBackgroundEnabled={lighterBackgroundEnabled}
+        onToggleLighterBackground={toggleLighterBackground}
       />
       <Home />
       <About />
@@ -40,4 +40,3 @@ function App() {
 }
 
 export default App
-

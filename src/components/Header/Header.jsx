@@ -11,7 +11,7 @@ const socialLinks = [
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
 ];
 
-const Header = ({ screenGlowEnabled, onToggleScreenGlow }) => {
+const Header = ({ lighterBackgroundEnabled, onToggleLighterBackground }) => {
   const [menuActive, setMenuActive] = useState(false);
   const toggleMenu = () => {
     setMenuActive(!menuActive);
@@ -58,11 +58,11 @@ const Header = ({ screenGlowEnabled, onToggleScreenGlow }) => {
 
         <button
           type="button"
-          className={styles.screenGlowButton}
-          onClick={onToggleScreenGlow}
-          aria-pressed={screenGlowEnabled}
+          className={styles.backgroundSwapButton}
+          onClick={onToggleLighterBackground}
+          aria-pressed={lighterBackgroundEnabled}
         >
-          {screenGlowEnabled ? 'Desativar clara tela' : 'Ativar clara tela'}
+          {lighterBackgroundEnabled ? 'Voltar fundo original' : 'Trocar para fundo mais claro'}
         </button>
 
         <div className={styles.socialLinks}>
