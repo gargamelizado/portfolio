@@ -23,7 +23,7 @@
 
 /* Início CSS Banner */
     .banner-topo {
-        background-image: url("/img/banner-topo.jpg");
+        background-image: url("img/banner-topo.jpg");
         background-position: center;
         background-size: cover;
     }
