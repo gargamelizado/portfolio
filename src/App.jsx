@@ -5,7 +5,7 @@ import Rotas from './router/rotas.jsx';
 function App() {
   return (
     <>
-      <Home />
+      <Home /> 
       
       
     </>
