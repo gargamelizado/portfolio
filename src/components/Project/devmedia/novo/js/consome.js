@@ -1,4 +1,4 @@
-async function listaMedicos(tabela) {
+export async function listaMedicos(tabela) {
     const medicos = await fetch("http://localhost:9000/medicos");
     const medicos_json = await medicos.json();
 

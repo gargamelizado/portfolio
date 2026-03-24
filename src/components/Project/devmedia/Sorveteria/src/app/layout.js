@@ -1,8 +1,6 @@
 import './globals.css';
-import style from './page.module.css';
 import Topo from '@/componentes/Topo';
 import Rodape from '@/componentes/Rodape';
-
 
 export const metadata = {
   title: "Sorveteria - Gelateria",
