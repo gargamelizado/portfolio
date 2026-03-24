@@ -6,7 +6,6 @@ import Rotas from './router/rotas.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
     <App />
   </StrictMode>,
 )
