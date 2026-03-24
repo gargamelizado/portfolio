@@ -10,7 +10,7 @@ const projectsData = [
   {
     title: 'Petshop',
     description: 'Site responsivo desenvolvido com React e CSS Modules. Apresenta projetos, habilidades e informações profissionais com design moderno.',
-    link: '../Project/projeto-view-main/devmedia/Petshop/index.html',
+    link: '../Project/devmedia/Petshop/index.html',
     image: Petshop,
   },
   {
@@ -56,6 +56,7 @@ export default function Project() {
             title={project.title}
             description={project.description}
             link={project.link}
+            web={project.web}
             image={project.image}
           />
         ))}
