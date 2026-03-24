@@ -1,16 +1,8 @@
-import './App.css'
-import Home from './components/Home/Home.jsx';
+import './App.css';
 import Rotas from './router/rotas.jsx';
 
 function App() {
-  return (
-    <>
-      <Home /> 
-      
-      
-    </>
-  )
+  return <Rotas />;
 }
 
-export default App
-
+export default App;
