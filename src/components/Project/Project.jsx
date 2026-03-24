@@ -6,6 +6,8 @@ import Padaria from "./img/padaria.png";
 import Alfatech from "./img/alfa-tech.png";
 import PousadaSecreta from "./img/pousada-secreta.png";
 import AgeciaDesgin from "./img/agecia-desing.png";
+
+
 const projectsData = [
   {
     title: 'Petshop',
