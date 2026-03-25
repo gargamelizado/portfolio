@@ -1,4 +1,6 @@
-
+/**
+ * Primeira dobra da landing: foto + apresentação textual.
+ */
 import style from './Hero.module.css'
 import Perfil from '../../assets/foto perfil.jpeg'
 

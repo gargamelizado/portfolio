@@ -2,7 +2,9 @@
 
 ## 🎯 Visão Geral
 
-Seu portfólio agora possui **responsividade completa** para **5 tamanhos de tela diferentes**, incluindo tearlas de 320px e 720px.
+Este guia descreve a **responsividade** do portfólio para **cinco faixas de largura** (desktop a ~320px), alinhado aos `@media` dos componentes.
+
+O **Header** é compartilhado pelo **`Layout`** em **`/`** e **`/projects`**, então menu mobile, logo e breakpoints do topo valem nas duas rotas.
 
 ---
 
@@ -471,8 +473,8 @@ src/
 - ✅ Tablet (1024px, 768px, 720px)
 - ✅ Mobile (600px, 375px, 320px)
 
-**Status:** Pronto para Produção 🚀
+**Status:** Referência dos breakpoints do repo — validar após alterações de CSS
 
-Última Atualização: Março 2026
+Última revisão da documentação: março 2026
 
 </div>

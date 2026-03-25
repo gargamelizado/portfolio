@@ -1,3 +1,6 @@
+/**
+ * Formulário apenas no front-end: hoje loga no console e mostra alerta (sem API).
+ */
 import React, { useState } from 'react';
 import './Contact.css';
 

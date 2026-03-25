@@ -1,3 +1,7 @@
+/**
+ * Lista de projetos do portfólio. Reutilizada na home (dentro de Home) e sozinha na rota /projects.
+ * projectsData: metadados + screenshots em ./img
+ */
 import styles from "./Project.module.css";
 import CardProject from "../CardProject/CardProject";
 import Petshop from "./img/pet-shop.png";
@@ -9,43 +13,49 @@ import AgeciaDesgin from "./img/agecia-desing.png";
 
 
 const projectsData = [
+  /* Cada item: link (GitHub), web opcional (demo local/URL), image importada */
   {
     title: 'Pet shop',
-    description: 'site de pet shop ',
+    description: 'site de pet shop para divucaçao de produtos e serviços.Desenvolvido com HTML e CSS.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Petshop',
-    image: Petshop,
     web: 'src/components/Project/devmedia/Petshop/index.html',
+    image: Petshop,
   },
   {
     title: 'Alfa tech',
-    description: 'Página promocional para agência digital com foco em conversão. Implementado com React, animações CSS e otimizações de performance.',
-    link: 'https://github.com/gargamelizado',
+    description: 'site de empresa de tecnologia com uso de tabelas e multiple páginas. Desenvolvido com HTML e CSS.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Provedor-Hospedagem',
+    web: 'src/components/Project/devmedia/Provedor-Hospedagem/home.html',
     image: Alfatech,
   },
   {
     title: 'Clinica Medica',
-    description: 'Plataforma de e-commerce com carrinhos de compras, filtros avançados e integração de pagamentos. Desenvolvido com React e Node.js.',
+    description: 'site de clínica médica com multiple páginas. Desenvolvido com HTML e CSS.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Clinica',
+    web: 'src/components/Project/devmedia/Clinica/index.html',
     image: ClinicaMedica,
   },
   {
     title: 'Padaria',
-    description: 'Projeto focado em gestão e visualização de informações de pessoas. Desenvolvido com React para melhor experiência do usuário.',
+    description: 'site de padaria simples. Desenvolvido com HTML e CSS para melhor experiência do usuário.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Padaria',
+    web: 'src/components/Project/devmedia/Padaria/index.html',
     image: Padaria,
   },
   {
     title: 'Pousada Secreta',
-    description: 'Aplicativo de gerenciamento de tarefas com funcionalidades de criação, edição e exclusão. Desenvolvido com React Native para dispositivos móveis.',
+    description: 'site de pousada secreta com multiple páginas. Desenvolvido com HTML e CSS.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Pousada',
+    web: 'src/components/Project/devmedia/Pousada/index.html',
     image: PousadaSecreta,
   },
   {
     title: 'Agência Design',
-    description: 'Blog pessoal com sistema de postagem, comentários e categorias. Desenvolvido com React e Firebase para backend.',
+    description: 'site de agência de design digital. Desenvolvido com React com efeito de troca de cor de fundo .',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Design-Digital/agencia-de-design-digital',
+    web: '',
     image: AgeciaDesgin,
-  }
+  },
 ];
 
 export default function Project() {
@@ -55,7 +65,7 @@ export default function Project() {
       <div className={styles.projectGrid}>
         {projectsData.map((project, index) => (
           <CardProject
-            key={index}
+            key={project.title ?? index}
             title={project.title}
             description={project.description}
             link={project.link}

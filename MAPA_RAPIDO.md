@@ -11,9 +11,10 @@
 
 ### Stack
 - **React** 19.2.0
+- **React Router DOM** 7.13.x
 - **Vite** 8.0.0-beta.13
 - **CSS Modules + Global CSS**
-- **ESLint** 9.39.1
+- **ESLint** 9.39.1 (`globalIgnores`: `dist`, `node_modules`, `.next`, etc.)
 
 ### Scripts Principais
 ```bash
@@ -25,33 +26,17 @@ npm run preview  # Preview build
 
 ---
 
-## 🧩 Componentes (11 total)
+## 🧩 Componentes principais
 
 ```
-Header
-├── Navegação + Menu Mobile
-└── Social Links
+App → router/rotas.jsx (BrowserRouter)
+└── Layout
+    ├── Header (NavLink / + /projects, scroll seções, darkmode body)
+    └── Outlet
+        ├── / → Home → Hero, About, Skills, Project, Contact, Footer
+        └── /projects → Project → CardProject × N
 
-Home
-└── Hero (Apresentação Principal)
-
-About
-└── Seção "Sobre Mim"
-
-Skills
-└── Grid de 7 Tecnologias
-
-Project
-└── CardProject (x3 projetos)
-
-Contact
-└── Formulário (Nome, Email, Mensagem)
-
-Footer
-└── Copyright Dinâmico
-
-Gallery (Reutilizável)
-Button (Reutilizável)
+Gallery, Button (reutilizáveis; não necessariamente na home)
 ```
 
 ---
@@ -60,40 +45,37 @@ Button (Reutilizável)
 
 ```
 src/
+├── router/
+│   └── rotas.jsx           (Rotas + Layout)
 ├── components/
-│   ├── About/              (CSS normal)
-│   ├── Button/             (Module CSS)
-│   ├── CardProject/        (Module CSS)
-│   ├── Contact/            (CSS normal)
-│   ├── Footer/             (CSS normal)
-│   ├── Gallery/            (CSS normal)
-│   ├── Header/             (Module CSS)
-│   ├── Hero/               (Module CSS)
-│   ├── Home/               (Simples wrapper)
-│   ├── Project/            (Module CSS)
-│   └── Skills/             (Module CSS)
-│
-├── assets/                 (13 imagens/ícones)
-├── App.jsx                 (Componente Raiz)
+│   ├── Layout/             (Header + Outlet)
+│   ├── About/
+│   ├── Button/
+│   ├── CardProject/
+│   ├── Contact/
+│   ├── Footer/
+│   ├── Gallery/
+│   ├── Header/
+│   ├── Hero/
+│   ├── Home/
+│   ├── Project/            (+ devmedia/ estudos)
+│   └── Skills/
+├── assets/                 (imagens e SVGs usados nos imports)
+├── App.jsx
 ├── App.css
-├── main.jsx                (Entry Point)
-├── index.css               (Reset + Global Styles)
-│
-└── components/Project/projeto-view-main/  (Exemplos/referências)
+├── main.jsx
+└── index.css
 ```
 
 ---
 
 ## 🎨 Assets Disponíveis
 
-### Fotos
-- `log2.jpg` - Logo/Header
-- `log3.jpg` - Foto de Perfil
-- `logo.png` - Logo Padrão
-- `2210_w018_n002_1346a_p30_1346.jpg` - Fundo
-
-### Ícones de Tech
-- html.png, css.png, js.png, react.png, node.png, git.png, figma.png, sql.png, react.svg
+### Fotos / branding (exemplos)
+- `log2.jpeg` — logo no header
+- `foto perfil.jpeg` — Hero
+- `github-logo2.png` — rede social
+- Ícones de skills: html, css, js, react, node, git, figma (.png)
 
 ### Ícones de UI
 - menu-togle.svg, menu-closer.svg
@@ -102,15 +84,11 @@ src/
 
 ## 🔗 Navegação
 
-| Seção | ID | Componente |
-|-------|-------|-----------|
-| Home | #home | Home + Hero |
-| Sobre | #about | About |
-| Skills | #skills | Skills |
-| Projetos | #projects | Project |
-| Contato | #contact | Contact |
-
-**Método:** Âncoras HTML + Smooth Scroll via `scrollIntoView()`
+| Rota / seção | Onde |
+|--------------|------|
+| `/` | Home completa (IDs: #home, #about, #skills, #projects, #contact) |
+| `/projects` | Só grid de projetos |
+| Links do menu | `NavLink` para `/` e `/projects`; demais usam scroll ou `navigate('/', { state: { scrollTo } })` |
 
 ---
 
@@ -118,12 +96,13 @@ src/
 
 | Componente | Tipo | Props | Estado |
 |-----------|------|-------|--------|
-| **Header** | Layout | - | menuActive (useState) |
+| **Layout** | Layout | - | - |
+| **Header** | Layout | - | menuActive, darkMode |
 | **Hero** | Display | - | - |
 | **About** | Display | - | - |
 | **Skills** | Display | - | - |
 | **Project** | Container | - | - |
-| **CardProject** | Display | title, description, link, image | - |
+| **CardProject** | Display | title, description, link, web?, image | - |
 | **Contact** | Form | - | formData (useState) |
 | **Footer** | Layout | - | - |
 | **Gallery** | Display | items, link | - |
@@ -134,16 +113,10 @@ src/
 ## 🎯 Fluxo de Dados
 
 ```
-main.jsx
-  ↓
-App.jsx
-  ├── Header (com navegação para #id)
-  ├── Home → Hero (apresentação)
-  ├── About (descrição)
-  ├── Skills (array de tecnologias)
-  ├── Project → [CardProject × 3] (array de projetos)
-  ├── Contact (formulário → console.log)
-  └── Footer (copyright dinâmico)
+main.jsx → App.jsx → Rotas
+  Layout
+    Header
+    Outlet → Home (…) ou Project (cards)
 ```
 
 ---
@@ -160,6 +133,7 @@ App.jsx
 - React Hooks ✅
 - React Refresh ✅
 - ES2020+ ✅
+- Ignora `dist`, `node_modules`, `.next`, `build` aninhados ✅
 
 ---
 
@@ -173,14 +147,8 @@ App.jsx
 ]
 ```
 
-### Projects Array (3 items)
-```javascript
-[
-  { title: 'Portfólio Pessoal', ... },
-  { title: 'Landing Page Agência', ... },
-  { title: 'E-commerce Responsivo', ... }
-]
-```
+### Projects (`projectsData` em `Project.jsx`)
+Lista configurável de projetos; cada item pode ter `web` opcional (link “Ver Website” só se preenchido).
 
 ---
 
@@ -212,7 +180,7 @@ App.jsx
 
 | Aspecto | Status |
 |--------|--------|
-| Roteamento | ❌ Sem React Router |
+| Roteamento | ✅ React Router (`/`, `/projects`) |
 | State Global | ❌ Sem Redux/Context |
 | API Backend | ❌ Sem integração |
 | TypeScript | ❌ Não implementado |
@@ -270,7 +238,8 @@ npm run lint        # 4. (Opcional) Verificar código
 
 | Necessidade | Arquivo |
 |-----------|---------|
-| Mudar layout geral | `src/App.jsx` |
+| Mudar rotas | `src/router/rotas.jsx` |
+| Mudar layout global (header em todas páginas) | `src/components/Layout/Layout.jsx` |
 | Mudar navegação | `src/components/Header/Header.jsx` |
 | Mudar hero/apresentação | `src/components/Hero/Hero.jsx` |
 | Mudar ou adicionar projetos | `src/components/Project/Project.jsx` |

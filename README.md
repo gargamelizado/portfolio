@@ -24,7 +24,8 @@ Este portfólio foi desenvolvido como uma plataforma moderna para apresentar:
 - ✅ **Performance Otimizada**: Vite + React Compiler ativado
 - ✅ **CSS Modules**: Estilos isolados e sem conflitos
 - ✅ **Acessível**: Semântica HTML apropriada
-- ✅ **Navegação Suave**: Scroll smooth entre seções
+- ✅ **Navegação Suave**: Scroll entre seções na home e rotas com **React Router**
+- ✅ **Rotas**: `/` (página completa) e `/projects` (só projetos), com layout compartilhado
 
 ---
 
@@ -32,6 +33,7 @@ Este portfólio foi desenvolvido como uma plataforma moderna para apresentar:
 
 ### Frontend
 - **React 19.2.0** - Biblioteca UI moderna
+- **React Router DOM 7.13** - Rotas (`/`, `/projects`, fallback `*`)
 - **Vite 8.0.0-beta.13** - Bundler rápido e moderno
 - **CSS Modules** - Estilos scopados e isolados
 - **CSS Global** - Estilização base da aplicação
@@ -60,17 +62,19 @@ portifolio/
 ├── 📂 public/                       # Arquivos estáticos
 ├── 📂 src/
 │   ├── 📄 main.jsx                 # Entry point
-│   ├── 📄 App.jsx                  # Componente raiz
+│   ├── 📄 App.jsx                  # Monta <Rotas />
 │   ├── 📄 App.css                  # Estilos globais
 │   ├── 📄 index.css                # Estilos raiz (dark theme)
-│   ├── 📂 assets/                  # Imagens e ícones
-│   │   ├── logo.png
-│   │   ├── log2.jpg (Header logo)
-│   │   ├── log3.jpg (Perfil)
-│   │   ├── menu-toggle.svg
-│   │   ├── menu-closer.svg
-│   │   └── tech-icons/             # Ícones de tecnologias
+│   ├── 📂 router/
+│   │   └── rotas.jsx               # BrowserRouter, Layout, Routes
+│   ├── 📂 assets/                  # Imagens e ícones (imports nos componentes)
+│   │   ├── logo.png, html.png, css.png, js.png, react.png, node.png, git.png, figma.png
+│   │   ├── log2.jpeg, github-logo2.png, foto perfil.jpeg
+│   │   ├── menu-togle.svg, menu-closer.svg
+│   │   └── …
 │   └── 📂 components/              # Componentes React
+│       ├── 📂 Layout/              # Header + <Outlet /> (rotas filhas)
+│       │   └── Layout.jsx
 │       ├── 📂 Header/
 │       │   ├── Header.jsx
 │       │   └── Header.module.css
@@ -86,9 +90,9 @@ portifolio/
 │       │   ├── Skills.jsx
 │       │   └── Skills.module.css
 │       ├── 📂 Project/
-│       │   ├── Project.jsx
+│       │   ├── Project.jsx         # Grid de projetos (projectsData)
 │       │   ├── Project.module.css
-│       │   └── projeto-view-main/ # Pasta de exemplos de projetos
+│       │   └── devmedia/           # Projetos de estudo (HTML, Next, etc.) — não importados pelo Vite
 │       ├── 📂 CardProject/
 │       │   ├── CardProject.jsx
 │       │   └── CardProject.module.css
@@ -116,29 +120,31 @@ portifolio/
 
 ```
 App
-├── Header (Navegação + Menu Mobile)
-└── main content (Router-like structure)
-    ├── Home
-    │   └── Hero (Apresentação)
-    ├── About (Sobre Mim)
-    ├── Skills (Habilidades Técnicas)
-    ├── Project (Projetos)
-    │   └── CardProject (Card individual)
-    ├── Contact (Formulário de Contato)
-    ├── Gallery (Reutilizável)
-    └── Footer (Rodapé)
+└── Rotas (react-router-dom)
+    └── Layout
+        ├── Header (NavLink, scroll/âncoras, tema escuro no body)
+        └── Outlet
+            ├── rota "/" → Home
+            │   ├── Hero
+            │   ├── About
+            │   ├── Skills
+            │   ├── Project → CardProject × N
+            │   ├── Contact
+            │   └── Footer
+            └── rota "/projects" → Project → CardProject × N
 ```
 
 ### Descrição dos Componentes
 
 | Componente | Tipo | Responsabilidade |
 |-----------|------|------------------|
-| **Header** | Layout | Navbar responsiva com navegação + menu mobile |
+| **Layout** | Layout | Envolve rotas: Header fixo + `Outlet` para o conteúdo |
+| **Header** | Layout | Navbar responsiva, `NavLink` (Home / Projetos), scroll suave nas seções |
 | **Hero** | Display | Apresentação principal com foto de perfil |
 | **About** | Display | Seção "Sobre Mim" com descrição profissional |
 | **Skills** | Display | Grid de 7 tecnologias principais |
-| **Project** | Container | Orquestra cardProjectos em grid |
-| **CardProject** | Display | Card individual com título, descrição e link |
+| **Project** | Container | Orquestra cards a partir de `projectsData` (vários projetos) |
+| **CardProject** | Display | Card com imagem, repositório GitHub e link “Ver Website” se `web` existir |
 | **Contact** | Form | Formulário de contato (frontend) |
 | **Gallery** | Display | Galeria genérica reutilizável |
 | **Footer** | Layout | Rodapé com informações de copyright |
@@ -202,7 +208,7 @@ npm run lint -- --fix
 ---
 
 ## 🎨 Design e Tema
-Full-Stack
+
 ### Paleta de Cores
 
 **Dark Theme Professional:**
@@ -231,9 +237,9 @@ Full-Stack
 ## 📱 Seções da Aplicação
 
 ### 1. **Header**
-- Logo/Marca pessoal
-- Menu de navegação com links para seções
-- Menu mobile com toggle
+- Logo (`NavLink` para `/`)
+- Home e Projetos com `NavLink`; Sobre, Skills e Contato com scroll (na `/`) ou navegação para `/` + scroll
+- Menu mobile com toggle e alternância de tema (`body.darkmode`)
 - Links para redes sociais (GitHub, LinkedIn)
 
 ### 2. **Hero (Home)**
@@ -335,13 +341,13 @@ npm run lint -- --fix
 
 ### Priority Alta
 - [ ] **Backend para Formulário** - Integrar API Node.js/Express para envio de emails
-- [ ] **React Router** - Migrar de navegação por âncoras para roteamento profissional
+- [x] **React Router** - Rotas `/`, `/projects` e layout com `Outlet`
 - [ ] **TypeScript** - Adicionar tipos estáticos ao projeto
 
 ### Priority Média
-- [ ] **Testes** - Jest + React Testing Library
+- [ ] **Testes** - Vitest + React Testing Library
 - [ ] **CI/CD** - GitHub Actions para deploy automático
-- [ ] **Dark/Light Theme Toggle** - Sistema de temas dinâmicos
+- [ ] **Dark/Light Theme completo** - Expandir o toggle atual (classes/tokens CSS)
 - [ ] **Analytics** - Google Analytics ou alternativa
 
 ### Priority Baixa
@@ -357,7 +363,9 @@ npm run lint -- --fix
 Arquivos de referência criados:
 
 - **[ESTRUTURA_E_DOCUMENTACAO.md](ESTRUTURA_E_DOCUMENTACAO.md)** - Documentação técnica completa
+- **[PROJECT_MAP.md](PROJECT_MAP.md)** - Mapa detalhado do repositório
 - **[MAPA_RAPIDO.md](MAPA_RAPIDO.md)** - Cheat sheet rápido
+- **[RESPONSIVIDADE_GUIDE.md](RESPONSIVIDADE_GUIDE.md)** - Breakpoints e testes responsivos
 - **[ARQUITETURA_E_DIAGRAMAS.md](ARQUITETURA_E_DIAGRAMAS.md)** - Diagramas visuais
 - **[GUIA_DE_INICIO_RAPIDO.md](GUIA_DE_INICIO_RAPIDO.md)** - Próximas ações recomendadas
 

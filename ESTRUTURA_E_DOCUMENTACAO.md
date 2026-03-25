@@ -4,11 +4,12 @@
 
 **Projeto:** Portfólio Web Dev  
 **Versão:** 0.0.0  
-**Tipo:** Aplicação SPA (Single Page Application)  
+**Tipo:** SPA com **React Router** (várias URLs, um bundle)  
 **Framework Principal:** React 19.2.0  
+**Roteamento:** React Router DOM 7.x  
 **Build Tool:** Vite 8.0.0-beta.13  
 **Estilo:** CSS Modules + CSS Global  
-**Data da Documentação:** 11 de março de 2026
+**Documentação revisada:** março de 2026
 
 ---
 
@@ -17,6 +18,7 @@
 ### Runtime & Build
 - **React**: ^19.2.0
 - **React-DOM**: ^19.2.0
+- **React Router DOM**: ^7.13.x
 - **Vite**: ^8.0.0-beta.13 (Next Gen Frontend Tooling)
 - **@vitejs/plugin-react**: ^5.1.1
 
@@ -36,6 +38,7 @@
 
 ### Utilitários
 - **globals**: ^16.5.0
+- **prettier** (dev): formatação opcional
 
 ---
 
@@ -44,7 +47,9 @@
 ```
 portifolio/
 ├── src/
-│   ├── components/          # Componentes React
+│   ├── router/
+│   │   └── rotas.jsx        # BrowserRouter, Layout, Routes, Navigate
+│   ├── components/
 │   │   ├── About/           # Seção "Sobre Mim"
 │   │   │   ├── About.css
 │   │   │   └── About.jsx
@@ -63,45 +68,33 @@ portifolio/
 │   │   ├── Gallery/         # Componente galeria reutilizável
 │   │   │   ├── Gallery.css
 │   │   │   └── Gallery.jsx
-│   │   ├── Header/          # Cabeçalho com navegação
+│   │   ├── Layout/          # Header + Outlet (rotas filhas)
+│   │   │   └── Layout.jsx
+│   │   ├── Header/          # Navegação + menu mobile + toggle tema (body)
 │   │   │   ├── Header.jsx
 │   │   │   └── Header.module.css
 │   │   ├── Hero/            # Seção hero com apresentação
 │   │   │   ├── Hero.jsx
 │   │   │   └── Hero.module.css
-│   │   ├── Home/            # Página inicial (wrapper do Hero)
+│   │   ├── Home/            # Conteúdo da rota / (sem Header duplicado)
 │   │   │   └── Home.jsx
-│   │   ├── Project/         # Seção de projetos
+│   │   ├── Project/         # Grid de projetos (também rota /projects)
 │   │   │   ├── Project.jsx
-│   │   │   └── Project.module.css
+│   │   │   ├── Project.module.css
+│   │   │   └── devmedia/    # Exercícios/projetos de estudo (não importados pelo app)
 │   │   └── Skills/          # Seção de habilidades
 │   │       ├── Skills.jsx
 │   │       └── Skills.module.css
 │   │
-│   ├── assets/              # Imagens e ícones
-│   │   ├── 2210_w018_n002_1346a_p30_1346.jpg  (Imagem de fundo)
-│   │   ├── css.png
-│   │   ├── figma.png
-│   │   ├── git.png
-│   │   ├── html.png
-│   │   ├── js.png
-│   │   ├── log2.jpg         (Logo/Header)
-│   │   ├── log3.jpg         (Foto de perfil)
-│   │   ├── logo.png         (Logo padrão)
-│   │   ├── menu-closer.svg  (Ícone fechar menu)
-│   │   ├── menu-togle.svg   (Ícone abrir menu)
-│   │   ├── node.png
-│   │   ├── react.png
-│   │   ├── react.svg
-│   │   └── sql.png
+│   ├── assets/              # Imagens e SVG usados nos imports
+│   │   ├── logo.png, html.png, css.png, js.png, react.png, node.png, git.png, figma.png
+│   │   ├── log2.jpeg, github-logo2.png, foto perfil.jpeg, react.svg
+│   │   └── menu-closer.svg, menu-togle.svg
 │   │
-│   ├── App.jsx              # Componente raiz
+│   ├── App.jsx              # Retorna <Rotas />
 │   ├── App.css              # Estilos globais do App
 │   ├── main.jsx             # Entry point da aplicação
 │   ├── index.css            # Reset CSS e estilos globais
-│   │
-│   └── components/Project/projeto-view-main/   # (Pasta com exemplos de projetos)
-│       └── devmedia/        # Projetos demo/exemplo do DevMedia
 │
 ├── public/                  # Arquivos estáticos
 │   └── vite.svg
@@ -117,27 +110,30 @@ portifolio/
 
 ## 🧩 Componentes React - Responsabilidades
 
-### 1. **Header** (`Header.jsx` + `Header.module.css`)
-- **Responsabilidade:** Navegação principal e cabeçalho
+### 1. **Layout** (`Layout.jsx`)
+- **Responsabilidade:** Cabeçalho fixo em todas as rotas + área de conteúdo
+- **Conteúdo:** `<Header />` e `<Outlet />` (filhos: `Home` ou `Project`)
+
+### 2. **Header** (`Header.jsx` + `Header.module.css`)
+- **Responsabilidade:** Navegação e ações do topo
 - **Features:**
-  - Menu responsivo (mobile toggle com ícones SVG)
-  - Links de redes sociais (GitHub, LinkedIn)
-  - Logo/branding
-  - Navegação suave (smooth scroll) para seções
-  - Estado gerenciado com `useState` para menu ativo/inativo
-- **Imports de Assets:** `log2.jpg`, `menu-closer.svg`, `menu-togle.svg`
+  - `NavLink` para `/` e `/projects`
+  - Scroll suave para `#about`, `#skills`, `#contact` na home; a partir de outras rotas usa `navigate('/', { state: { scrollTo } })`
+  - Menu mobile (SVG), redes sociais, toggle `body.darkmode`
+  - `useLocation` + `useNavigate`
+- **Imports de Assets (ex.):** `log2.jpeg`, `github-logo2.png`, `menu-closer.svg`, `menu-togle.svg`
 - **Links Sociais:** 
   - GitHub: https://github.com/gargamelizado
   - LinkedIn: https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/
 
-### 2. **Home** (`Home.jsx`)
-- **Responsabilidade:** Página inicial/wrapper
+### 3. **Home** (`Home.jsx`)
+- **Responsabilidade:** Rota `/` — todas as seções da landing
 - **Features:**
-  - Seção com ID "home" para anchor navigation
-  - Renderiza o componente Hero
-- **Componentes Filhos:** Hero
+  - `useLocation` + `useEffect` para scroll após navegação com `state.scrollTo`
+  - Renderiza Hero, About, Skills, Project, Contact, Footer
+- **ID:** `home` na `<section>` raiz
 
-### 3. **Hero** (`Hero.jsx` + `Hero.module.css`)
+### 4. **Hero** (`Hero.jsx` + `Hero.module.css`)
 - **Responsabilidade:** Apresentação visual principal (banner de boas-vindas)
 - **Features:**
   - Título "Olá, eu sou Marcelo"
@@ -145,13 +141,13 @@ portifolio/
   - Foto de perfil
   - Descrição profissional com background em Análise e Desenvolvimento de Sistemas
   - Design responsivo com CSS Modules
-- **Imports de Assets:** `log3.jpg` (foto de perfil)
+- **Imports de Assets:** `foto perfil.jpeg` (ou equivalente em `src/assets/`)
 - **Conteúdo:**
   - Experiência em HTML5, CSS3, JavaScript, React, Node.js
   - Foco em UX/UI e performance
   - Comprometimento com qualidade de código e Git
 
-### 4. **About** (`About.jsx` + `About.css`)
+### 5. **About** (`About.jsx` + `About.css`)
 - **Responsabilidade:** Seção "Sobre Mim"
 - **Features:**
   - Apresentação profissional
@@ -160,7 +156,7 @@ portifolio/
   - Foco em atenção aos detalhes e satisfação do cliente
 - **ID da Seção:** "about"
 
-### 5. **Skills** (`Skills.jsx` + `Skills.module.css`)
+### 6. **Skills** (`Skills.jsx` + `Skills.module.css`)
 - **Responsabilidade:** Exibição de habilidades tecnológicas
 - **Features:**
   - Grid de skills com ícones
@@ -177,32 +173,18 @@ portifolio/
 - **ID da Seção:** "skills"
 - **Imports de Assets:** Ícones `.png` de cada tecnologia
 
-### 6. **Project** (`Project.jsx` + `Project.module.css`)
-- **Responsabilidade:** Seção de portfólio de projetos
+### 7. **Project** (`Project.jsx` + `Project.module.css`)
+- **Responsabilidade:** Grid de projetos na home e página `/projects`
 - **Features:**
-  - Array `projectsData` com 3 projetos demo:
-    1. Portfólio Pessoal (React + CSS Modules)
-    2. Landing Page Agência (React + Animações CSS)
-    3. E-commerce Responsivo (React + Node.js)
-  - Renderiza múltiplos `CardProject` via `.map()`
-  - Links para GitHub
-- **ID da Seção:** "projects"
-- **Componentes Filhos:** CardProject
+  - `projectsData`: título, descrição, `link` (repo), `web` opcional, imagem
+  - Mapeia `CardProject`
+- **ID da Seção:** `projects`
 
-### 7. **CardProject** (`CardProject.jsx` + `CardProject.module.css`)
-- **Responsabilidade:** Card individual de projeto
-- **Props:**
-  - `title` - Título do projeto
-  - `description` - Descrição
-  - `link` - URL do github/projeto
-  - `image` - Imagem do projeto (default: `logo.png`)
-- **Features:**
-  - Imagem do projeto (com fallback)
-  - Título e descrição
-  - Link para abrir em nova aba
-  - Design card responsivo
+### 8. **CardProject** (`CardProject.jsx` + `CardProject.module.css`)
+- **Props:** `title`, `description`, `link`, `web` (opcional), `image`
+- **Features:** link repositório; “Ver Website” só se `web` estiver definido
 
-### 8. **Contact** (`Contact.jsx` + `Contact.css`)
+### 9. **Contact** (`Contact.jsx` + `Contact.css`)
 - **Responsabilidade:** Formulário de contato
 - **Features:**
   - Form com 3 campos:
@@ -217,14 +199,14 @@ portifolio/
   - Log do formulário no console
 - **ID da Seção:** "contact"
 
-### 9. **Footer** (`Footer.jsx` + `Footer.css`)
+### 10. **Footer** (`Footer.jsx` + `Footer.css`)
 - **Responsabilidade:** Rodapé da aplicação
 - **Features:**
   - Copyright dinâmico (ano atual)
   - Créditos: "© {year} Marcelo | Portfólio Web Dev"
   - Elemento semantic `<footer>`
 
-### 10. **Button** (`button.jsx` + `button.module.css`)
+### 11. **Button** (`button.jsx` + `button.module.css`)
 - **Responsabilidade:** Componente reutilizável de botão/link
 - **Props:**
   - `link` - URL para href
@@ -235,7 +217,7 @@ portifolio/
   - Fallback text: "Clique aqui"
   - Wrapper com CSS Module
 
-### 11. **Gallery** (`Gallery.jsx` + `Gallery.css`)
+### 12. **Gallery** (`Gallery.jsx` + `Gallery.css`)
 - **Responsabilidade:** Componente reutilizável de galeria
 - **Props:**
   - `items` - Array de objetos com `image`, `title`, `description`
@@ -280,26 +262,19 @@ portifolio/
 
 ## 🖼️ Assets (Imagens e Ícones)
 
-### Fotos/Imagens
-| Arquivo | Uso | Tipo |
-|---------|-----|------|
-| `log2.jpg` | Logo/Header | JPG |
-| `log3.jpg` | Foto de perfil (Hero) | JPG |
-| `logo.png` | Logo padrão (fallback) | PNG |
-| `2210_w018_n002_1346a_p30_1346.jpg` | Imagem de fundo | JPG |
+### Fotos / branding (exemplos)
+| Arquivo | Uso |
+|---------|-----|
+| `log2.jpeg` | Logo no header |
+| `foto perfil.jpeg` | Hero |
+| `github-logo2.png` | Link GitHub no header |
+| `logo.png` | Fallback em `CardProject` |
 
-### Ícones de Tecnologias
+### Ícones de skills (Skills.jsx)
 | Arquivo | Tecnologia |
 |---------|-----------|
-| `html.png` | HTML5 |
-| `css.png` | CSS3 |
-| `js.png` | JavaScript |
-| `react.png` | React |
-| `react.svg` | React (vetor) |
-| `node.png` | Node.js |
-| `git.png` | Git |
-| `figma.png` | Figma |
-| `sql.png` | SQL |
+| `html.png` … `figma.png` | As 7 skills listadas no componente |
+| `react.svg` | Disponível em `assets` |
 
 ### Ícones de UI
 | Arquivo | Uso |
@@ -315,48 +290,21 @@ portifolio/
 ## 🔧 Fluxo Principal da Aplicação
 
 ```
-index.html
-  ↓
-main.jsx (Entry Point)
-  ├── Monta React com StrictMode
-  ├── Carrega index.css (estilos globais)
-  └── Renderiza App.jsx
-      │
-      └── App.jsx (Componente Raiz)
-          ├── Importa App.css
-          └── Renderiza Seções em Ordem:
-              │
-              ├── 1️⃣ <Header />
-              │   └── Navegação + Menu Mobile + Social Links
-              │
-              ├── 2️⃣ <Home /> → <Hero />
-              │   └── Apresentação Principal
-              │
-              ├── 3️⃣ <About />
-              │   └── Seção "Sobre Mim"
-              │
-              ├── 4️⃣ <Skills />
-              │   └── Grid de Tecnologias
-              │
-              ├── 5️⃣ <Project /> → <CardProject /> (x3)
-              │   └── Portfolio de Projetos
-              │
-              ├── 6️⃣ <Contact />
-              │   └── Formulário de Contato
-              │
-              └── 7️⃣ <Footer />
-                  └── Copyright Dinâmico
+index.html → main.jsx (StrictMode) → App.jsx → router/rotas.jsx
+  BrowserRouter
+    Routes
+      Layout (Route sem path, element pai)
+        ├── Header
+        └── Outlet
+             ├─ path "/"     → Home (Hero … Footer)
+             └─ path "/projects" → Project (cards)
+      path "*" → Navigate replace "/"
 ```
 
 ### Navegação
-- **Header** fornece links para cada seção com IDs:
-  - `#home` → Home
-  - `#about` → About
-  - `#skills` → Skills
-  - `#projects` → Projects
-  - `#contact` → Contact
-- **Scroll Suave:** Implementado com `element.scrollIntoView({ behavior: 'smooth' })`
-- **Menu Mobile:** Toggle com ícones SVG, fecha ao clicar em link
+- **React Router:** `/`, `/projects`, fallback `*`
+- **Header:** `NavLink` para `/` e `/projects`; âncoras com scroll na home; vindo de `/projects`, `navigate('/', { state: { scrollTo } })` e `Home` lê no `useEffect`
+- **Scroll:** `scrollIntoView({ behavior: 'smooth' })` onde aplicável
 
 ---
 
@@ -393,21 +341,16 @@ npm run preview         # Preview do build
 
 ### `eslint.config.js`
 ```javascript
-- ESLint 9.39.1 (configração flat)
-- Recommended rules de JS
-- React Hooks plugin
-- React Refresh plugin
-- ECMAScript 2020+
-- JSX suportado
-- Globals do browser
-- Padrão: Ignora pasta /dist/
+- ESLint 9 flat config (defineConfig + globalIgnores)
+- Ignorados: dist, node_modules, **/.next/**, coverage, **/build/**
+- Recommended JS + react-hooks + react-refresh (Vite)
 ```
 
 ### `package.json`
 ```json
 - "type": "module"  → ES Modules
-- React 19.2.0     → Versão estável
-- Compilation override: Vite 8.0.0-beta.13
+- react, react-dom, react-router-dom
+- Vite (override 8.0.0-beta.x conforme package.json)
 ```
 
 ---
@@ -437,14 +380,13 @@ npm run preview         # Preview do build
 
 ---
 
-## 📁 Pasta Adicional: `projeto-view-main`
+## 📁 Pasta adicional: `src/components/Project/devmedia/`
 
-Localização: `src/components/Project/projeto-view-main/`
+**Conteúdo:** Projetos de estudo / referência (HTML estático, Next.js, Node, etc.)
 
-**Conteúdo:** Exemplos de projetos do DevMedia (Mentoria + Estudos)
+**Não fazem parte do bundle Vite** salvo se você importá-los explicitamente.
 
-**Subpastas Principais:**
-- `devmedia/` - Projetos de exemplo/estudo
+**Exemplos de pastas:**
   - Agência de Design Digital
   - Agência de Viagens
   - API de Captura de Leads  
@@ -469,20 +411,16 @@ Localização: `src/components/Project/projeto-view-main/`
   - Provedor Hospedagem
   - Quiz Fatos Históricos
   - Sorveteria
+- (outras pastas conforme seu clone)
 
-- `mentoria/` - Projetos de mentoria/aprendizado
-  - pagina-login/
-  - Outras pastas
-
-**Status:** Esses arquivos são referências/exemplos, **não carregados** na aplicação principal.
+**Status:** Referência local; o app principal consome só dados em `Project.jsx` e imagens em `Project/img/`.
 
 ---
 
 ## 💡 Pontos Importantes
 
-### 1. **Sem Roteamento**
-- Aplicação de página única linear (não usa React Router)
-- Navegação via âncoras HTML (#id)
+### 1. **Roteamento parcial**
+- Duas rotas principais + layout; a home continua sendo âncoras/scroll entre seções
 
 ### 2. **Sem State Global**
 - Estado local em componentes (useState)
@@ -509,8 +447,7 @@ Localização: `src/components/Project/projeto-view-main/`
    - Criar API Node.js para persistência
 
 2. **Roteamento**
-   - Implementar React Router para múltiplas páginas
-   - Estruturar como SPA completo
+   - Expandir (ex.: `/projects/:slug`, novas rotas estáticas)
 
 3. **TypeScript**
    - Migrar para TypeScript (melhor DX e type safety)
@@ -540,15 +477,12 @@ Localização: `src/components/Project/projeto-view-main/`
 
 | Recurso | Quantidade |
 |---------|-----------|
-| Componentes React | 11 |
-| Seções de Conteúdo | 7 |
+| Componentes principais | 12+ (inclui Layout) |
+| Rotas | 2 + fallback |
 | CSS Modules | 6 |
 | CSS Global | 2 |
 | CSS Normal | 4 |
-| Imagens | 13 |
-| Ícones SVG | 2 |
-| Dependências Diretas | 2 (React + React-DOM) |
-| DevDependencies | 10 |
+| Dependências diretas | react, react-dom, react-router-dom |
 | Scripts NPM | 4 |
 
 ---
@@ -567,6 +501,6 @@ Pronto para **deploy em produção** ou **expansão futura** com as recomendaç�
 
 ---
 
-**Documentação criada em:** 11 de março de 2026  
+**Revisão:** março de 2026  
 **Desenvolvedor:** Marcelo Henrique Sarzedas  
 **Portfólio:** https://github.com/gargamelizado

@@ -1,3 +1,6 @@
+/**
+ * Botão estilizado como âncora <a>; repassa props extras para o link.
+ */
 import styles from "../Button/button.module.css"
 
 const Button = ({ link, children, ...props }) => {

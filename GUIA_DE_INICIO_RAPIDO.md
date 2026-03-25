@@ -5,17 +5,18 @@
 ✅ **Exploração Concluída!** Aqui está o resumo do seu portfólio:
 
 ### Stack Identificado
-- **React** 19.2.0 (Versão Estável)
-- **Vite** 8.0.0-beta.13 (Next Gen Build Tool)
+- **React** 19.2.0
+- **React Router DOM** 7.x
+- **Vite** 8.0.0-beta.13
 - **CSS Modules + CSS Global**
-- **ESLint** para Linting
-- **Babel React Compiler** (Otimizações automáticas)
+- **ESLint** (flat config + ignores para `.next`, `build`, etc.)
+- **Babel React Compiler** (via `vite.config.js`)
 
 ### Estrutura
-- **11 Componentes React** bem organizados
-- **7 Seções principais** (Header, Home, About, Skills, Project, Contact, Footer)
-- **Navegação suave** sem roteamento (âncoras HTML)
-- **Estado local** apenas (nenhum Redux/Context)
+- **Componentes** em `src/components/` + **`router/rotas.jsx`**
+- **Layout** com **Header** + **`Outlet`** (rotas `/` e `/projects`)
+- **Navegação**: `NavLink`, âncoras na home e scroll via `location.state`
+- **Estado local** (sem Redux/Context)
 - **Formulário de contato** frontend-only
 
 ### Documentação Criada
@@ -113,45 +114,13 @@ const handleSubmit = async (e) => {
 
 ---
 
-### 🎯 **AÇÃO 2: Implementar Roteamento (React Router)**
+### ~~AÇÃO 2: Roteamento (React Router)~~ — **já implementado**
 
-**Situação Atual:**
-- SPA com âncoras HTML
-- Apenas 1 página
+Rotas atuais: **`/`** (página completa) e **`/projects`** (projetos), com **`Layout`** compartilhado. Arquivo: `src/router/rotas.jsx`.
 
-**O que fazer:**
-```bash
-npm install react-router-dom
-```
-
-**Criar Estrutura:**
-```jsx
-// App.jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projetos" element={<Project />} />
-        <Route path="/projetos/:id" element={<ProjectDetail />} />
-        <Route path="/contato" element={<Contact />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  );
-}
-```
-
-**Benefícios:**
-- URLs amigas (/projetos, /sobre, etc)
-- Navegação entre páginas
-- Deep linking
-- Back button funcionando
-
-**Tempo Estimado:** 3-4 horas
+**Próximos passos opcionais:**
+- Rota dinâmica `/projects/:slug` com `useParams`
+- Páginas separadas para Sobre ou Contato, se desejar URLs dedicadas
 
 ---
 
@@ -225,45 +194,13 @@ npm run test
 
 ---
 
-### 🎯 **AÇÃO 5: Implementar Dark/Light Theme Toggle**
+### 🎯 **AÇÃO 5: Evoluir o tema claro/escuro**
 
-**Situação Atual:**
-- Apenas Dark Theme
-- Hard-coded em CSS
+**Situação atual:** o **Header** alterna a classe **`darkmode`** no `body` (base já existe).
 
-**O que fazer:**
+**Melhorias possíveis:** variáveis CSS (`:root` / `[data-theme]`), persistência em `localStorage`, contraste e componentes sem depender só do `body`.
 
-```bash
-npm install zustand  # (ou use Context API)
-```
-
-**Implementar:**
-```jsx
-// src/store/themeStore.js
-import { create } from 'zustand';
-
-export const useThemeStore = create((set) => ({
-  isDark: true,
-  toggleTheme: () => set((state) => ({ isDark: !state.isDark })),
-}));
-
-// Header.jsx
-import { useThemeStore } from '../store/themeStore';
-
-const Header = () => {
-  const { isDark, toggleTheme } = useThemeStore();
-  
-  return (
-    <header>
-      <button onClick={toggleTheme}>
-        {isDark ? '☀️' : '🌙'}
-      </button>
-    </header>
-  );
-};
-```
-
-**Tempo Estimado:** 1-2 horas
+**Tempo estimado:** 1–3 horas conforme escopo
 
 ---
 
@@ -356,9 +293,8 @@ npm run deploy
 ### 🎯 **AÇÃO 8: Melhorar Portfolio de Projetos**
 
 **Situação Atual:**
-- 3 projetos dummy (sem imagens reais)
-- Links apontam para GitHub
-- Descrições genéricas
+- Vários projetos em `projectsData` (`Project.jsx`) com imagens locais
+- **CardProject** aceita `web` opcional (demo estática ou URL publicada)
 
 **O que fazer:**
 
@@ -405,17 +341,17 @@ npm run deploy
 
 ```
 MUST HAVE (Crítico):
-├─ ✅ AÇÃO 1: Conectar Formulário Backend
-└─ ✅ Criar banco de dados de contatos
+├─ AÇÃO 1: Conectar formulário (API, Formspree, etc.)
+└─ (Opcional) Persistência de contatos se precisar de histórico
 
 SHOULD HAVE (Importante):
-├─ AÇÃO 2: Implementar Roteamento
+├─ ~~AÇÃO 2: Roteamento~~ (feito)
 ├─ AÇÃO 3: Migrar para TypeScript
 └─ AÇÃO 7: Setup CI/CD e Deploy
 
 NICE TO HAVE (Legal ter):
 ├─ AÇÃO 4: Testes Automatizados
-├─ AÇÃO 5: Dark/Light Theme
+├─ AÇÃO 5: Tema claro/escuro completo
 ├─ AÇÃO 6: SEO + Analytics
 └─ AÇÃO 8: Melhorar Portfolio
 
@@ -426,7 +362,7 @@ FUTURO (Avançado):
 └─ Accessibility Audit (A11y)
 ```
 
-**Recomendação:** Faça em ordem: 1 → 2 → 3 → 7 → 4 → 5 → 6 → 8
+**Recomendação:** 1 → 7 → 3 → 4 → 5 → 6 → 8 (rotas já cobertas)
 
 ---
 
@@ -435,15 +371,15 @@ FUTURO (Avançado):
 ```
 portifolio/
 ├── src/
-│   ├── pages/                  (NOVO)
+│   ├── router/                 # Já existe (rotas.jsx)
+│   ├── components/
+│   │   ├── Layout/
+│   │   ├── Header/
+│   │   └── …
+│   ├── pages/                  (opcional, se migrar de components/)
 │   │   ├── HomePage.jsx
 │   │   ├── ProjectsPage.jsx
 │   │   └── ProjectDetailPage.jsx
-│   │
-│   ├── components/
-│   │   ├── Header/
-│   │   ├── Footer/
-│   │   └── ... (componentes existentes)
 │   │
 │   ├── services/                (NOVO)
 │   │   ├── contactService.ts
@@ -516,9 +452,9 @@ portifolio/
 - [ ] Criar repositório Git (se ainda não existe)
 
 ### Médio Prazo (1-2 Meses)
-- [ ] **AÇÃO 2:** Implementar React Router
+- [x] **Rotas** com React Router (`/`, `/projects`)
 - [ ] **AÇÃO 3:** Migrar para TypeScript
-- [ ] **AÇÃO 8:** Melhorar portfolio de projetos
+- [ ] **AÇÃO 8:** Melhorar portfolio de projetos (detalhe por slug, deploy demos)
 
 ### Longo Prazo (3+ Meses)
 - [ ] **AÇÃO 4:** Testes automatizados
@@ -595,6 +531,6 @@ Seu portfólio está **bem estruturado e pronto para expansão**!
 
 ---
 
-**Documentação Criada:** 11 de março de 2026  
+**Documentação atualizada:** março de 2026  
 **Desenvolvedor:** Marcelo Henrique Sarzedas  
-**Status:** ✅ Pronto para Desenvolvimento
+**Status:** ✅ Alinhado às rotas e ao layout atuais

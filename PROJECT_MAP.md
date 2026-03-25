@@ -50,8 +50,11 @@ portifolio/
 │
 ├── 📂 src/                      # 👈 CÓDIGO PRINCIPAL
 │   │
-│   ├── 📄 main.jsx             # Entry Point (importa App)
-│   ├── 📄 App.jsx              # Componente Raiz (renderiza layout)
+│   ├── 📄 main.jsx             # Entry Point (StrictMode + createRoot)
+│   ├── 📄 App.jsx              # Renderiza <Rotas /> (router/rotas.jsx)
+│   │
+│   ├── 📂 router/
+│   │   └── rotas.jsx           # BrowserRouter, Layout, Routes, Navigate (*)
 │   │
 │   ├── 📂 ESTILOS
 │   │   ├── index.css           # Estilos Globais + Dark Theme
@@ -62,31 +65,22 @@ portifolio/
 │   │   └── App.css             # Layout Principal
 │   │       └── #root { min-height: 100vh; }
 │   │
-│   ├── 📂 assets/              # Imagens e Ícones
-│   │   ├── logo.png            # Logo SVG/PNG
-│   │   ├── log2.jpg            # Logo Header
-│   │   ├── log3.jpg            # Foto Perfil (Hero)
-│   │   ├── menu-toggle.svg     # Ícone Menu (Mobile)
-│   │   ├── menu-closer.svg     # Ícone Fechar Menu
-│   │   │
-│   │   └── 📂 tech-icons/      # Ícones Tecnologias
-│   │       ├── HTML.png        # Icon HTML5
-│   │       ├── CSS.png         # Icon CSS3
-│   │       ├── JavaScript.png  # Icon JS
-│   │       ├── React.png       # Icon React
-│   │       ├── Node.png        # Icon Node.js
-│   │       ├── Git.png         # Icon Git
-│   │       ├── Figma.png       # Icon Figma
-│   │       └── SQL.png         # Icon MySQL
+│   ├── 📂 assets/              # Imagens e ícones (pasta plana; imports nos componentes)
+│   │   ├── logo.png, html.png, css.png, js.png, react.png, node.png, git.png, figma.png
+│   │   ├── log2.jpeg, github-logo2.png, foto perfil.jpeg, react.svg
+│   │   └── menu-togle.svg, menu-closer.svg
 │   │
-│   └── 📂 components/          # 🔴 COMPONENTES REACT (9 componentes)
+│   └── 📂 components/          # Componentes React (ver também Layout)
+│       │
+│       ├── 📂 Layout/
+│       │   └── Layout.jsx      # Header + <Outlet /> (rotas filhas)
 │       │
 │       ├── 📂 Header/
 │       │   ├── Header.jsx
-│       │   │   ├── Props: none
-│       │   │   ├── State: menuActive (useState)
-│       │   │   ├── Exports: navegação, redes sociais
-│       │   │   └── Features: Menu Mobile Toggle, Scroll Suave
+│       │   │   ├── Hooks: useLocation, useNavigate (react-router-dom)
+│       │   │   ├── State: menuActive, darkMode (useState)
+│       │   │   ├── NavLink: / e /projects; âncoras com scroll na home
+│       │   │   └── Features: Menu mobile, redes sociais, toggle darkmode no body
 │       │   │
 │       │   └── Header.module.css
 │       │       ├── .header {...}
@@ -100,8 +94,8 @@ portifolio/
 │       │
 │       ├── 📂 Home/
 │       │   └── Home.jsx
-│       │       ├── Props: none
-│       │       ├── Renderiza: <Hero />
+│       │       ├── useLocation + useEffect: scroll após navigate(..., { state: { scrollTo } })
+│       │       ├── Renderiza: Hero, About, Skills, Project, Contact, Footer
 │       │       └── id: home (anchor)
 │       │
 │       ├── 📂 Hero/
@@ -148,25 +142,22 @@ portifolio/
 │       │
 │       ├── 📂 Project/
 │       │   ├── Project.jsx
-│       │   │   ├── Props: none
-│       │   │   ├── Data: projectsData[] (3 projetos)
+│       │   │   ├── Data: projectsData[] (vários itens; cada um: title, description, link, web?, image)
 │       │   │   ├── Renderiza: Grid + CardProject
-│       │   │   └── id: projects (anchor)
+│       │   │   ├── id: projects (âncora)
+│       │   │   └── 📂 devmedia/ (projetos de estudo; não bundle principal)
 │       │   │
 │       │   ├── Project.module.css
 │       │   │   ├── .projectSection {...}
 │       │   │   ├── .projectTitle {...}
 │       │   │   └── .projectGrid {...}
-│       │   │
-│       │   └── 📂 projeto-view-main/
-│       │       └── (Pasta de exemplos/referências de projetos)
 │       │
 │       ├── 📂 CardProject/
 │       │   ├── CardProject.jsx
-│       │   │   ├── Props: title, description, link, image
+│       │   │   ├── Props: title, description, link, web?, image
 │       │   │   ├── Imports: defaultImg (logo.png)
-│       │   │   ├── Renderiza: Card com imagem + info
-│       │   │   └── Features: Link externo, fallback image
+│       │   │   ├── “Ver Website” só se `web` for truthy
+│       │   │   └── Links externos com target=_blank
 │       │   │
 │       │   └── CardProject.module.css
 │       │       ├── .card {...}
@@ -252,33 +243,25 @@ portifolio/
                  │
                  ▼
         ┌─────────────────────────────────────────────────┐
-        │         <App /> Componente Raiz                 │
-        │  (estrutura layout + navegação scroll smooth)  │
+        │         <App /> → <Rotas />                     │
+        │  BrowserRouter + Routes                         │
         └────────┬────────────────────────────────────────┘
                  │
-    ┌────────────┼────────────────────────────┐
-    │            │                            │
-    ▼            ▼                            ▼
-┌────────┐  ┌──────────────┐         ┌──────────────────┐
-│<Header>│  │  <Home>      │         │ 5 Seções mais    │
-│        │  │   └─<Hero>   │         │ <Footer>         │
-│ - Nav  │  └──────────────┘         │                  │
-│ - Logo │                           │ Navegação via    │
-│ - Menu │    <About>                │ Scroll Smooth    │
-│ - Social                           │ (IDs HTML #)     │
-│        │    <Skills>               │                  │
-└────────┘                           │                  │
-           <Project>                 │                  │
-            └─ map()                 │                  │
-              └─<CardProject> x3     │                  │
-                                     │                  │
-           <Contact>                 │                  │
-                                     │                  │
-           <Gallery>                 │                  │
-                                     │                  │
-           <Footer>                  │                  │
-                                     │                  │
-                                └──────────────────────┘
+                 ▼
+        ┌─────────────────────────────────────────────────┐
+        │              <Layout />                         │
+        │  <Header />  +  <Outlet />                      │
+        └────────┬────────────────────────────────────────┘
+                 │
+       ┌─────────┴──────────┐
+       │                    │
+       ▼                    ▼
+ path `/`            path `/projects`
+ <Home>               <Project>
+ Hero, About,         └─ map → <CardProject>…
+ Skills,
+ Project→Cards,
+ Contact, Footer
 ```
 
 ---
@@ -324,11 +307,12 @@ Gradiente   #0f172a->   Hero, sections
 ## 📊 Mapeamento de Features
 
 ### Header Features
-- [x] Navegação para 5 seções
+- [x] NavLink para `/` e `/projects`
+- [x] Scroll suave para #about, #skills, #contact (e estado ao voltar de `/projects`)
 - [x] Menu Mobile Toggle
 - [x] Links Redes Sociais (GitHub, LinkedIn)
-- [x] Scroll Suave
-- [x] Responsivo (breakpoint: 600px)
+- [x] Toggle classe `darkmode` no `body`
+- [x] Responsivo (breakpoints ver RESPONSIVIDADE_GUIDE.md)
 
 ### Hero Features
 - [x] Foto de Perfil
@@ -349,9 +333,9 @@ Gradiente   #0f172a->   Hero, sections
 
 ### Project Features
 - [x] Grid Responsivo
-- [x] CardProject Reutilizável
-- [x] 3 Projetos Exemplo
-- [x] Links Externos
+- [x] CardProject reutilizável (repo + website opcional)
+- [x] Lista em `projectsData` (vários projetos)
+- [x] Rota dedicada `/projects`
 
 ### Contact Features
 - [x] Formulário 3 campos
@@ -411,7 +395,7 @@ User Click (Navigation/Button)
 Event Handler (onClick)
     │
     ├─ Contact: handleChange/handleSubmit → setState
-    └─ Header: scrollToSection → smooth scroll
+    └─ Header: goToSection / scrollToSection → scroll ou navigate + state
     │
     ▼
 State Updated (if applicable)
@@ -435,18 +419,16 @@ User Sees Updated UI
 
 ---
 
-## 🔗 Navegação URLs (Hash-based)
+## 🔗 Rotas e âncoras
 
 ```
-App Routes (sem React Router - âncoras HTML)
+React Router (BrowserRouter)
 ─────────────────────────────────────────
+/           → Layout → Home (Hero … Footer; seção #projects inclui Project)
+/projects   → Layout → só <Project /> (grid de cards)
+*           → redireciona para /
 
-/#home      → Home section + Hero
-/#about     → About section
-/#skills    → Skills grid
-/#projects  → Projects section
-/#contact   → Contact form
-/           → Home (default)
+Âncoras na home (IDs): #home, #about, #skills, #projects, #contact
 ```
 
 ---
@@ -457,7 +439,8 @@ App Routes (sem React Router - âncoras HTML)
 portifolio/
 ├── PRODUCTION
 │   ├── react@19.2.0          # UI Library
-│   └── react-dom@19.2.0      # DOM Rendering
+│   ├── react-dom@19.2.0      # DOM Rendering
+│   └── react-router-dom@7.x  # Rotas SPA
 │
 └── DEVELOPMENT
     ├── @vitejs/plugin-react  # Vite React Plugin
@@ -488,16 +471,15 @@ npm run preview  # Serve dist/ localmente
 ## 📊 Estatísticas do Projeto
 
 ```
-Componentes:          11 (Header, Home, Hero, About, Skills, 
-                          Project, CardProject, Contact, 
-                          Gallery, Footer, Button)
+Componentes UI:       12+ (Layout, Header, Home, Hero, About, Skills,
+                          Project, CardProject, Contact, Gallery, Footer, Button)
 
-Arquivos React:       11 .jsx files
+Arquivos React:       13+ .jsx (inclui router/rotas.jsx)
 Arquivos CSS:         10 CSS/CSS Module files
 Imagens/Assets:       ~8 files
 
 Linhas de Código:     ~1500+ (React + CSS)
-Tamanho Bundle:       ~50-100KB (gzipped)
+Tamanho Bundle:       ~80KB JS principal (gzipped; ver build Vite)
 Performance:          Vite HMR < 100ms
 
 Stack Tecnologias:    HTML5, CSS3, JavaScript ES2022, React 19
@@ -525,7 +507,7 @@ Dark Mode:            Native (Tailwind-like classes)
 [x] Documentação (README, MAPS)
 
 [ ] Backend API (Formulário)
-[ ] React Router implementado
+[x] React Router implementado
 [ ] TypeScript integrado
 [ ] Testes automatizados
 [ ] CI/CD Pipeline
@@ -540,7 +522,7 @@ Dark Mode:            Native (Tailwind-like classes)
 
 ### Priority 1: IMPACTANTE
 1. **Backend para Contato** - Node.js/Express API
-2. **React Router** - Roteamento profissional
+2. ~~**React Router**~~ — implementado (`/`, `/projects`)
 3. **TypeScript** - Type safety
 
 ### Priority 2: IMPORTANTE
@@ -561,7 +543,7 @@ Dark Mode:            Native (Tailwind-like classes)
 ## 🎉 Projeto Bem Estruturado e Ready to Scale!
 
 **Manutenido:** Março de 2026  
-**Status:** ✅ Em Desenvuelvo Ativo  
+**Status:** ✅ Em desenvolvimento ativo  
 **Quality:** ⭐⭐⭐⭐ (4/5 Stars)
 
 [📖 Voltar ao README](README.md) | [🗺️ Este Mapa](PROJECT_MAP.md)

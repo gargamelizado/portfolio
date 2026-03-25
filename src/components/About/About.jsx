@@ -1,3 +1,6 @@
+/**
+ * Seção "Sobre mim". id="about" é alvo do menu do Header.
+ */
 import React from 'react';
 import './About.css';
 

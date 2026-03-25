@@ -18,6 +18,12 @@ position: sticky;
   padding: 1.25rem 1rem;
 }
 
+.logoButton {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logoButton img {
   width: 50px;
   height: 50px;
@@ -45,6 +51,11 @@ position: sticky;
   color: #60a5fa;
   border-bottom-color: #60a5fa;
   transition: 0.3s ease-in-out;
+}
+
+.navLinkActive {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
 }
 
 .socialLinks {

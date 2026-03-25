@@ -1,3 +1,6 @@
+/**
+ * Grade de tecnologias; dados em array local (fácil de estender).
+ */
 import React from 'react';
 import html from '../../assets/html.png';
 import css from '../../assets/css.png';
@@ -16,7 +19,6 @@ const skills = [
   { name: 'Node.js', icon: node },
   { name: 'Git', icon: git },
   { name: 'Figma', icon: figma },
-  // Adicione mais skills conforme necessário
 ];
 
 export default function Skills() {

@@ -1,3 +1,6 @@
+/**
+ * Galeria genérica por props (items com image, title, description). Não usada na home atual.
+ */
 import React from 'react'
 import './Gallery.css'
 

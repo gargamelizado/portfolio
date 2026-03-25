@@ -1,6 +1,8 @@
+/**
+ * Raiz da aplicação: apenas delega para o roteador (react-router-dom).
+ */
 import './App.css';
 import Rotas from './router/rotas.jsx';
-import { Routes, Route } from "react-router-dom"
 
 function App() {
   return <Rotas />;
