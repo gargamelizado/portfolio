@@ -49,13 +49,13 @@ const projectsData = [
     web: 'src/components/Project/devmedia/Pousada/index.html',
     image: PousadaSecreta,
   },
-  {
+/*   {
     title: 'Agência Design',
     description: 'site de agência de design digital. Desenvolvido com React com efeito de troca de cor de fundo .',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Design-Digital/agencia-de-design-digital',
-    web: '',
+    web: 'src/components/Project/devmedia/Agencia-de-Design-Digital/agencia-de-design-digital/index.html',
     image: AgeciaDesgin,
-  },
+  }, */
 ];
 
 export default function Project() {

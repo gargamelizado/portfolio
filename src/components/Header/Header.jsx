@@ -9,11 +9,13 @@ import { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
-
+import Off from "../../assets/toggle_off.png"
+import On from "../../assets/toggle_on.png"
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
   { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} /> },
   { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
+
 ];
 
 const Header = () => {
@@ -97,7 +99,7 @@ const Header = () => {
           ))}
         <div className={styles.darkModeToggle}>
           <button onClick={toggleDarkMode} className={styles.darkModeButton}>
-            {darkMode ? '🌞' : '🌙'}
+            {darkMode ? <img src={On} alt="Modo Escuro" /> : <img src={Off} alt="Modo Claro" />}
           </button>
         </div>
         </div>
