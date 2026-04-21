@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '../components/Layout/Layout.jsx';
 import Home from '../components/Home/Home.jsx';
 import Project from '../components/Project/Project.jsx';
+import TypeScriptExample from '../components/TypeScriptExample/TypeScriptExample.tsx';
 
 export default function Rotas() {
   return (
@@ -21,6 +22,7 @@ export default function Rotas() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Project />} />
+          <Route path="/typescript-demo" element={<TypeScriptExample />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

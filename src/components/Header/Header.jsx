@@ -5,105 +5,221 @@
 import styles from "./Header.module.css";
 import LogoGithub from "../../assets/github-logo2.png";
 import LogoHeader from "../../assets/log2.jpeg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
-import Off from "../../assets/toggle_off.png"
-import On from "../../assets/toggle_on.png"
+import Off from "../../assets/toggle_off.png";
+import On from "../../assets/toggle_on.png";
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
-  { href: 'https://github.com/gargamelizado', label: 'GitHub', icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} /> },
-  { href: 'https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/', label: 'LinkedIn', icon: '💼' },
-
+  {
+    href: "https://github.com/gargamelizado",
+    label: "GitHub",
+    icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} />,
+  },
+  {
+    href: "https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/",
+    label: "LinkedIn",
+    icon: "💼",
+  },
 ];
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuActive, setMenuActive] = useState(false);
-  const toggleMenu = () => {
-    setMenuActive(!menuActive);
-  };
   const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('darkmode', !darkMode);
+
+  const toggleMenu = () => {
+    setMenuActive((prevState) => !prevState);
   };
+  const closeMenu = () => {
+    setMenuActive(false);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevState) => {
+      const nextState = !prevState;
+      document.body.classList.toggle("darkmode", nextState);
+      return nextState;
+    });
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 720) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!menuActive) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [menuActive]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuActive ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuActive]);
+
   /** Scroll suave até um elemento com id (só útil quando esse id existe no DOM). */
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setMenuActive(false);
+    closeMenu();
   };
 
   /** Na home faz scroll; em /projects volta para / e Home usa location.state para rolar depois do mount. */
   const goToSection = (id) => {
-    if (location.pathname !== '/') {
+    if (location.pathname !== "/") {
       navigate('/', { state: { scrollTo: id } });
     } else {
       scrollToSection(id);
     }
-    setMenuActive(false);
+    closeMenu();
   };
 
   /** Destaque visual do item de menu cuja rota está ativa (NavLink). */
   const navClass = ({ isActive }) =>
     isActive ? `${styles.navLinkActive}` : undefined;
-  
+
   return (
-    <header className={`${styles.header} ${menuActive ? styles.active : ""}`}>
+    <header className={styles.header}>
       <div className={styles.wrapperHeader}>
         <NavLink to="/" className={styles.logoButton} end aria-label="Início">
           <img src={LogoHeader} alt="" />
         </NavLink>
-        <button onClick={toggleMenu} id={styles.buttonMobile}>
-          <img src={menuActive ? iconCloser : iconBars} id={styles.menuIcon} alt="" />
+
+        <button
+          type="button"
+          className={styles.buttonMobile}
+          onClick={toggleMenu}
+          aria-label={menuActive ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuActive}
+          aria-controls="primary-navigation"
+        >
+          <img
+            src={menuActive ? iconCloser : iconBars}
+            className={styles.menuIcon}
+            alt=""
+          />
         </button>
-        <nav className={menuActive ? styles.active : ""}>
+
+        <nav
+          id="primary-navigation"
+          className={`${styles.nav} ${menuActive ? styles.navOpen : ""}`}
+          aria-label="Navegação principal"
+        >
           <ul className={styles.ulMenu}>
             <li className={styles.navLi}>
-              <NavLink to="/" end className={navClass}>
+              <NavLink to="/" end className={navClass} onClick={closeMenu}>
                 Home
               </NavLink>
             </li>
             <li className={styles.navLi}>
-              <a href="#about" onClick={(e) => { e.preventDefault(); goToSection('about'); }}>
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToSection("about");
+                }}
+              >
                 Sobre
               </a>
             </li>
             <li className={styles.navLi}>
-              <a href="#skills" onClick={(e) => { e.preventDefault(); goToSection('skills'); }}>
+              <a
+                href="#skills"
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToSection("skills");
+                }}
+              >
                 Skills
               </a>
             </li>
             <li className={styles.navLi}>
-              <NavLink to="/projects" className={navClass}>
+              <NavLink to="/projects" className={navClass} onClick={closeMenu}>
                 Projetos
               </NavLink>
             </li>
             <li className={styles.navLi}>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); goToSection('contact'); }}>
+              <NavLink
+                to="/typescript-demo"
+                className={navClass}
+                onClick={closeMenu}
+              >
+                TS Demo
+              </NavLink>
+            </li>
+            <li className={styles.navLi}>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToSection("contact");
+                }}
+              >
                 Contato
               </a>
             </li>
           </ul>
         </nav>
+
         <div className={styles.socialLinks}>
-          {socialLinks.map(link => (
-            <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" title={link.label} className={styles.socialLink}>
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={link.label}
+              className={styles.socialLink}
+            >
               {link.icon}
             </a>
           ))}
-        <div className={styles.darkModeToggle}>
-          <button onClick={toggleDarkMode} className={styles.darkModeButton}>
-            {darkMode ? <img src={On} alt="Modo Escuro" /> : <img src={Off} alt="Modo Claro" />}
-          </button>
-        </div>
+          <div className={styles.darkModeToggle}>
+            <button
+              type="button"
+              onClick={toggleDarkMode}
+              className={styles.darkModeButton}
+              aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
+            >
+              {darkMode ? (
+                <img src={On} alt="Modo Escuro" />
+              ) : (
+                <img src={Off} alt="Modo Claro" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
+      <button
+        type="button"
+        className={`${styles.backdrop} ${menuActive ? styles.backdropOpen : ""}`}
+        onClick={closeMenu}
+        aria-label="Fechar menu"
+      />
     </header>
   );
 };
