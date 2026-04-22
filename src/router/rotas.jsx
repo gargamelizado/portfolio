@@ -15,6 +15,8 @@ import Home from '../components/Home/Home.jsx';
 import Project from '../components/Project/Project.jsx';
 //import TypeScriptExample from '../components/TypeScriptExample/TypeScriptExample.tsx';
 
+
+
 export default function Rotas() {
   return (
     <BrowserRouter>
