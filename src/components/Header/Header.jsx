@@ -11,6 +11,7 @@ import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
 import Off from "../../assets/toggle_off.png";
 import On from "../../assets/toggle_on.png";
+import Cv from "../cv/Marcelo deve frod-end.pdf"
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
   {
@@ -19,9 +20,9 @@ const socialLinks = [
     icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} />,
   },
   {
-    href: "https://www.linkedin.com/in/marcelo-henrique-sarzedas-623690371/",
-    label: "LinkedIn",
-    icon: "💼",
+    src: Cv,
+    label: "Curriculo PDF",
+    icon: "📎",
   },
 ];
 
