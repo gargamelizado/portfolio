@@ -12,6 +12,7 @@ import iconBars from "../../assets/menu-togle.svg";
 import Off from "../../assets/toggle_off.png";
 import On from "../../assets/toggle_on.png";
 import Cv from "../cv/Marcelo deve frod-end.pdf"
+
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
   {
@@ -20,8 +21,8 @@ const socialLinks = [
     icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} />,
   },
   {
-    src: Cv,
-    label: "Curriculo PDF",
+    href: Cv,
+    label: "Visualizar ou baixar curriculo",
     icon: "📎",
   },
 ];
@@ -163,15 +164,17 @@ const Header = () => {
                 Projetos
               </NavLink>
             </li>
-            <li className={styles.navLi}>
-              <NavLink
-                to="/typescript-demo"
-                className={navClass}
-                onClick={closeMenu}
-              >
-                TS Demo
-              </NavLink>
-            </li>
+            {/*
+              <li className={styles.navLi}>
+                <NavLink
+                  to="/typescript-demo"
+                  className={navClass}
+                  onClick={closeMenu}
+                >
+                  TS Demo
+                </NavLink>
+              </li>
+            */}
             <li className={styles.navLi}>
               <a
                 href="#contact"
