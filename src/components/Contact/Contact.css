@@ -66,6 +66,14 @@
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
+.form-status {
+  margin: 1rem 0 0;
+  color: #bfdbfe;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* Tablet (720px - 1024px) */
 @media (max-width: 1024px) {
   #contact {
@@ -101,6 +109,9 @@
     padding: 0.75rem;
     font-size: 0.95rem;
   }
+  .form-status {
+    font-size: 0.9rem;
+  }
 }
 
 /* Mobile Pequeno (até 600px) */
@@ -126,6 +137,9 @@
   .submit-btn {
     padding: 0.65rem;
     font-size: 0.9rem;
+  }
+  .form-status {
+    font-size: 0.85rem;
   }
 }
 
