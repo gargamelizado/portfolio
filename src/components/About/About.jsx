@@ -1,7 +1,6 @@
 /**
  * Seção "Sobre mim". id="about" é alvo do menu do Header.
  */
-import React from 'react';
 import './About.css';
 
 export default function About() {
@@ -11,8 +10,9 @@ export default function About() {
       <div className="about-content">
         <p>
           Sou um desenvolvedor Full Stack especializado em criar interfaces modernas, responsivas e acessíveis. 
+          Tenho formação em Análise e Desenvolvimento de Sistemas e também fiz curso de Front-end no SENAI.
           Com sólida experiência em HTML5, CSS3, JavaScript (ES6+) e React, transformo conceitos em experiências 
-          web de alta qualidade, focando sempre em performance e usabilidade.
+          web de alta qualidade, focando em performance, usabilidade e aprendizado contínuo.
         </p>
         <p>
           Minha abordagem combina senso estético com boas práticas de desenvolvimento. Estou em constante 

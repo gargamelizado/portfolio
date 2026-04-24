@@ -15,17 +15,17 @@ Este portfólio foi desenvolvido como uma plataforma moderna para apresentar:
 - **Perfil Profissional**: Apresentação pessoal e profissional
 - **Habilidades Técnicas**: Stack de tecnologias dominadas (Frontend, Backend, Ferramentas)
 - **Projetos Destacados**: Portfólio de trabalhos realizados com descrições detalhadas
-- **Formulário de Contato**: Seção para comunicação direta
+- **Formulário de Contato**: Seção para comunicação direta com envio por endpoint configurável
 - **Design Responsivo**: Otimizado para todos os dispositivos
 
 ### 🌟 Destaques
-- ✅ **Design Moderno**: Interface elegante com tema escuro profissional
+- ✅ **Design Moderno**: Interface elegante com tema azul claro/escuro e preferência salva no navegador
 - ✅ **Totalmente Responsivo**: Mobile, tablet e desktop
 - ✅ **Performance Otimizada**: Vite + React Compiler ativado
 - ✅ **CSS Modules**: Estilos isolados e sem conflitos
 - ✅ **Acessível**: Semântica HTML apropriada
 - ✅ **Navegação Suave**: Scroll entre seções na home e rotas com **React Router**
-- ✅ **Rotas**: `/` (página completa) e `/projects` (só projetos), com layout compartilhado
+- ✅ **Rotas**: `/` (página completa), `/projects` e `/projects/:slug`, com layout compartilhado
 
 ---
 
@@ -122,16 +122,18 @@ portifolio/
 App
 └── Rotas (react-router-dom)
     └── Layout
-        ├── Header (NavLink, scroll/âncoras, tema escuro no body)
+	        ├── Header (NavLink, scroll/âncoras, tema salvo no navegador)
         └── Outlet
             ├── rota "/" → Home
             │   ├── Hero
             │   ├── About
-            │   ├── Skills
-            │   ├── Project → CardProject × N
+	            │   ├── Skills
+	            │   ├── Experience
+	            │   ├── Project → CardProject × N
             │   ├── Contact
             │   └── Footer
-            └── rota "/projects" → Project → CardProject × N
+	            ├── rota "/projects" → Project → CardProject × N
+	            └── rota "/projects/:slug" → ProjectDetails
 ```
 
 ### Descrição dos Componentes
@@ -383,6 +385,21 @@ Para contribuir:
 
 ---
 
+## 📬 Envio de Contato
+
+O formulario usa a variavel `VITE_CONTACT_ENDPOINT` quando ela estiver configurada.
+Esse endpoint pode ser de servicos como Formspree, EmailJS com API propria, Netlify Forms ou um backend Node.
+Se a variavel estiver vazia, o site abre o aplicativo de email do usuario com a mensagem preenchida para `marcelohdjusto@gmail.com`.
+
+Exemplo:
+
+```bash
+cp .env.example .env
+# edite VITE_CONTACT_ENDPOINT com a URL do seu servico de formulario
+```
+
+---
+
 ## 📄 Licença
 
 Este projeto está sob a licença **MIT**. Veja arquivo LICENSE para detalhes.
@@ -392,8 +409,8 @@ Este projeto está sob a licença **MIT**. Veja arquivo LICENSE para detalhes.
 ## 👤 Autor
 
 **Marcelo** - Desenvolvedor Full-Stack  
-📧 Email: [seu-email@exemplo.com](mailto:seu-email@exemplo.com)  
-🔗 GitHub: [@gargamelizado](https://github.com/gargamelizado)  
+📧 Email: [marcelohdjusto@gmail.com](mailto:marcelohdjusto@gmail.com)
+🔗 GitHub: [@gargamelizado](https://github.com/gargamelizado)
 💼 LinkedIn: [Seu Perfil](https://linkedin.com/in/marcelo-henrique-sarzedas-623690371/)
 
 ---

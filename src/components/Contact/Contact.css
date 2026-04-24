@@ -22,6 +22,14 @@
   margin-bottom: 1.5rem;
 }
 
+.form-group label {
+  color: #dbeafe;
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -64,6 +72,12 @@
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
 }
 
 .form-status {

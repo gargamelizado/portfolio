@@ -1,15 +1,63 @@
 /* Estilos globais herdados do template Vite + ajustes do app (#root, body). */
+:root {
+  --theme-light-bg-start: #1d72e2;
+  --theme-light-bg-mid: #0d0c7a;
+  --theme-light-bg-end: #2563eb;
+  --theme-light-accent: rgba(255, 255, 255, 0.58);
+  --theme-dark-bg-start: #0f172a;
+  --theme-dark-bg-mid: #1e3a8a;
+  --theme-dark-bg-end: #082f49;
+  --theme-dark-accent: rgba(56, 189, 248, 0.22);
+}
+
 #root {
   min-height: 100vh;
 }
-body{
-    background: #011330;
 
+body {
+  --page-bg-start: var(--theme-light-bg-start);
+  --page-bg-mid: var(--theme-light-bg-mid);
+  --page-bg-end: var(--theme-light-bg-end);
+  --page-accent: var(--theme-light-accent);
+  background:
+    radial-gradient(circle at 18% 12%, var(--page-accent) 0%, transparent 30%),
+    linear-gradient(135deg, var(--page-bg-start) 0%, var(--page-bg-mid) 42%, var(--page-bg-end) 100%);
+  background-attachment: fixed;
+  background-size: 140% 140%;
+  transition:
+    background 0.55s ease,
+    background-position 0.55s ease,
+    color 0.45s ease,
+    filter 0.45s ease;
 }
+
+body.darkmode {
+  --page-bg-start: var(--theme-dark-bg-start);
+  --page-bg-mid: var(--theme-dark-bg-mid);
+  --page-bg-end: var(--theme-dark-bg-end);
+  --page-accent: var(--theme-dark-accent);
+  background-position: 100% 100%;
+}
+
+body,
+header,
+footer,
+section,
+.contact-form,
+.about-content,
+.form-group input,
+.form-group textarea {
+  transition:
+    background 0.45s ease,
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    color 0.45s ease;
+}
+
 .logo {
   height: 4rem;
   padding: 1.5em;
- 
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -25,8 +73,4 @@ body{
 
 .read-the-docs {
   color: #f1f5f9;
-}
-.darkmode{
-  background-color: #013282;
-  ;
 }

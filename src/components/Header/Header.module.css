@@ -7,6 +7,13 @@
   position: sticky;
 }
 
+:global(body:not(.darkmode)) .header {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.94) 0%, rgba(191, 219, 254, 0.92) 100%);
+  border-bottom-color: rgba(37, 99, 235, 0.22);
+  box-shadow: 0 10px 28px rgba(30, 64, 175, 0.12);
+  backdrop-filter: blur(12px);
+}
+
 .wrapperHeader {
   margin: 0 auto;
   max-width: 1200px;
@@ -53,15 +60,31 @@
   border-bottom: 2px solid transparent;
 }
 
+:global(body:not(.darkmode)) .ulMenu .navLi a {
+  color: #0f3b73;
+}
+
 .navLi a:hover {
-  color: #60a5fa;
+  color: #031933;
   border-bottom-color: #60a5fa;
   transition: 0.3s ease-in-out;
+}
+
+:global(body:not(.darkmode)) .navLi a:hover {
+  color: #075985;
+  background: rgba(219, 234, 254, 0.58);
+  border-bottom-color: #38bdf8;
+  border-radius: 6px;
 }
 
 .navLinkActive {
   color: #60a5fa;
   border-bottom-color: #60a5fa;
+}
+
+:global(body:not(.darkmode)) .navLinkActive {
+  color: #075985;
+  border-bottom-color: #0284c7;
 }
 
 .socialLinks {
@@ -102,23 +125,55 @@
   filter: brightness(0) invert(1);
 }
 
+:global(body:not(.darkmode)) .menuIcon {
+  filter: none;
+}
+
 .darkModeToggle {
   margin-left: 0.25rem;
 }
 
 .darkModeButton {
-  background: transparent;
-  border: none;
-  padding: 0;
+  background: rgba(219, 234, 254, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  border-radius: 999px;
+  padding: 0.15rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 42px;
+  position: relative;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.darkModeButton:hover {
+  background: rgba(219, 234, 254, 0.18);
+  border-color: rgba(147, 197, 253, 0.48);
+  transform: translateY(-1px);
 }
 
 .darkModeButton img {
   width: 36px;
   height: 36px;
   display: block;
+  opacity: 0;
+}
+
+.themeIcon {
+  color: #f8fafc;
+  font-size: 1.15rem;
+  font-weight: 700;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:global(body:not(.darkmode)) .themeIcon {
+  color: #075985;
 }
 
 .backdrop {

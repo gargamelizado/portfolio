@@ -11,6 +11,7 @@
   align-items: flex-start;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   backdrop-filter: blur(10px);
+  animation: fadeUp 0.55s ease both;
 }
 
 .card:hover {
@@ -37,7 +38,7 @@
 .thumb {
   width: 100%;
   height: 100%;
-  object-fit:contain;
+  object-fit: contain;
   display: block;
 }
 
@@ -48,11 +49,35 @@
   line-height: 1.5;
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.tags li {
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 999px;
+  color: #bfdbfe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
 .link {
   color: #60a5fa;
   text-decoration: none;
   font-weight: 600;
-  margin-top: auto;
   transition: all 0.3s ease;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
@@ -66,12 +91,34 @@
   color: #60a5fa;
   text-decoration: none;
   font-weight: 600;
-  margin-top: auto;
+  margin-top: 0.2rem;
   transition: all 0.3s ease;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
   cursor: pointer;
 
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }
 .web:hover {
   color: #0378fd;
@@ -114,7 +161,8 @@
     height: 120px;
     margin-bottom: 0.6rem;
   }
-  .link {
+  .link,
+  .web {
     font-size: 0.9rem;
   }
 }
@@ -138,7 +186,8 @@
     height: 100px;
     margin-bottom: 0.5rem;
   }
-  .link {
+  .link,
+  .web {
     font-size: 0.85rem;
     padding: 0.3rem 0;
   }
@@ -164,7 +213,8 @@
     border-radius: 6px;
     margin-bottom: 0.4rem;
   }
-  .link {
+  .link,
+  .web {
     font-size: 0.75rem;
     padding: 0.2rem 0;
   }

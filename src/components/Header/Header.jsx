@@ -13,6 +13,8 @@ import Off from "../../assets/toggle_off.png";
 import On from "../../assets/toggle_on.png";
 import Cv from "../cv/Marcelo deve frod-end.pdf"
 
+const storageThemeKey = 'portfolio-theme';
+
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
   {
@@ -31,7 +33,10 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuActive, setMenuActive] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem(storageThemeKey);
+    return savedTheme === 'dark';
+  });
 
   const toggleMenu = () => {
     setMenuActive((prevState) => !prevState);
@@ -43,10 +48,14 @@ const Header = () => {
   const toggleDarkMode = () => {
     setDarkMode((prevState) => {
       const nextState = !prevState;
-      document.body.classList.toggle("darkmode", nextState);
+      localStorage.setItem(storageThemeKey, nextState ? 'dark' : 'light');
       return nextState;
     });
   };
+
+  useEffect(() => {
+    document.body.classList.toggle('darkmode', darkMode);
+  }, [darkMode]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -164,6 +173,17 @@ const Header = () => {
                 Projetos
               </NavLink>
             </li>
+            <li className={styles.navLi}>
+              <a
+                href="#experience"
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToSection("experience");
+                }}
+              >
+                Experiencia
+              </a>
+            </li>
             {/*
               <li className={styles.navLi}>
                 <NavLink
@@ -210,9 +230,15 @@ const Header = () => {
               aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
             >
               {darkMode ? (
-                <img src={On} alt="Modo Escuro" />
+                <>
+                  <span aria-hidden="true" className={styles.themeIcon}>☀</span>
+                  <img src={On} alt="" />
+                </>
               ) : (
-                <img src={Off} alt="Modo Claro" />
+                <>
+                  <span aria-hidden="true" className={styles.themeIcon}>☾</span>
+                  <img src={Off} alt="" />
+                </>
               )}
             </button>
           </div>
