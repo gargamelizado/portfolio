@@ -1,88 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger Heaven</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Heaven</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
-      <h1 class="titulo">BURGER HEAVEN</h1>
-    <div class="titulo nav">
-        <ul class="menu" type="none">
-            <li class="link">ABOUT</li>
-            <li class="link">MENU</li>
-            <li class="link compra"> ORDER ONLINE</li>
-        </ul>
-    </div>
-   
-    
+    <a class="brand" href="#home">BURGER HEAVEN</a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <ul class="menu">
+        <li><a class="link" href="#about">ABOUT</a></li>
+        <li><a class="link" href="#menu">MENU</a></li>
+        <li><a class="link order-link" href="#order">ORDER ONLINE</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <h1 class="titulo">NEW YORK’S <br> FAVORITE ORGANIC <br> HAMBURGER JOINT</h1>
-    <div class="imagen">
-        <img src="imgs/Burgers.png" alt="">
-    </div>
-    <div class="descrins">
-        <h3>THE BURGER <br>ABOVE ALL<br>BURGER</h3>
-        <div class="box-texto">
-            <p>Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit. Aenean nec ornare neque.</p>
-            <a href="#">ABOUT US</a>
-        </div>
-    </div>
-    <div class="box-menu">
-        <div class="box-iten">
-            <img src="imgs/batata.jpeg" alt="">
-            <div class="texto">
-                <p>salt & Vinegar<br>french fries</p>
-                <a href="#">ORDER ONLINE</a>
-            </div>
-        </div>
-        <div class="box-iten">
-            <img src="imgs/burger.jpeg" alt="">
-            <div class="texto">
-                <p>crispy chicken<br> sandwich</p>
-                <a href="#">ORDER ONLINE</a>
-            </div>
-        </div>
-    </div>
-    <div class="box-titulogrander">
-        <img src="imgs/Testimonial.png" alt="">
-    </div>
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">NEW YORK'S <br>FAVORITE ORGANIC <br>HAMBURGER JOINT</h1>
+      <img src="imgs/Burgers.png" alt="Selection of Burger Heaven hamburgers">
+    </section>
 
-    </div>
-    <div class="box-testimonial">
-        <img src="imgs/pessoas.jpeg" alt="">
-    </div>
-    <div class="textos">
-        <h3>order online or <br>come visit us today</h3>
-        <a href="">GET STARTED</a>
-    </div>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">THE BURGER <br>ABOVE ALL <br>BURGERS</h2>
+      <div class="about-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ornare neque.</p>
+        <a class="button button-light" href="#about">ABOUT US</a>
+      </div>
+    </section>
+
+    <section class="featured-menu" id="menu" aria-label="Featured menu items">
+      <article class="menu-card">
+        <img src="imgs/batata.jpeg" alt="Salt and vinegar french fries">
+        <div class="menu-card-content">
+          <h2>Salt & Vinegar <br>French Fries</h2>
+          <a href="#order">ORDER ONLINE</a>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="imgs/burger.jpeg" alt="Crispy chicken sandwich">
+        <div class="menu-card-content">
+          <h2>Crispy Chicken <br>Sandwich</h2>
+          <a href="#order">ORDER ONLINE</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="testimonial" aria-label="Customer testimonial">
+      <img class="testimonial-title" src="imgs/Testimonial.png" alt="Burger Heaven testimonial">
+      <img class="testimonial-photo" src="imgs/pessoas.jpeg" alt="Customers enjoying food at Burger Heaven">
+    </section>
+
+    <section class="order" id="order" aria-labelledby="order-title">
+      <h2 id="order-title">Order online or <br>come visit us today</h2>
+      <a class="button button-accent" href="#order">GET STARTED</a>
+    </section>
   </main>
+
   <footer class="footer">
-    <div class="box-footers">
-        <h4>BURGER<br>HEAVEN</h4>
-        <div class="MORE">
-            <h5>MORE</h5>
-            <p>About</p>
-            <p>Menu</p>
-            <p>Locations</p>
-            <p>Privacy</p>
+    <div class="footer-content">
+      <h2>BURGER<br>HEAVEN</h2>
+
+      <div class="footer-column">
+        <h3>MORE</h3>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#order">Locations</a>
+        <a href="#home">Privacy</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>HOURS</h3>
+        <p>Open from</p>
+        <p>11AM to</p>
+        <p>11PM daily</p>
+      </div>
+
+      <form class="newsletter" action="#" aria-label="Join our newsletter">
+        <label for="email">JOIN OUR NEWSLETTER</label>
+        <div class="input-row">
+          <input id="email" type="email" name="email" placeholder="Email address" autocomplete="email">
+          <button type="submit">SUBSCRIBE</button>
         </div>
-        <div class="HOURS">
-            <h5>HOURS</h5>
-            <p>Open from</p>
-            <p>11AM to</p>
-            <p>11PM daily</p>
-        </div>
-        <div class="CONTACT">
-            <h5>JOIN OUR NEWSLETTER</h5>
-            <div id="inputbtn"><input type="text">
-            <button>SUBSCRIBE</button></div>
-            
-        </div>
+      </form>
     </div>
   </footer>
 </body>

@@ -9,7 +9,7 @@ import Imobiliaria from "./img/Imobiliaria.png";
 import DivulgacaoLivro from "./img/Pagina-de-Divulgacao-do-Livro.png";
 import ParqueLogin from "./img/pagina-login.png";
 import LinkBioNeymar from "./img/LinkBio-do-Neymar-Jr-.png";
-import BurguerHeaven from "./img/BURGER-HEAVEN.png";
+import BurgerHeaven from "./img/BURGER-HEAVEN.png";
 
 export const projectsData = [
   {
@@ -134,15 +134,15 @@ export const projectsData = [
     image: LinkBioNeymar,
   },
   {
-    slug: 'Burguer-Heaven',
-    title: 'Burguer Heaven',
+    slug: 'burger-heaven',
+    title: 'Burger Heaven',
     description: 'Pagina de apresentacao de hamburgueria com cardapio e informacoes de contato.',
     technologies: ['HTML5', 'CSS3', 'Landing page'],
     details: 'Projeto de landing page para hamburgueria, com foco em apresentacao de produtos e chamadas para acao.',
     learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/Burguer-Heaven',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/BURGER%20HEAVEN',
     web: 'src/components/Project/mentoria/BURGER HEAVEN/index.html',
-    image: BurguerHeaven,
+    image: BurgerHeaven,
   }, 
   /* {
     slug: 'agencia-design',
