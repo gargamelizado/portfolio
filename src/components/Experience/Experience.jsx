@@ -3,34 +3,34 @@ import './Experience.css';
 const experiences = [
   {
     title: 'Projetos de estudo em desenvolvimento web',
-    period: 'Pratica continua',
+    period: 'Prática contínua',
     description:
-      'Crio paginas e interfaces para consolidar HTML, CSS, JavaScript, React, responsividade, organizacao visual e boas praticas de codigo.',
+      'Crio páginas e interfaces para consolidar HTML, CSS, JavaScript, React, responsividade, organização visual e boas práticas de código.',
   },
   {
     title: 'Curso de Front-end no SENAI',
-    period: 'Formacao complementar',
+    period: 'Formação complementar',
     description:
-      'Estudei fundamentos de desenvolvimento Front-end, praticando estrutura de paginas, estilos, responsividade e criacao de interfaces para web.',
+      'Estudei fundamentos de desenvolvimento Front-end, praticando estrutura de páginas, estilos, responsividade e criação de interfaces para web.',
   },
   {
-    title: 'Formacao em Analise e Desenvolvimento de Sistemas',
-    period: 'Base tecnica',
+    title: 'Formação em Análise e Desenvolvimento de Sistemas',
+    period: 'Base técnica',
     description:
-      'Construo minha base em logica, estrutura de sistemas, desenvolvimento web e resolucao de problemas com foco em evoluir como Full Stack.',
+      'Construo minha base em lógica, estrutura de sistemas, desenvolvimento web e resolução de problemas com foco em evoluir como Full Stack.',
   },
   {
-    title: 'Gestao de confeitaria',
-    period: 'Experiencia profissional',
+    title: 'Gestão de confeitaria',
+    period: 'Experiência profissional',
     description:
-      'Desenvolvi responsabilidade com prazos, atendimento, organizacao, qualidade de entrega e comunicacao com clientes.',
+      'Desenvolvi responsabilidade com prazos, atendimento, organização, qualidade de entrega e comunicação com clientes.',
   },
 ];
 
 export default function Experience() {
   return (
     <section id="experience" className="experience-section">
-      <h2>Experiencia</h2>
+      <h2>Experiência</h2>
       <div className="experience-list">
         {experiences.map((experience) => (
           <article className="experience-item" key={experience.title}>

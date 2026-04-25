@@ -15,6 +15,22 @@ import Cv from "../cv/Marcelo deve frod-end.pdf"
 
 const storageThemeKey = 'portfolio-theme';
 
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem(storageThemeKey);
+  } catch {
+    return null;
+  }
+};
+
+const saveTheme = (theme) => {
+  try {
+    localStorage.setItem(storageThemeKey, theme);
+  } catch {
+    // O tema continua funcionando na sessão mesmo se o navegador bloquear storage.
+  }
+};
+
 /** Links externos exibidos à direita no desktop */
 const socialLinks = [
   {
@@ -24,8 +40,8 @@ const socialLinks = [
   },
   {
     href: Cv,
-    label: "Visualizar ou baixar curriculo",
-    icon: "📎",
+    label: "Visualizar ou baixar currículo",
+    icon: "CV",
   },
 ];
 
@@ -34,7 +50,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [menuActive, setMenuActive] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem(storageThemeKey);
+    const savedTheme = getSavedTheme();
     return savedTheme === 'dark';
   });
 
@@ -48,7 +64,7 @@ const Header = () => {
   const toggleDarkMode = () => {
     setDarkMode((prevState) => {
       const nextState = !prevState;
-      localStorage.setItem(storageThemeKey, nextState ? 'dark' : 'light');
+      saveTheme(nextState ? 'dark' : 'light');
       return nextState;
     });
   };
@@ -181,7 +197,7 @@ const Header = () => {
                   goToSection("experience");
                 }}
               >
-                Experiencia
+                Experiência
               </a>
             </li>
             {/*
@@ -216,6 +232,7 @@ const Header = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              referrerPolicy="strict-origin-when-cross-origin"
               title={link.label}
               className={styles.socialLink}
             >

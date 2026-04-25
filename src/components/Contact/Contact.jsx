@@ -6,7 +6,31 @@ import './Contact.css';
 
 const contactEmail = 'marcelohdjusto@gmail.com';
 const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
-const initialFormData = { name: '', email: '', message: '' };
+const initialFormData = { name: '', email: '', message: '', website: '' };
+const maxLengths = {
+  name: 80,
+  email: 120,
+  message: 1500,
+  website: 120,
+};
+
+const isSafeContactEndpoint = (endpoint) => {
+  if (!endpoint) return false;
+
+  try {
+    const url = new URL(endpoint);
+    const isLocalhost = ['localhost', '127.0.0.1'].includes(url.hostname);
+    return url.protocol === 'https:' || (import.meta.env.DEV && url.protocol === 'http:' && isLocalhost);
+  } catch {
+    return false;
+  }
+};
+
+const normalizeFormData = (data) => ({
+  name: data.name.trim(),
+  email: data.email.trim(),
+  message: data.message.trim(),
+});
 
 export default function Contact() {
   const [formData, setFormData] = useState(initialFormData);
@@ -15,14 +39,14 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value.slice(0, maxLengths[name] ?? value.length) });
     setStatusMessage('');
   };
 
-  const openEmailClient = () => {
-    const subject = encodeURIComponent(`Contato pelo portfolio - ${formData.name}`);
+  const openEmailClient = (data) => {
+    const subject = encodeURIComponent(`Contato pelo portfolio - ${data.name}`);
     const body = encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
+      `Nome: ${data.name}\nEmail: ${data.email}\n\nMensagem:\n${data.message}`
     );
 
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
@@ -30,27 +54,44 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const cleanData = normalizeFormData(formData);
+
+    if (formData.website) {
+      setFormData(initialFormData);
+      setStatusMessage('Mensagem recebida. Obrigado pelo contato!');
+      return;
+    }
+
+    if (!cleanData.name || !cleanData.email || !cleanData.message) {
+      setStatusMessage('Preencha todos os campos antes de enviar.');
+      return;
+    }
+
     setIsSending(true);
 
-    if (!contactEndpoint) {
-      openEmailClient();
+    if (!isSafeContactEndpoint(contactEndpoint)) {
+      openEmailClient(cleanData);
       setFormData(initialFormData);
       setStatusMessage('Seu aplicativo de email foi aberto com a mensagem pronta para enviar.');
       setIsSending(false);
       return;
     }
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+
     try {
       const response = await fetch(contactEndpoint, {
         method: 'POST',
+        signal: controller.signal,
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          name: cleanData.name,
+          email: cleanData.email,
+          message: cleanData.message,
           to: contactEmail,
         }),
       });
@@ -62,9 +103,10 @@ export default function Contact() {
       setFormData(initialFormData);
       setStatusMessage('Mensagem enviada com sucesso. Obrigado pelo contato!');
     } catch {
-      openEmailClient();
-      setStatusMessage('Nao consegui enviar direto, entao abri seu email com a mensagem pronta.');
+      openEmailClient(cleanData);
+      setStatusMessage('Não consegui enviar direto, então abri seu email com a mensagem pronta.');
     } finally {
+      window.clearTimeout(timeoutId);
       setIsSending(false);
     }
   };
@@ -82,6 +124,8 @@ export default function Contact() {
             placeholder="Seu nome"
             value={formData.name}
             onChange={handleChange}
+            autoComplete="name"
+            maxLength={maxLengths.name}
             required
           />
         </div>
@@ -94,6 +138,8 @@ export default function Contact() {
             placeholder="Seu email"
             value={formData.email}
             onChange={handleChange}
+            autoComplete="email"
+            maxLength={maxLengths.email}
             required
           />
         </div>
@@ -105,8 +151,22 @@ export default function Contact() {
             placeholder="Sua mensagem"
             value={formData.message}
             onChange={handleChange}
+            maxLength={maxLengths.message}
             required
             rows="5"
+          />
+        </div>
+        <div className="form-honeypot" aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            id="contact-website"
+            type="text"
+            name="website"
+            tabIndex="-1"
+            autoComplete="off"
+            value={formData.website}
+            onChange={handleChange}
+            maxLength={maxLengths.website}
           />
         </div>
         <button type="submit" className="submit-btn" disabled={isSending}>

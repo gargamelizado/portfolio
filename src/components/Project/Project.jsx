@@ -9,7 +9,8 @@ import { projectsData } from "./projectsData";
 export default function Project() {
   return (
     <section id="projects" className={styles.projectSection}>
-      <h1 className={styles.projectTitle}>🚀 Projetos</h1>
+      <p className={styles.projectEyebrow}>Trabalhos selecionados</p>
+      <h1 className={styles.projectTitle}>Projetos</h1>
       <div className={styles.projectGrid}>
         {projectsData.map((project, index) => (
           <CardProject

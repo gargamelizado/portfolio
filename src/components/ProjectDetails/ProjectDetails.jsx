@@ -39,12 +39,24 @@ export default function ProjectDetails() {
             ))}
           </ul>
           <div className={styles.actions}>
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              Repositorio
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              referrerPolicy="strict-origin-when-cross-origin"
+            >
+              Repositório
             </a>
-            <a href={project.web} target="_blank" rel="noopener noreferrer">
-              Ver website
-            </a>
+            {project.web ? (
+              <a
+                href={project.web}
+                target="_blank"
+                rel="noopener noreferrer"
+                referrerPolicy="strict-origin-when-cross-origin"
+              >
+                Ver website
+              </a>
+            ) : null}
           </div>
         </div>
       </article>

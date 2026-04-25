@@ -14,7 +14,16 @@ export default function Gallery({ items = [], link }) {
               <img src={item.image} alt={item.title} />
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              {link && <a href={link} target="_blank" rel="noopener noreferrer">Ver mais</a>}
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                >
+                  Ver mais
+                </a>
+              )}
             </div>
           ))
         ) : (
@@ -24,4 +33,3 @@ export default function Gallery({ items = [], link }) {
     </section>
   );
 }
-

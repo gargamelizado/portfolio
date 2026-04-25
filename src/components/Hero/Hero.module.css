@@ -1,59 +1,63 @@
-.hero{
+.hero {
     margin: 2rem auto;
-  
-    background:transparent;
-    padding: 3rem;
-  
+    background: transparent;
+    padding: 3rem 2rem;
 }
 
-.heroWrapper{
+.heroWrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 3rem;
-   box-shadow: 0 0 20px #003399;
-  animation: glow 5s infinite alternate;
-	  padding: 1rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(30, 41, 59, 0.66) 100%);
+    border: 1px solid rgba(147, 197, 253, 0.22);
+    box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28);
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-	    border-radius: 16px;
-      backdrop-filter: blur(10px);
-}
-@keyframes glow {
-  0%   { box-shadow: 0 0 10px #01488f; }
-  25%  { box-shadow: 0 0 20px #0073e6; }
-  50%  { box-shadow: 0 0 35px #0099ff; }
-  75%  { box-shadow: 0 0 20px #33adff; }
-  100% { box-shadow: 0 0 10px #01488f; }
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
 }
 
-.fotoPerfil{
+.fotoPerfil {
     padding: 0;
     margin: 0;
+    flex: 0 0 auto;
 }
 
-.fotoPerfil img{
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    border: 2px solid rgba(59, 130, 246, 0.2);
-    background-image: center;
-    background-size: cover;
+.fotoPerfil img {
+    width: min(360px, 34vw);
+    height: min(360px, 34vw);
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid rgba(191, 219, 254, 0.28);
+    box-shadow: 0 18px 44px rgba(2, 6, 23, 0.32);
     transition: transform 0.3s ease;
 }
 
-.fotoPerfil img:hover{
-    transform: scale(1.05);
+.fotoPerfil img:hover {
+    transform: translateY(-4px);
 }
+
 .boxText {
-    max-width: 50ch;
+    max-width: 58ch;
+}
+
+.eyebrow {
+    color: #93c5fd;
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
 }
 
 .boxText h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: clamp(2.35rem, 5vw, 4.5rem);
+    font-weight: 800;
     margin-bottom: 0.5rem;
-    line-height: 1.2;
+    line-height: 1;
     color: #f1f5f9;
 }
 
@@ -66,9 +70,28 @@
 
 .description {
     font-size: 1rem;
-    line-height: 1.6;
-    color: #f1f5f9;
-    margin: 0;
+    line-height: 1.75;
+    color: #dbeafe;
+    margin: 0 0 0.85rem;
+}
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+}
+
+.highlights li {
+    background: rgba(219, 234, 254, 0.08);
+    border: 1px solid rgba(147, 197, 253, 0.25);
+    border-radius: 999px;
+    color: #bfdbfe;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.35rem 0.7rem;
 }
 
 .heroActions {
@@ -82,13 +105,13 @@
 .secondaryAction {
     border-radius: 8px;
     font-weight: 700;
-    padding: 0.75rem 1rem;
+    padding: 0.78rem 1.05rem;
     text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .primaryAction {
-    background: linear-gradient(135deg, #bfcee0 0%, #1973e2 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #93c5fd 100%);
     color: #0f172a;
     box-shadow: 0 10px 24px rgba(96, 165, 250, 0.22);
 }
@@ -96,6 +119,7 @@
 .secondaryAction {
     border: 1px solid rgba(191, 219, 254, 0.5);
     color: #dbeafe;
+    background: rgba(15, 23, 42, 0.18);
 }
 
 .primaryAction:hover,
@@ -124,8 +148,8 @@
     gap: 2rem;
   }
   .fotoPerfil img {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
   }
   .boxText h1 {
     font-size: 2.2rem;
@@ -147,6 +171,7 @@
   .heroWrapper {
     flex-direction: column;
     gap: 1.5rem;
+    padding: 1.5rem;
   }
   .fotoPerfil img {
     width: 200px;
@@ -156,9 +181,6 @@
     max-width: 100%;
     text-align: center;
   }
-  .boxText h1 {
-    font-size: 2rem;
-  }
   .subtitle {
     font-size: 1rem;
   }
@@ -167,6 +189,9 @@
 	    line-height: 1.6;
 	  }
     .heroActions {
+      justify-content: center;
+    }
+    .highlights {
       justify-content: center;
     }
 }
@@ -180,6 +205,8 @@
   .heroWrapper {
     flex-direction: column;
     gap: 1rem;
+    border-radius: 12px;
+    padding: 1rem;
   }
   .fotoPerfil img {
     width: 160px;

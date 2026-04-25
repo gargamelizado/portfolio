@@ -31,13 +31,25 @@ export default function CardProject({ title, description, link, web, image, slug
             Detalhes
           </Link>
         ) : null}
-        <a href={link} target="_blank" rel="noopener noreferrer" className={styles.link}>
-          Repositorio
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className={styles.link}
+        >
+          Repositório
         </a>
       </div>
       {web ? (
-        <a href={web} target="_blank" rel="noopener noreferrer" className={styles.web}>
-          Ver Website
+        <a
+          href={web}
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className={styles.web}
+        >
+          Ver website
         </a>
       ) : null}
     </div>
