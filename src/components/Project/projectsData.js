@@ -3,6 +3,13 @@ import ClinicaMedica from "./img/clinica-medica.png";
 import Padaria from "./img/padaria.png";
 import Alfatech from "./img/alfa-tech.png";
 import PousadaSecreta from "./img/pousada-secreta.png";
+import AgenciaViagens from "./img/Agencia-de-Viagens.png";
+import Cafeteria from "./img/Cafeteria.png";
+import Imobiliaria from "./img/Imobiliaria.png";
+import DivulgacaoLivro from "./img/Pagina-de-Divulgacao-do-Livro.png";
+import ParqueLogin from "./img/pagina-login.png";
+import LinkBioNeymar from "./img/LinkBio-do-Neymar-Jr-.png";
+import BurguerHeaven from "./img/BURGER-HEAVEN.png";
 
 export const projectsData = [
   {
@@ -60,6 +67,83 @@ export const projectsData = [
     web: 'src/components/Project/devmedia/Pousada/index.html',
     image: PousadaSecreta,
   },
+  {
+    slug: 'agencia-de-viagens',
+    title: 'Agencia de Viagens',
+    description: 'Pagina para agencia de viagens com formulario de orcamento, banner e secoes de ofertas.',
+    technologies: ['HTML5', 'CSS3', 'Formulario'],
+    details: 'Projeto criado para praticar formularios, organizacao de imagens, banners e blocos comerciais em uma landing page.',
+    learning: 'Aprimorei a montagem de formularios e a distribuicao de conteudo em secoes de facil leitura.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Viagens',
+    web: 'src/components/Project/devmedia/Agencia-de-Viagens/index.html',
+    image: AgenciaViagens,
+  },
+  {
+    slug: 'cafeteria',
+    title: 'Cafeteria',
+    description: 'Site de cafeteria com secoes parallax, informacoes de contato e apresentacao do ambiente.',
+    technologies: ['HTML5', 'CSS3', 'Parallax'],
+    details: 'Projeto visual com foco em atmosfera, navegacao por secoes e uso de imagens de fundo para criar profundidade.',
+    learning: 'Pratiquei efeitos visuais com CSS, posicionamento de fundos e organizacao de conteudo institucional.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Cafeteria',
+    web: 'src/components/Project/devmedia/Cafeteria/index.html',
+    image: Cafeteria,
+  },
+  {
+    slug: 'imobiliaria',
+    title: 'Imobiliaria',
+    description: 'Pagina institucional para imobiliaria, com apresentacao de servicos, corretores e contatos.',
+    technologies: ['HTML5', 'CSS3', 'Institucional'],
+    details: 'Projeto pensado para comunicar servicos de forma objetiva, usando secoes simples e chamadas de contato.',
+    learning: 'Reforcei o uso de estrutura semantica, links de contato e composicao visual para negocios locais.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Imobiliária',
+    web: 'src/components/Project/devmedia/Imobiliária/index.html',
+    image: Imobiliaria,
+  },
+  {
+    slug: 'divulgacao-livro',
+    title: 'Divulgacao de Livro',
+    description: 'Pagina de divulgacao de livro com informacoes sobre a obra, autor e chamada para compra.',
+    technologies: ['HTML5', 'CSS3', 'Landing page'],
+    details: 'Projeto de landing page editorial com foco em apresentacao de produto e hierarquia de conteudo.',
+    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Página-de-Divulgação-do-Livro',
+    web: 'src/components/Project/devmedia/Página-de-Divulgação-do-Livro/index.html',
+    image: DivulgacaoLivro,
+  },
+  {
+    slug: 'parque-login',
+    title: 'Pagina de login',
+    description: 'Pagina informativa para parque estadual com dados sobre visitas, localizacao e contato.',
+    technologies: ['HTML5', 'CSS3', 'Conteudo informativo'],
+    details: 'Projeto simples para praticar apresentacao de informacoes publicas em uma pagina clara e objetiva.',
+    learning: 'Trabalhei a organizacao de textos, chamadas e informacoes de contato em um layout direto.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/pagina-login',
+    web: 'src/components/Project/mentoria/pagina-login/index.html',
+    image: ParqueLogin,
+  },
+  {
+    slug: 'linkbio-neymar',
+    title: 'LinkBio Neymar Jr',
+    description: 'Pagina estilo link bio com video, links, visual tematico e tabela de estatisticas.',
+    technologies: ['HTML5', 'CSS3', 'Midia'],
+    details: 'Projeto com foco em pagina pessoal tematica, usando imagens, video, links externos e tabela.',
+    learning: 'Pratiquei composicao visual, uso de midias e criacao de uma pagina de links mais elaborada.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/LinkBio-do-Neymar-Jr',
+    web: 'src/components/Project/devmedia/LinkBio-do-Neymar-Jr/index.html',
+    image: LinkBioNeymar,
+  },
+  {
+    slug: 'Burguer-Heaven',
+    title: 'Burguer Heaven',
+    description: 'Pagina de apresentacao de hamburgueria com cardapio e informacoes de contato.',
+    technologies: ['HTML5', 'CSS3', 'Landing page'],
+    details: 'Projeto de landing page para hamburgueria, com foco em apresentacao de produtos e chamadas para acao.',
+    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/Burguer-Heaven',
+    web: 'src/components/Project/mentoria/BURGER HEAVEN/index.html',
+    image: BurguerHeaven,
+  }, 
   /* {
     slug: 'agencia-design',
     title: 'Agencia Design',

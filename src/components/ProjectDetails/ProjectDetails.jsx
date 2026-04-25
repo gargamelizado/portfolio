@@ -1,10 +1,12 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { projectsData } from '../Project/projectsData.js';
 import styles from './ProjectDetails.module.css';
+import defaultImg from '../../assets/logo.png';
 
 export default function ProjectDetails() {
   const { slug } = useParams();
   const project = projectsData.find((item) => item.slug === slug);
+  const image = project?.image || defaultImg;
 
   if (!project) {
     return <Navigate to="/projects" replace />;
@@ -18,7 +20,7 @@ export default function ProjectDetails() {
       <article className={styles.content}>
         <div className={styles.imageWrap}>
           <img
-            src={project.image}
+            src={image}
             alt={`Screenshot do projeto ${project.title}`}
             loading="eager"
             decoding="async"
