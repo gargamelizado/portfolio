@@ -41,7 +41,7 @@ const socialLinks = [
   {
     href: Cv,
     label: "Visualizar ou baixar currículo",
-    icon: "CV",
+    icon: "📄",
   },
 ];
 

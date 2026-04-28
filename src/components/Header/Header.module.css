@@ -68,13 +68,13 @@
 }
 
 .navLi a:hover {
-  color: #031933;
+  color: #0a72ee;
   border-bottom-color: #60a5fa;
   transition: 0.3s ease-in-out;
 }
 
 :global(body:not(.darkmode)) .navLi a:hover {
-  color: #075985;
+  color: #021f43;
   background: rgba(219, 234, 254, 0.58);
   border-bottom-color: #38bdf8;
   border-radius: 6px;
