@@ -101,6 +101,11 @@
 .web {
   margin-top: 0.75rem;
 }
+.card .legenda {
+  color: #dbe0e7;
+  font-size: 20px;
+ 
+}
 
 @keyframes fadeUp {
   from {

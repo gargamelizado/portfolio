@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from './CardProject.module.css';
 import defaultImg from '../../assets/logo.png';
 
-export default function CardProject({ title, description, link, web, image, slug, technologies = [] }) {
+export default function CardProject({ title, description, link, web, image, slug, legenda, technologies = [] }) {
   const imgSrc = image || defaultImg;
   return (
     <div className={styles.card}>
@@ -52,6 +52,7 @@ export default function CardProject({ title, description, link, web, image, slug
           Ver website
         </a>
       ) : null}
+      {legenda ? <p className={styles.legenda}>{legenda}</p> : null}
     </div>
   );
 }

@@ -1,0 +1,69 @@
+.espacoSection {
+  width: min(1180px, calc(100% - 2rem));
+  max-width: calc(100vw - 2rem);
+  margin: 3.5rem auto;
+  padding: clamp(1.25rem, 3vw, 2rem) 0;
+  overflow-wrap: anywhere;
+}
+
+.espacoCabecalho {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.espacoCabecalho span {
+  color: var(--color-tertiary);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.espacoCabecalho h2 {
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+  line-height: 1.12;
+  margin-top: 0.4rem;
+}
+
+.espacoCardGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.espacoCard {
+  background: var(--color-surface);
+  border: 1px solid rgba(234, 216, 210, 0.9);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.espacoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(177, 5, 5, 0.16);
+}
+
+.espacoCard img {
+  width: 100%;
+  height: 248px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+
+.espacoCard:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 480px) {
+  .espacoSection {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  .espacoCard img {
+    height: 210px;
+  }
+}

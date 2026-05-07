@@ -22,6 +22,7 @@ export default function Project() {
             image={project.image}
             slug={project.slug}
             technologies={project.technologies}
+            legenda={project.legenda}
           />
         ))}
       </div>

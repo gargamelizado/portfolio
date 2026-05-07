@@ -1,0 +1,208 @@
+.depoimentosSection,
+.sectionAgendamento,
+.sectionContato {
+  width: min(1180px, calc(100% - 2rem));
+  max-width: calc(100vw - 2rem);
+  margin: 3.5rem auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.footerCabecalho,
+.contatoResumo {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 1.4rem;
+}
+
+.footerCabecalho span,
+.formularioInformes span,
+.contatoResumo span {
+  color: var(--color-tertiary);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footerCabecalho h2,
+.sectionAgendamento h2,
+.contatoResumo h2 {
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+  line-height: 1.12;
+  margin: 0.4rem 0 0.7rem;
+  color: var(--color-quaternary);
+}
+
+.depoimentosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.depoimentoCard {
+  background: var(--color-surface);
+  border: 1px solid rgba(234, 216, 210, 0.9);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.depoimentoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(177, 5, 5, 0.16);
+}
+
+.depoimentoContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.depoimentoContent p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.sectionAgendamento {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-senary);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-soft);
+}
+
+.formularioInformes h2 {
+  text-align: center;
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+  line-height: 1.12;
+  margin: 0.4rem 0 0.7rem;
+  color: var(--color-quaternary);
+}
+
+.formularioInformes p {
+  color: var(--color-muted);
+  max-width: 50ch;
+  margin: 0.65rem auto 0;
+  text-align: center;
+}
+
+.form {
+  width: min(100%, 500px);
+  margin: 0 auto;
+  background: var(--color-quinary);
+  padding: 1.25rem;
+  border: 1px solid var(--color-senary);
+  border-radius: 16px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 0.82rem;
+  margin-bottom: 0.9rem;
+  border: 1px solid #d8c2bd;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  outline: 2px solid rgba(177, 5, 5, 0.18);
+  border-color: var(--color-tertiary);
+}
+
+.form button {
+  background: var(--color-tertiary);
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  width: 100%;
+  transition: 0.25s;
+}
+
+.form button:hover {
+  background: var(--color-quaternary);
+  border-color: var(--color-quaternary);
+  color: #fff;
+}
+
+.sectionContato {
+  text-align: center;
+}
+
+.contatoResumo p {
+  color: var(--color-muted);
+}
+
+.contatoResumo a {
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 900;
+}
+
+iframe.map {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  margin-top: 1rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+footer {
+  background: var(--color-quaternary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.whatsappBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+  font-weight: 800;
+  z-index: 1000;
+}
+
+@media (max-width: 480px) {
+  .depoimentosSection,
+  .sectionAgendamento,
+  .sectionContato {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  .whatsappBtn {
+    right: 12px;
+    bottom: 12px;
+  }
+}

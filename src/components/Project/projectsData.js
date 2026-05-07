@@ -10,6 +10,8 @@ import DivulgacaoLivro from "./img/Pagina-de-Divulgacao-do-Livro.png";
 import ParqueLogin from "./img/pagina-login.png";
 import LinkBioNeymar from "./img/LinkBio-do-Neymar-Jr-.png";
 import BurgerHeaven from "./img/BURGER-HEAVEN.png";
+import ChockTrufas from "./img/Chock-Trufas.png";
+import ChockTrufasReact from "./img/Chock Trufas React.png";
 
 const demoUrl = (path) => `${import.meta.env.BASE_URL}${path}`;
 
@@ -145,7 +147,30 @@ export const projectsData = [
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/BURGER%20HEAVEN',
     web: demoUrl('project-demos/burger-heaven/index.html'),
     image: BurgerHeaven,
-  }, 
+  },
+  {
+    slug: 'chock-trufas',
+    title: 'Chock Trufas',
+    description: 'Pagina de apresentacao de loja de doces com cardapio e informacoes de contato.',
+    technologies: ['HTML5', 'CSS3', 'Landing page'],
+    details: 'Projeto de landing page para loja de doces, com foco em apresentacao de produtos e chamadas para acao.',
+    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock%20trufas',
+    web: demoUrl('project-demos/chock-trufas/index.html'),
+    image: ChockTrufas,
+  },
+  {
+    slug: 'chock-trufas-react',
+    title: 'Chock Trufas em React',
+    description: 'Versao do projeto Chock Trufas implementada com React.',
+    technologies: ['React', 'CSS3', 'Landing page'],
+    details: 'Projeto recriado em React para praticar componentes e gerenciamento de estado.',
+    learning: 'Pratiquei criacao de componentes reutilizaveis e gerenciamento de estado com React.',
+    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock-trufas-react',
+    web: demoUrl('project-demos/chock-trufas-react/index.html'),
+    image: ChockTrufasReact,
+    legenda: 'Em manutenção.'
+  },
   /* {
     slug: 'agencia-design',
     title: 'Agencia Design',

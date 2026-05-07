@@ -1,6 +1,3 @@
-/**
- * ESLint flat config: ignora artefatos de build (.next, dist, …) para não lintar código gerado.
- */
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -8,16 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores([
-    'dist',
-    '**/dist/**',
-    'node_modules',
-    'public/project-demos/**',
-    'src/components/Project/proprio/chock-trufas-react/**',
-    '**/.next/**',
-    '**/coverage/**',
-    '**/build/**',
-  ]),
+  globalIgnores(['dist']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -35,7 +23,16 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^[A-Z_]' },
+      ],
+    },
+  },
+  {
+    files: ['server/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 ])

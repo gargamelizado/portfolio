@@ -1,0 +1,673 @@
+.paginaCompra {
+  padding-top: 5rem;
+  background:
+    radial-gradient(circle at top right, rgba(247, 182, 170, 0.18), transparent 26rem),
+    linear-gradient(180deg, #fffaf7, #fff3ee 48%, #fffaf7);
+}
+
+.compraHero {
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4.5rem 0 2.5rem;
+  text-align: center;
+}
+
+.voltarSite {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--color-senary);
+  color: var(--color-tertiary);
+  font-weight: 800;
+}
+
+.compraHero span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--color-tertiary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compraHero h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.1;
+}
+
+.compraHero p {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.compraPedido {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.formPedido,
+.pedidoAjuda {
+  background: var(--color-surface);
+  border: 1px solid var(--color-senary);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-soft);
+}
+
+.formPedido {
+  padding: clamp(1.1rem, 3vw, 1.75rem);
+}
+
+.campoLinha {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.campoLinha label,
+.catalogoProdutos legend,
+.grupoEntrega legend {
+  font-weight: 800;
+}
+
+.campoLinha input,
+.campoLinha select,
+.campoLinha textarea {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #d8c2bd;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campoLinha input:focus,
+.campoLinha select:focus,
+.campoLinha textarea:focus {
+  outline: none;
+  border-color: rgba(143, 23, 20, 0.55);
+  box-shadow: 0 0 0 4px rgba(143, 23, 20, 0.08);
+}
+
+.catalogoProdutos,
+.grupoEntrega {
+  border: 0;
+  margin: 0 0 1rem;
+}
+
+.catalogoProdutos legend,
+.grupoEntrega legend {
+  margin-bottom: 0.45rem;
+  color: var(--color-quaternary);
+  font-size: 1.04rem;
+}
+
+.dadosClientePedido {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.catalogoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.catalogoCard {
+  display: flex;
+  min-height: 174px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, #fff, #fffaf7);
+  border: 1px solid var(--color-senary);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.catalogoCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(177, 5, 5, 0.32);
+  box-shadow: 0 14px 28px rgba(177, 5, 5, 0.12);
+}
+
+.catalogoCard.selecionado {
+  border-color: var(--color-tertiary);
+  box-shadow: 0 0 0 3px rgba(143, 23, 20, 0.08);
+}
+
+.catalogoCard span,
+.carrinhoTopo span,
+.carrinhoItem header span,
+.pedidoAjuda span {
+  color: var(--color-tertiary);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.catalogoCard h3 {
+  margin: 0.25rem 0;
+  font-size: 1.05rem;
+}
+
+.catalogoCard p {
+  color: var(--color-muted);
+  line-height: 1.35;
+  font-size: 0.92rem;
+}
+
+.catalogoPreco {
+  display: inline-flex;
+  margin-top: 0.6rem;
+  color: var(--color-tertiary);
+  font-size: 1rem;
+}
+
+.catalogoCard button,
+.carrinhoRemover {
+  border: 1px solid var(--color-tertiary);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  transition: 0.2s;
+}
+
+.catalogoCard button {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  background: var(--color-tertiary);
+  color: #fff;
+}
+
+.catalogoCard button:hover,
+.catalogoCard .botaoNoCarrinho {
+  background: #fff;
+  color: var(--color-tertiary);
+}
+
+.carrinhoPedido {
+  margin: 1.4rem 0;
+  padding: 1.15rem;
+  border: 1px solid rgba(177, 5, 5, 0.18);
+  border-radius: 18px;
+  background: #fffdfb;
+}
+
+.carrinhoTopo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.carrinhoTopo h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.carrinhoTopo strong {
+  min-width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--color-tertiary);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(143, 23, 20, 0.18);
+}
+
+.carrinhoVazio {
+  padding: 1.25rem;
+  text-align: center;
+  border: 1px dashed var(--color-senary);
+  border-radius: 14px;
+  background: #fff8f4;
+}
+
+.carrinhoVazio p {
+  color: var(--color-muted);
+}
+
+.carrinhoLista {
+  display: grid;
+  gap: 1rem;
+  max-height: min(720px, 68vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.35rem;
+  scrollbar-color: var(--color-tertiary) #fff3ee;
+  scrollbar-width: thin;
+}
+
+.carrinhoLista::-webkit-scrollbar {
+  width: 10px;
+}
+
+.carrinhoLista::-webkit-scrollbar-track {
+  background: #fff3ee;
+  border-radius: 999px;
+}
+
+.carrinhoLista::-webkit-scrollbar-thumb {
+  background: var(--color-tertiary);
+  border-radius: 999px;
+}
+
+.carrinhoItem {
+  padding: 1rem;
+  border: 1px solid var(--color-senary);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(66, 31, 26, 0.05);
+}
+
+.carrinhoItem header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.carrinhoItem h3 {
+  font-size: 1.1rem;
+}
+
+.carrinhoValores {
+  margin-left: auto;
+  text-align: right;
+}
+
+.carrinhoValores span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.carrinhoValores strong {
+  display: block;
+  color: var(--color-tertiary);
+  font-size: 1rem;
+}
+
+.carrinhoRemover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 38px;
+  padding: 0.45rem 0.85rem;
+  background: #fff1f1;
+  border-color: rgba(177, 5, 5, 0.35);
+  color: #b10505;
+  white-space: nowrap;
+}
+
+.carrinhoRemover span {
+  display: inline-grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 999px;
+  background: #b10505;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.carrinhoRemover:hover {
+  background: #b10505;
+  border-color: #b10505;
+  color: #fff;
+}
+
+.carrinhoRemover:hover span {
+  background: #fff;
+  color: #b10505;
+}
+
+.comboPersonalizacao {
+  border: 1px solid rgba(177, 5, 5, 0.18);
+  border-radius: 16px;
+  background: #fff8f4;
+  margin: 0 0 1rem;
+  padding: 1rem;
+}
+
+.comboPersonalizacao legend {
+  padding: 0 0.5rem;
+  font-weight: 900;
+}
+
+.comboPersonalizacao p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.comboCategorias {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.comboCategoria {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.comboCategoria h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.comboCategoria h3 span {
+  color: var(--color-tertiary);
+}
+
+.comboStatus {
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 800;
+  justify-self: start;
+  padding: 0.25rem 0.6rem;
+}
+
+.comboStatus.faltando {
+  background: #fff3d6;
+  color: #8a5a00;
+}
+
+.comboStatus.completo {
+  background: #e9f8ee;
+  color: #217a36;
+}
+
+.comboStatus.excedido {
+  background: #fff1f1;
+  color: #b10505;
+}
+
+.comboItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 90px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem;
+  background: #fff8f4;
+  border: 1px solid var(--color-senary);
+  border-radius: 12px;
+}
+
+.comboItem input {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #d8c2bd;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.grupoEntrega {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.grupoEntrega legend,
+.grupoPagamento legend {
+  width: 100%;
+}
+
+.grupoEntrega label,
+.grupoPagamento label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--color-senary);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.grupoPagamento {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  border: 0;
+}
+
+.grupoPagamento legend {
+  margin-bottom: 0.45rem;
+  color: var(--color-quaternary);
+  font-size: 1.04rem;
+  font-weight: 800;
+}
+
+.enderecoEntrega {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(177, 5, 5, 0.18);
+  border-radius: 16px;
+  background: #fff8f4;
+}
+
+.cepLinha {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.cepLinha .campoLinha {
+  margin-bottom: 0;
+}
+
+.botaoBuscarCep {
+  min-height: 47px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 999px;
+  background: var(--color-tertiary);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.botaoBuscarCep:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.botaoBuscarCep:hover:not(:disabled) {
+  background: var(--color-quaternary);
+  border-color: var(--color-quaternary);
+}
+
+.cepStatus {
+  display: inline-flex;
+  margin: 0.75rem 0 1rem;
+  font-weight: 800;
+}
+
+.cepStatus.success {
+  color: #217a36;
+}
+
+.cepStatus.error {
+  color: #b10505;
+}
+
+.cepStatus.loading {
+  color: var(--color-tertiary);
+}
+
+.enderecoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.enderecoGrid .campoLinha {
+  margin-bottom: 0;
+}
+
+.campoRua,
+.campoReferencia {
+  grid-column: span 2;
+}
+
+.retiradaCampos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.botaoEnviarPedido {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-tertiary);
+  color: #fff;
+  border: 1px solid var(--color-tertiary);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.botaoEnviarPedido:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.botaoEnviarPedido:hover {
+  background: var(--color-quaternary);
+  border-color: var(--color-quaternary);
+  color: #fff;
+}
+
+.pedidoStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 1rem 0;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-senary);
+  background: #fff8f4;
+}
+
+.pedidoStatus.success {
+  border-color: #78c287;
+  background: #effaf1;
+}
+
+.pedidoStatus.error {
+  border-color: #d13737;
+  background: #fff1f1;
+}
+
+.pedidoAjuda {
+  padding: 1.35rem;
+  position: sticky;
+  top: 6rem;
+  background:
+    linear-gradient(180deg, rgba(38, 26, 24, 0.96), rgba(61, 33, 29, 0.96));
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pedidoAjuda h2 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+}
+
+.pedidoAjuda > strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #ffd8c9;
+}
+
+.pedidoAjuda p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.pedidoAjuda span {
+  color: #ffd8c9;
+}
+
+.pedidoAjuda small {
+  display: block;
+  margin-top: 0.9rem;
+  color: #ffd8c9;
+  font-weight: 800;
+}
+
+@media (max-width: 800px) {
+  .compraPedido {
+    grid-template-columns: 1fr;
+  }
+
+  .pedidoAjuda {
+    position: static;
+  }
+
+  .dadosClientePedido,
+  .catalogoGrid,
+  .comboCategorias,
+  .enderecoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cepLinha {
+    grid-template-columns: 1fr;
+  }
+
+  .campoRua,
+  .campoReferencia {
+    grid-column: auto;
+  }
+
+  .carrinhoItem header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .carrinhoValores {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .carrinhoRemover {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogoGrid {
+    grid-template-columns: 1fr;
+  }
+}
