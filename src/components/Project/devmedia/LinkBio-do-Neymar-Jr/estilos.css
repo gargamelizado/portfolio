@@ -199,3 +199,122 @@
     font-size: 18px;
     color: #fff;
   }
+
+@media (max-width: 768px) {
+  .secao-banner {
+    height: auto;
+    min-height: 100vh;
+    padding: 42px 0;
+  }
+
+  .container-info {
+    width: 100%;
+    padding: 0 18px;
+    gap: 28px;
+  }
+
+  .imgPerfil {
+    width: 150px;
+    height: 150px;
+  }
+
+  .imgPerfil::before {
+    width: 162px;
+    height: 162px;
+  }
+
+  .imgPerfil-titulo h1 {
+    font-size: 36px;
+  }
+
+  .imgPerfil-titulo h1::after {
+    right: -18px;
+  }
+
+  .arvore-links a {
+    font-size: 17px;
+  }
+
+  .secao-tabela {
+    height: auto;
+    min-height: 100vh;
+    padding: 48px 14px;
+    gap: 28px;
+    background-attachment: scroll;
+  }
+
+  .secao-tabela h2 {
+    font-size: clamp(2.4rem, 14vw, 4.25rem);
+  }
+
+  .tabela,
+  .tabela thead,
+  .tabela tbody,
+  .tabela tr,
+  .tabela th,
+  .tabela td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabela {
+    max-width: 500px;
+    border-spacing: 0;
+  }
+
+  .tabela thead {
+    display: none;
+  }
+
+  .tabela tbody tr {
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 12px 16px;
+  }
+
+  .tabela tbody td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: right;
+  }
+
+  .tabela tbody td::before {
+    flex: 0 0 auto;
+    color: inherit;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.78;
+  }
+
+  .tabela tbody td:nth-child(1)::before { content: "Time"; }
+  .tabela tbody td:nth-child(2)::before { content: "Temporadas"; }
+  .tabela tbody td:nth-child(3)::before { content: "Jogos"; }
+  .tabela tbody td:nth-child(4)::before { content: "Gols"; }
+  .tabela tbody td:nth-child(5)::before { content: "Assistências"; }
+  .tabela tbody td:nth-child(6)::before { content: "Títulos"; }
+
+  .tabela tbody td:nth-child(1) {
+    justify-content: space-between;
+  }
+
+  .tabela tbody td:nth-child(1) p {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .imgPerfil-titulo h1 {
+    font-size: 32px;
+  }
+
+  .arvore-links a {
+    font-size: 16px;
+  }
+}

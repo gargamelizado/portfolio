@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Tahoma', sans-serif;
 }
 
@@ -17,7 +18,7 @@ h1, h2, h3, p {
 }
 
 p {
-    width: 930px;
+    width: min(930px, 100%);
     line-height: 28px;
     margin: 15px auto 30px auto;
 }
@@ -27,7 +28,7 @@ span {
 }
 
 img {
-    width: 190px;
+    width: min(190px, 100%);
 }
 
 a {
@@ -38,4 +39,24 @@ a {
     background-color: #49b970;
     color: #ffffff;
     border-radius: 25px;
+}
+
+@media (max-width: 760px) {
+    div {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2,
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        line-height: 1.7;
+        text-align: left;
+    }
 }

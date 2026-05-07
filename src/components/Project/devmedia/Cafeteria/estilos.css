@@ -319,6 +319,61 @@
     }
 }
 
+@media screen and (max-width: 1040px) {
+    .container-parallax4 iframe {
+        width: calc(100% - 32px);
+        max-width: 1024px;
+    }
+}
+
+@media screen and (max-width: 554px) {
+    .topo {
+        height: auto;
+        min-height: 70px;
+        padding: 10px;
+    }
+
+    .topo img {
+        width: 72px;
+    }
+
+    .topoMenu,
+    .topoMenuMoble {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .topoMenu a,
+    .topoMenuMoble a {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .container-parallax1 h1 {
+        font-size: 34px;
+        padding-inline: 16px;
+        text-align: center;
+    }
+
+    .container-parallax2 h3,
+    .container-parallax3 h3,
+    .container-parallax4 h2,
+    .container-parallax5 h2 {
+        width: calc(100% - 32px);
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .container-texto {
+        padding-inline: 16px;
+    }
+
+    .container-parallax4 iframe {
+        height: 320px;
+    }
+}
+
 @media screen and (max-width: 820px) and (min-width: 555px) {
     .container-parallax1 h1 {
         font-size: 40px;

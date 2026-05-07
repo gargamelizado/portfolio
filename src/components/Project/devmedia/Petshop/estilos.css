@@ -156,3 +156,58 @@
         text-align: center;
     }
 /* Fim CSS Rodapé */
+
+@media (max-width: 900px) {
+    .container {
+        padding: 72px 32px;
+    }
+
+    .titulo-topo {
+        font-size: 44px;
+    }
+
+    .onde-estamos iframe {
+        width: 100%;
+        max-width: 800px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 56px 18px;
+    }
+
+    h3 {
+        font-size: 28px;
+        margin-bottom: 28px;
+    }
+
+    .container-titulo-topo {
+        padding: 28px 18px;
+        margin-top: 48px;
+    }
+
+    .titulo-topo {
+        font-size: 32px;
+    }
+
+    .text-faixa {
+        font-size: 28px;
+    }
+
+    .redes-sociais a {
+        display: inline-flex;
+        margin: 8px;
+    }
+
+    .logo-marca {
+        width: 118px;
+        height: 118px;
+        margin: 8px;
+    }
+
+    .onde-estamos iframe {
+        height: 280px;
+    }
+}

@@ -14,7 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f0f0;
 }
 
@@ -32,12 +32,13 @@ a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  width: 70%;
+  width: min(1100px, calc(100% - 32px));
 }
 
 .sidebar {
   flex: 1;
   padding: 20px;
+  min-width: 0;
 }
 
 .sidebar h1,
@@ -148,6 +149,7 @@ button {
 .main {
   display: flex;
   flex: 1;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
   background-color: #f7f7f7;
@@ -236,3 +238,64 @@ button {
   width: 100%;
 }
 
+@media (max-width: 900px) {
+  body {
+    align-items: stretch;
+    padding: 24px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .main {
+    min-height: 420px;
+  }
+
+  .menu {
+    padding: 24px 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .sidebar {
+    padding: 18px;
+  }
+
+  .sidebar h1,
+  .sidebar h2 {
+    font-size: 24px;
+  }
+
+  #login-form input {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .sidebar .options,
+  .botoes,
+  .social-login,
+  .social-buttons,
+  .menu ul {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .botoes button {
+    flex: 1 1 130px;
+  }
+
+  .main {
+    min-height: 320px;
+  }
+
+  .menu {
+    padding: 18px 0;
+  }
+}

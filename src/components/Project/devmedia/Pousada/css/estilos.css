@@ -229,3 +229,59 @@
   text-align: center;
   border-top: 1px solid #3b7863;
 }
+
+@media (max-width: 760px) {
+  .container-topo {
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .container-link-logotipo,
+  .container-links {
+    flex: 1 1 100%;
+  }
+
+  .container-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .container-titulo-site {
+    gap: 24px;
+    padding: 28px 18px;
+    font-size: 22px;
+  }
+
+  .secao-container {
+    gap: 44px;
+    padding: 72px 16px;
+  }
+
+  .quarto,
+  .card,
+  .card-info-rodape {
+    flex-basis: 100%;
+  }
+
+  .card {
+    min-height: 130px;
+    height: auto;
+  }
+
+  .container-info {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 460px) {
+  .container-titulo-site h1 {
+    font-size: 32px;
+  }
+
+  .container-titulo-site p,
+  .container-descricao p {
+    line-height: 1.6;
+  }
+}

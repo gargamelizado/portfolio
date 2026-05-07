@@ -9,6 +9,7 @@ import react from '../../assets/react.png';
 import node from '../../assets/node.png';
 import git from '../../assets/git.png';
 import figma from '../../assets/figma.png';
+import Mysql from '../../assets/mysql.png';
 import styles from './Skills.module.css';
 
 const skills = [
@@ -19,6 +20,7 @@ const skills = [
   { name: 'Node.js', icon: node },
   { name: 'Git', icon: git },
   { name: 'Figma', icon: figma },
+  { name: 'MySQL', icon: Mysql }
 ];
 
 export default function Skills() {

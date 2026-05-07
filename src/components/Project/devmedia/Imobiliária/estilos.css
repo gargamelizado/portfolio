@@ -3,6 +3,10 @@ body {
     font-family: Tahoma;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* === Estilos globais === */
 .secao {
     text-align: center;
@@ -15,7 +19,7 @@ body {
     text-align: justify;
     line-height: 28px;
     margin: 10px auto;
-    width: 980px;
+    width: min(980px, calc(100% - 32px));
 }
 
 /* ===  1ª seção === */
@@ -68,7 +72,7 @@ h2 {
 }
 
 .imagem {
-    width: 450px;
+    width: min(450px, calc(100% - 32px));
 }
 
 .texto-azul {
@@ -90,7 +94,7 @@ h3 {
 .paragrafo-servicos {
     color: #ffffff;
     line-height: 42px;
-    width: 700px;
+    width: min(700px, calc(100% - 32px));
     font-size: 22px;
     text-align: center;
 }
@@ -138,4 +142,45 @@ h3 {
     color: #1d80c1;
     padding: 2px 5px;
     border-radius: 5px;
+}
+
+.banner img,
+.contato iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 760px) {
+    .link-topo {
+        display: inline-block;
+        margin: 6px 8px;
+    }
+
+    .banner {
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        padding-inline: 16px;
+    }
+
+    h2 {
+        font-size: 22px;
+        padding-inline: 16px;
+    }
+
+    .paragrafo {
+        font-size: 16px;
+        line-height: 1.65;
+        text-align: left;
+    }
+
+    .paragrafo-servicos {
+        line-height: 1.7;
+    }
+
+    .contato iframe {
+        width: calc(100% - 32px);
+        height: 300px;
+    }
 }

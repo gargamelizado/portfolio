@@ -28,3 +28,21 @@
     width: 230px;
     text-align: left;
   }
+
+@media (max-width: 760px) {
+  .container-quartos img {
+    width: 100%;
+  }
+
+  .container-informacoes {
+    padding-inline: 16px;
+  }
+
+  .lista-informacoes {
+    justify-content: flex-start;
+  }
+
+  .lista-informacoes li {
+    width: 100%;
+  }
+}

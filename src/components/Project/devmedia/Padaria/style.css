@@ -5,8 +5,12 @@ body {
     
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .secao {
-    width: 700px;
+    width: min(700px, calc(100% - 32px));
     margin: 20px auto;
     text-align: center;
 }
@@ -16,7 +20,8 @@ body {
 }
 
 a {
-    margin: 0 10px;
+    display: inline-block;
+    margin: 6px 10px;
     color: #542f0c;
     text-decoration: none;
 }
@@ -36,7 +41,8 @@ h2 {
 }
 
 .imagemBanner {
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
 }
 
 .secaoDestaque {
@@ -56,15 +62,34 @@ h2 {
 }
 
 .secaoDestaque p {
-    width: 500px;
+    width: min(500px, 100%);
     margin: 0 auto;
     line-height: 30px;
 }
 
 .secaoDestaque img {
-    width: 400px;
+    width: min(400px, 100%);
 }
 
 span {
     font-weight: bold;
+}
+
+@media (max-width: 520px) {
+    .logo {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2,
+    .secaoDestaque h3 {
+        font-size: 22px;
+    }
+
+    .secaoDestaque p {
+        line-height: 1.65;
+    }
 }

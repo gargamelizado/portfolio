@@ -325,3 +325,111 @@ table tbody td {
 .container-copyright span {
     color: #2f86d6;
 }
+
+@media (max-width: 1040px) {
+    .limitar-secao {
+        max-width: calc(100% - 32px);
+    }
+
+    .secao-informacoes h2,
+    .container-segundo-anuncio h2,
+    .container-primeiro-anuncio div {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .secao-planos {
+        overflow-x: auto;
+        padding-inline: 16px;
+    }
+
+    .secao-planos table {
+        min-width: 760px;
+    }
+}
+
+@media (max-width: 760px) {
+    .container-topo {
+        padding: 24px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .topo-logo {
+        min-height: 80px;
+    }
+
+    .topo-links {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .topo-links a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .container-banner {
+        padding: 72px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .container-banner div {
+        width: 100%;
+    }
+
+    .container-banner img {
+        position: static;
+        width: min(100%, 360px);
+        margin: 0 auto;
+    }
+
+    .container-primeiro-anuncio,
+    .container-segundo-anuncio {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .container-primeiro-anuncio a,
+    .container-segundo-anuncio a {
+        position: relative;
+        top: auto;
+        right: auto;
+        align-self: center;
+    }
+
+    .secao-informacoes {
+        padding: 64px 16px;
+    }
+
+    .secao-informacoes h2,
+    .secao-planos h2 {
+        font-size: 26px;
+    }
+
+    .container-informacoes {
+        height: auto;
+        display: grid;
+        gap: 28px;
+    }
+
+    .container-informacoes div {
+        position: static;
+        width: 100%;
+    }
+
+    .container-contatos {
+        padding-inline: 16px;
+        line-height: 1.7;
+    }
+}
