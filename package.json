@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prepare-demos": "node scripts/prepare-project-demos.mjs",
+    "predev": "npm run prepare-demos",
     "dev": "vite",
+    "prebuild": "npm run prepare-demos",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

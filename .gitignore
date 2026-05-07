@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+public/project-demos/
 
 # Development-only demo
 src/components/TypeScriptExample/

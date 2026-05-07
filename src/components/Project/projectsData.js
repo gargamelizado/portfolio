@@ -11,6 +11,8 @@ import ParqueLogin from "./img/pagina-login.png";
 import LinkBioNeymar from "./img/LinkBio-do-Neymar-Jr-.png";
 import BurgerHeaven from "./img/BURGER-HEAVEN.png";
 
+const demoUrl = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export const projectsData = [
   {
     slug: 'pet-shop',
@@ -20,7 +22,7 @@ export const projectsData = [
     details: 'Projeto criado para praticar estrutura semantica, composicao visual e organizacao de secoes comerciais.',
     learning: 'Aprimorei a construcao de layouts promocionais com foco em leitura clara e navegacao simples.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Petshop',
-    web: 'src/components/Project/devmedia/Petshop/index.html',
+    web: demoUrl('project-demos/pet-shop/index.html'),
     image: Petshop,
   },
   {
@@ -31,7 +33,7 @@ export const projectsData = [
     details: 'Projeto com navegacao entre paginas, apresentacao de planos e estrutura pensada para um provedor de hospedagem.',
     learning: 'Pratiquei tabelas, links internos e padronizacao visual entre paginas diferentes.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Provedor-Hospedagem',
-    web: 'src/components/Project/devmedia/Provedor-Hospedagem/home.html',
+    web: demoUrl('project-demos/alfa-tech/home.html'),
     image: Alfatech,
   },
   {
@@ -42,7 +44,7 @@ export const projectsData = [
     details: 'Projeto voltado para organizacao de informacoes de saude, com hierarquia visual e navegacao objetiva.',
     learning: 'Reforcei boas praticas de estrutura de paginas e uso de conteudo informativo em secoes.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Clinica',
-    web: 'src/components/Project/devmedia/Clinica/index.html',
+    web: demoUrl('project-demos/clinica-medica/index.html'),
     image: ClinicaMedica,
   },
   {
@@ -53,7 +55,7 @@ export const projectsData = [
     details: 'Projeto de pagina unica, pensado para comunicar rapidamente os produtos e a identidade do negocio.',
     learning: 'Trabalhei espacamento, composicao de textos e construcao de uma experiencia direta.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Padaria',
-    web: 'src/components/Project/devmedia/Padaria/index.html',
+    web: demoUrl('project-demos/padaria/index.html'),
     image: Padaria,
   },
   {
@@ -64,7 +66,7 @@ export const projectsData = [
     details: 'Projeto com foco em turismo, apresentando acomodacoes, chamadas visuais e navegacao entre conteudos.',
     learning: 'Pratiquei organizacao de multiplas paginas e consistencia de estilos em uma experiencia completa.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Pousada',
-    web: 'src/components/Project/devmedia/Pousada/index.html',
+    web: demoUrl('project-demos/pousada-secreta/index.html'),
     image: PousadaSecreta,
   },
   {
@@ -75,7 +77,7 @@ export const projectsData = [
     details: 'Projeto criado para praticar formularios, organizacao de imagens, banners e blocos comerciais em uma landing page.',
     learning: 'Aprimorei a montagem de formularios e a distribuicao de conteudo em secoes de facil leitura.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Viagens',
-    web: 'src/components/Project/devmedia/Agencia-de-Viagens/index.html',
+    web: demoUrl('project-demos/agencia-de-viagens/index.html'),
     image: AgenciaViagens,
   },
   {
@@ -86,7 +88,7 @@ export const projectsData = [
     details: 'Projeto visual com foco em atmosfera, navegacao por secoes e uso de imagens de fundo para criar profundidade.',
     learning: 'Pratiquei efeitos visuais com CSS, posicionamento de fundos e organizacao de conteudo institucional.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Cafeteria',
-    web: 'src/components/Project/devmedia/Cafeteria/index.html',
+    web: demoUrl('project-demos/cafeteria/index.html'),
     image: Cafeteria,
   },
   {
@@ -97,7 +99,7 @@ export const projectsData = [
     details: 'Projeto pensado para comunicar servicos de forma objetiva, usando secoes simples e chamadas de contato.',
     learning: 'Reforcei o uso de estrutura semantica, links de contato e composicao visual para negocios locais.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Imobiliária',
-    web: 'src/components/Project/devmedia/Imobiliária/index.html',
+    web: demoUrl('project-demos/imobiliaria/index.html'),
     image: Imobiliaria,
   },
   {
@@ -108,7 +110,7 @@ export const projectsData = [
     details: 'Projeto de landing page editorial com foco em apresentacao de produto e hierarquia de conteudo.',
     learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Página-de-Divulgação-do-Livro',
-    web: 'src/components/Project/devmedia/Página-de-Divulgação-do-Livro/index.html',
+    web: demoUrl('project-demos/divulgacao-livro/index.html'),
     image: DivulgacaoLivro,
   },
   {
@@ -119,7 +121,7 @@ export const projectsData = [
     details: 'Projeto simples para praticar apresentacao de informacoes publicas em uma pagina clara e objetiva.',
     learning: 'Trabalhei a organizacao de textos, chamadas e informacoes de contato em um layout direto.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/pagina-login',
-    web: 'src/components/Project/mentoria/pagina-login/index.html',
+    web: demoUrl('project-demos/parque-login/index.html'),
     image: ParqueLogin,
   },
   {
@@ -130,7 +132,7 @@ export const projectsData = [
     details: 'Projeto com foco em pagina pessoal tematica, usando imagens, video, links externos e tabela.',
     learning: 'Pratiquei composicao visual, uso de midias e criacao de uma pagina de links mais elaborada.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/LinkBio-do-Neymar-Jr',
-    web: 'src/components/Project/devmedia/LinkBio-do-Neymar-Jr/index.html',
+    web: demoUrl('project-demos/linkbio-neymar/index.html'),
     image: LinkBioNeymar,
   },
   {
@@ -141,7 +143,7 @@ export const projectsData = [
     details: 'Projeto de landing page para hamburgueria, com foco em apresentacao de produtos e chamadas para acao.',
     learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
     link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/BURGER%20HEAVEN',
-    web: 'src/components/Project/mentoria/BURGER HEAVEN/index.html',
+    web: demoUrl('project-demos/burger-heaven/index.html'),
     image: BurgerHeaven,
   }, 
   /* {
