@@ -18,7 +18,7 @@
 .projectTitle {
   font-size: 2.45rem;
   font-weight: 800;
-  margin: 0 0 2.5rem;
+  margin: 0 0 1rem;
   text-align: center;
   color: #f1f5f9;
   background: linear-gradient(135deg, #f8fafc 0%, #93c5fd 100%);
@@ -27,10 +27,70 @@
   background-clip: text;
 }
 
+.projectIntro {
+  color: #dbeafe;
+  line-height: 1.7;
+  margin: 0 auto 2rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0 0 2rem;
+}
+
+.filterButton,
+.filterActive {
+  border: 1px solid rgba(147, 197, 253, 0.32);
+  border-radius: 999px;
+  color: #dbeafe;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 0.6rem 0.9rem;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.filterButton {
+  background: rgba(15, 23, 42, 0.42);
+}
+
+.filterActive {
+  background: #dbeafe;
+  border-color: #bfdbfe;
+  color: #0f172a;
+}
+
+.filterButton:hover,
+.filterActive:hover {
+  border-color: rgba(96, 165, 250, 0.72);
+  transform: translateY(-1px);
+}
+
+.projectGroups {
+  display: grid;
+  gap: 3rem;
+}
+
+.projectGroup h2 {
+  color: #f8fafc;
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+}
+
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+}
+
+.emptyState {
+  color: #dbeafe;
+  margin: 2rem 0 0;
+  text-align: center;
 }
 
 /* Tablet (720px - 1024px) */
@@ -40,7 +100,7 @@
   }
   .projectTitle {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.85rem;
   }
   .projectGrid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -55,7 +115,7 @@
   }
   .projectTitle {
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
   }
   .projectGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -70,11 +130,15 @@
   }
   .projectTitle {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
   .projectGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .filters {
+    justify-content: flex-start;
   }
 }
 
@@ -85,7 +149,7 @@
   }
   .projectTitle {
     font-size: 1.3rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.65rem;
   }
   .projectGrid {
     grid-template-columns: 1fr;

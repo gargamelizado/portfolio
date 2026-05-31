@@ -1,184 +1,375 @@
-import Petshop from "./img/pet-shop.png";
-import ClinicaMedica from "./img/clinica-medica.png";
-import Padaria from "./img/padaria.png";
-import Alfatech from "./img/alfa-tech.png";
-import PousadaSecreta from "./img/pousada-secreta.png";
-import AgenciaViagens from "./img/Agencia-de-Viagens.png";
-import Cafeteria from "./img/Cafeteria.png";
-import Imobiliaria from "./img/Imobiliaria.png";
-import DivulgacaoLivro from "./img/Pagina-de-Divulgacao-do-Livro.png";
-import ParqueLogin from "./img/pagina-login.png";
-import LinkBioNeymar from "./img/LinkBio-do-Neymar-Jr-.png";
-import BurgerHeaven from "./img/BURGER-HEAVEN.png";
-import ChockTrufas from "./img/Chock-Trufas.png";
-import ChockTrufasReact from "./img/Chock Trufas React.png";
+import type { Project, ProjectCategory } from '../types/project';
+import Petshop from '../components/Project/img/pet-shop.webp';
+import ClinicaMedica from '../components/Project/img/clinica-medica.webp';
+import Padaria from '../components/Project/img/padaria.webp';
+import Alfatech from '../components/Project/img/alfa-tech.webp';
+import PousadaSecreta from '../components/Project/img/pousada-secreta.webp';
+import AgenciaViagens from '../components/Project/img/Agencia-de-Viagens.webp';
+import Cafeteria from '../components/Project/img/Cafeteria.webp';
+import Imobiliaria from '../components/Project/img/Imobiliaria.webp';
+import DivulgacaoLivro from '../components/Project/img/Pagina-de-Divulgacao-do-Livro.webp';
+import ParqueLogin from '../components/Project/img/pagina-login.webp';
+import LinkBioNeymar from '../components/Project/img/LinkBio-do-Neymar-Jr-.webp';
+import BurgerHeaven from '../components/Project/img/BURGER-HEAVEN.webp';
+import ChockTrufas from '../components/Project/img/Chock-Trufas.webp';
+import ChockTrufasReact from '../components/Project/img/Chock Trufas React.webp';
 
-const demoUrl = (path) => `${import.meta.env.BASE_URL}${path}`;
+const demoUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const projectsData = [
   {
-    slug: 'pet-shop',
-    title: 'Pet shop',
-    description: 'Site responsivo para divulgacao de produtos e servicos de pet shop, desenvolvido com HTML e CSS.',
-    technologies: ['HTML5', 'CSS3', 'Responsividade'],
-    details: 'Projeto criado para praticar estrutura semantica, composicao visual e organizacao de secoes comerciais.',
-    learning: 'Aprimorei a construcao de layouts promocionais com foco em leitura clara e navegacao simples.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Petshop',
-    web: demoUrl('project-demos/pet-shop/index.html'),
-    image: Petshop,
-  },
-  {
-    slug: 'alfa-tech',
-    title: 'Alfa tech',
-    description: 'Site institucional para empresa de tecnologia, com paginas internas e tabela de precos.',
-    technologies: ['HTML5', 'CSS3', 'Tabelas'],
-    details: 'Projeto com navegacao entre paginas, apresentacao de planos e estrutura pensada para um provedor de hospedagem.',
-    learning: 'Pratiquei tabelas, links internos e padronizacao visual entre paginas diferentes.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Provedor-Hospedagem',
-    web: demoUrl('project-demos/alfa-tech/home.html'),
-    image: Alfatech,
-  },
-  {
-    slug: 'clinica-medica',
-    title: 'Clinica Medica',
-    description: 'Site para clinica medica com paginas de especialidades, contato e apresentacao dos servicos.',
-    technologies: ['HTML5', 'CSS3', 'Layout responsivo'],
-    details: 'Projeto voltado para organizacao de informacoes de saude, com hierarquia visual e navegacao objetiva.',
-    learning: 'Reforcei boas praticas de estrutura de paginas e uso de conteudo informativo em secoes.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Clinica',
-    web: demoUrl('project-demos/clinica-medica/index.html'),
-    image: ClinicaMedica,
-  },
-  {
-    slug: 'padaria',
-    title: 'Padaria',
-    description: 'Landing page para padaria, com apresentacao de produtos e visual simples para o usuario.',
-    technologies: ['HTML5', 'CSS3', 'Landing page'],
-    details: 'Projeto de pagina unica, pensado para comunicar rapidamente os produtos e a identidade do negocio.',
-    learning: 'Trabalhei espacamento, composicao de textos e construcao de uma experiencia direta.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Padaria',
-    web: demoUrl('project-demos/padaria/index.html'),
-    image: Padaria,
-  },
-  {
-    slug: 'pousada-secreta',
-    title: 'Pousada Secreta',
-    description: 'Site para pousada com paginas de quartos, informacoes e apresentacao visual do local.',
-    technologies: ['HTML5', 'CSS3', 'Multi-paginas'],
-    details: 'Projeto com foco em turismo, apresentando acomodacoes, chamadas visuais e navegacao entre conteudos.',
-    learning: 'Pratiquei organizacao de multiplas paginas e consistencia de estilos em uma experiencia completa.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Pousada',
-    web: demoUrl('project-demos/pousada-secreta/index.html'),
-    image: PousadaSecreta,
-  },
-  {
-    slug: 'agencia-de-viagens',
-    title: 'Agencia de Viagens',
-    description: 'Pagina para agencia de viagens com formulario de orcamento, banner e secoes de ofertas.',
-    technologies: ['HTML5', 'CSS3', 'Formulario'],
-    details: 'Projeto criado para praticar formularios, organizacao de imagens, banners e blocos comerciais em uma landing page.',
-    learning: 'Aprimorei a montagem de formularios e a distribuicao de conteudo em secoes de facil leitura.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Viagens',
-    web: demoUrl('project-demos/agencia-de-viagens/index.html'),
-    image: AgenciaViagens,
-  },
-  {
-    slug: 'cafeteria',
-    title: 'Cafeteria',
-    description: 'Site de cafeteria com secoes parallax, informacoes de contato e apresentacao do ambiente.',
-    technologies: ['HTML5', 'CSS3', 'Parallax'],
-    details: 'Projeto visual com foco em atmosfera, navegacao por secoes e uso de imagens de fundo para criar profundidade.',
-    learning: 'Pratiquei efeitos visuais com CSS, posicionamento de fundos e organizacao de conteudo institucional.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Cafeteria',
-    web: demoUrl('project-demos/cafeteria/index.html'),
-    image: Cafeteria,
-  },
-  {
-    slug: 'imobiliaria',
-    title: 'Imobiliaria',
-    description: 'Pagina institucional para imobiliaria, com apresentacao de servicos, corretores e contatos.',
-    technologies: ['HTML5', 'CSS3', 'Institucional'],
-    details: 'Projeto pensado para comunicar servicos de forma objetiva, usando secoes simples e chamadas de contato.',
-    learning: 'Reforcei o uso de estrutura semantica, links de contato e composicao visual para negocios locais.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Imobiliária',
-    web: demoUrl('project-demos/imobiliaria/index.html'),
-    image: Imobiliaria,
-  },
-  {
-    slug: 'divulgacao-livro',
-    title: 'Divulgacao de Livro',
-    description: 'Pagina de divulgacao de livro com informacoes sobre a obra, autor e chamada para compra.',
-    technologies: ['HTML5', 'CSS3', 'Landing page'],
-    details: 'Projeto de landing page editorial com foco em apresentacao de produto e hierarquia de conteudo.',
-    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Página-de-Divulgação-do-Livro',
-    web: demoUrl('project-demos/divulgacao-livro/index.html'),
-    image: DivulgacaoLivro,
-  },
-  {
-    slug: 'parque-login',
-    title: 'Pagina de login',
-    description: 'Pagina informativa para parque estadual com dados sobre visitas, localizacao e contato.',
-    technologies: ['HTML5', 'CSS3', 'Conteudo informativo'],
-    details: 'Projeto simples para praticar apresentacao de informacoes publicas em uma pagina clara e objetiva.',
-    learning: 'Trabalhei a organizacao de textos, chamadas e informacoes de contato em um layout direto.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/pagina-login',
-    web: demoUrl('project-demos/parque-login/index.html'),
-    image: ParqueLogin,
-  },
-  {
-    slug: 'linkbio-neymar',
-    title: 'LinkBio Neymar Jr',
-    description: 'Pagina estilo link bio com video, links, visual tematico e tabela de estatisticas.',
-    technologies: ['HTML5', 'CSS3', 'Midia'],
-    details: 'Projeto com foco em pagina pessoal tematica, usando imagens, video, links externos e tabela.',
-    learning: 'Pratiquei composicao visual, uso de midias e criacao de uma pagina de links mais elaborada.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/LinkBio-do-Neymar-Jr',
-    web: demoUrl('project-demos/linkbio-neymar/index.html'),
-    image: LinkBioNeymar,
-  },
-  {
-    slug: 'burger-heaven',
-    title: 'Burger Heaven',
-    description: 'Pagina de apresentacao de hamburgueria com cardapio e informacoes de contato.',
-    technologies: ['HTML5', 'CSS3', 'Landing page'],
-    details: 'Projeto de landing page para hamburgueria, com foco em apresentacao de produtos e chamadas para acao.',
-    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/BURGER%20HEAVEN',
-    web: demoUrl('project-demos/burger-heaven/index.html'),
-    image: BurgerHeaven,
-  },
-  {
-    slug: 'chock-trufas',
-    title: 'Chock Trufas',
-    description: 'Pagina de apresentacao de loja de doces com cardapio e informacoes de contato.',
-    technologies: ['HTML5', 'CSS3', 'Landing page'],
-    details: 'Projeto de landing page para loja de doces, com foco em apresentacao de produtos e chamadas para acao.',
-    learning: 'Pratiquei construcao de textos, destaque visual e organizacao de informacoes promocionais.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock%20trufas',
-    web: demoUrl('project-demos/chock-trufas/index.html'),
-    image: ChockTrufas,
-  },
-  {
+    id: 1,
     slug: 'chock-trufas-react',
     title: 'Chock Trufas em React',
-    description: 'Versao do projeto Chock Trufas implementada com React.',
-    technologies: ['React', 'CSS3', 'Landing page'],
-    details: 'Projeto recriado em React para praticar componentes e gerenciamento de estado.',
-    learning: 'Pratiquei criacao de componentes reutilizaveis e gerenciamento de estado com React.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock-trufas-react',
-    web: demoUrl('project-demos/chock-trufas-react/index.html'),
+    description:
+      'Versão do projeto Chock Trufas criada com React, componentes reutilizáveis e organização de interface para cardápio e compra.',
+    technologies: ['React', 'JavaScript', 'CSS3', 'Componentização'],
+    details:
+      'Projeto próprio recriado em React para evoluir uma landing page real para uma experiência mais organizada, com componentes, páginas internas e fluxo de apresentação dos produtos.',
+    learning:
+      'Pratiquei componentização, organização de pastas, reaproveitamento de seções, controle de estado e melhoria progressiva de uma ideia própria.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock-trufas-react',
+    website: demoUrl('project-demos/chock-trufas-react/index.html'),
     image: ChockTrufasReact,
-    legenda: 'Em manutenção.'
+    imageAlt: 'Screenshot do projeto Chock Trufas em React',
+    category: 'principal',
+    featured: true,
+    priority: 10,
+    status: 'em-evolucao',
+    level: 'intermediario',
+    type: 'React',
+    futureImprovements: [
+      'Aprimorar responsividade fina em telas muito pequenas.',
+      'Evoluir a página de compra com validações e estados mais completos.',
+      'Adicionar testes para os principais componentes do fluxo.',
+    ],
   },
-  /* {
-    slug: 'agencia-design',
-    title: 'Agencia Design',
-    description: 'Site de agencia de design digital com React e troca de cor de fundo.',
-    technologies: ['React', 'CSS Modules', 'Tema'],
-    details: 'Projeto criado para praticar componentes e estados visuais.',
-    learning: 'Pratiquei organizacao de componentes e alternancia de tema.',
-    link: 'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Design-Digital/agencia-de-design-digital',
-    web: 'src/components/Project/devmedia/Agencia-de-Design-Digital/agencia-de-design-digital/index.html',
-  }, */
-];
+  {
+    id: 2,
+    slug: 'burger-heaven',
+    title: 'Burger Heaven',
+    description:
+      'Landing page de hamburgueria com cardápio, apresentação visual forte e chamada para contato.',
+    technologies: ['HTML5', 'CSS3', 'Landing page', 'Responsividade'],
+    details:
+      'Página criada para praticar estrutura semântica, hierarquia visual, seções comerciais e acabamento responsivo em uma marca fictícia.',
+    learning:
+      'Pratiquei composição visual, organização de conteúdo promocional, responsividade e ajustes de HTML/CSS para uma apresentação mais profissional.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/BURGER%20HEAVEN',
+    website: demoUrl('project-demos/burger-heaven/index.html'),
+    image: BurgerHeaven,
+    imageAlt: 'Screenshot do projeto Burger Heaven',
+    category: 'principal',
+    featured: true,
+    priority: 20,
+    status: 'finalizado',
+    level: 'intermediario',
+    type: 'Landing Page',
+    futureImprovements: [
+      'Adicionar pequenas interações com JavaScript.',
+      'Criar variações de seções para cardápio e depoimentos.',
+    ],
+  },
+  {
+    id: 3,
+    slug: 'chock-trufas',
+    title: 'Chock Trufas',
+    description:
+      'Landing page própria para loja de doces, com cardápio, identidade visual e informações de contato.',
+    technologies: ['HTML5', 'CSS3', 'Landing page', 'Projeto próprio'],
+    details:
+      'Projeto próprio em HTML e CSS usado como base para evoluir a comunicação visual da marca e preparar a versão posterior em React.',
+    learning:
+      'Pratiquei estruturação de página comercial, organização de imagens, seções de produtos e chamadas para ação.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock%20trufas',
+    website: demoUrl('project-demos/chock-trufas/index.html'),
+    image: ChockTrufas,
+    imageAlt: 'Screenshot do projeto Chock Trufas',
+    category: 'principal',
+    featured: true,
+    priority: 30,
+    status: 'finalizado',
+    level: 'intermediario',
+    type: 'Projeto próprio',
+    futureImprovements: [
+      'Refinar performance das imagens do catálogo.',
+      'Padronizar componentes visuais com a versão em React.',
+    ],
+  },
+  {
+    id: 4,
+    slug: 'alfa-tech',
+    title: 'Alfa Tech',
+    description:
+      'Site institucional para empresa de tecnologia, com páginas internas e tabela de preços.',
+    technologies: ['HTML5', 'CSS3', 'Tabelas', 'Multi-páginas'],
+    details:
+      'Projeto com navegação entre páginas, apresentação de planos e estrutura pensada para um provedor de hospedagem.',
+    learning:
+      'Pratiquei tabelas, links internos, consistência visual e organização de conteúdo em mais de uma página.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Provedor-Hospedagem',
+    website: demoUrl('project-demos/alfa-tech/home.html'),
+    image: Alfatech,
+    imageAlt: 'Screenshot do projeto Alfa Tech',
+    category: 'principal',
+    featured: true,
+    priority: 40,
+    status: 'finalizado',
+    level: 'intermediario',
+    type: 'HTML/CSS',
+    futureImprovements: [
+      'Revisar metadados da página demonstrativa.',
+      'Adicionar estados de foco mais visíveis nos links.',
+    ],
+  },
+  {
+    id: 5,
+    slug: 'cafeteria',
+    title: 'Cafeteria',
+    description:
+      'Site de cafeteria com seções parallax, informações de contato e apresentação do ambiente.',
+    technologies: ['HTML5', 'CSS3', 'Parallax', 'Responsividade'],
+    details:
+      'Projeto visual com foco em atmosfera, navegação por seções e uso de imagens de fundo para criar profundidade.',
+    learning:
+      'Pratiquei efeitos visuais com CSS, posicionamento de fundos e organização de conteúdo institucional.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Cafeteria',
+    website: demoUrl('project-demos/cafeteria/index.html'),
+    image: Cafeteria,
+    imageAlt: 'Screenshot do projeto Cafeteria',
+    category: 'principal',
+    featured: true,
+    priority: 50,
+    status: 'finalizado',
+    level: 'intermediario',
+    type: 'Landing Page',
+    futureImprovements: [
+      'Reduzir dependência de imagens pesadas.',
+      'Adicionar pequenos ajustes de acessibilidade em links internos.',
+    ],
+  },
+  {
+    id: 6,
+    slug: 'clinica-medica',
+    title: 'Clínica Médica',
+    description:
+      'Site para clínica médica com páginas de especialidades, contato e apresentação dos serviços.',
+    technologies: ['HTML5', 'CSS3', 'Layout responsivo'],
+    details:
+      'Projeto voltado para organização de informações de saúde, com hierarquia visual e navegação objetiva.',
+    learning:
+      'Reforcei boas práticas de estrutura de páginas e uso de conteúdo informativo em seções.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Clinica',
+    website: demoUrl('project-demos/clinica-medica/index.html'),
+    image: ClinicaMedica,
+    imageAlt: 'Screenshot do projeto Clínica Médica',
+    category: 'estudo',
+    featured: false,
+    priority: 110,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+  {
+    id: 7,
+    slug: 'pet-shop',
+    title: 'Pet Shop',
+    description:
+      'Site responsivo para divulgação de produtos e serviços de pet shop, desenvolvido com HTML e CSS.',
+    technologies: ['HTML5', 'CSS3', 'Responsividade'],
+    details:
+      'Projeto criado para praticar estrutura semântica, composição visual e organização de seções comerciais.',
+    learning:
+      'Aprimorei a construção de layouts promocionais com foco em leitura clara e navegação simples.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Petshop',
+    website: demoUrl('project-demos/pet-shop/index.html'),
+    image: Petshop,
+    imageAlt: 'Screenshot do projeto Pet Shop',
+    category: 'estudo',
+    featured: false,
+    priority: 120,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+  {
+    id: 8,
+    slug: 'pousada-secreta',
+    title: 'Pousada Secreta',
+    description:
+      'Site para pousada com páginas de quartos, informações e apresentação visual do local.',
+    technologies: ['HTML5', 'CSS3', 'Multi-páginas'],
+    details:
+      'Projeto com foco em turismo, apresentando acomodações, chamadas visuais e navegação entre conteúdos.',
+    learning:
+      'Pratiquei organização de múltiplas páginas e consistência de estilos em uma experiência completa.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Pousada',
+    website: demoUrl('project-demos/pousada-secreta/index.html'),
+    image: PousadaSecreta,
+    imageAlt: 'Screenshot do projeto Pousada Secreta',
+    category: 'estudo',
+    featured: false,
+    priority: 130,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+  {
+    id: 9,
+    slug: 'agencia-de-viagens',
+    title: 'Agência de Viagens',
+    description:
+      'Página para agência de viagens com formulário de orçamento, banner e seções de ofertas.',
+    technologies: ['HTML5', 'CSS3', 'Formulário'],
+    details:
+      'Projeto criado para praticar formulários, organização de imagens, banners e blocos comerciais em uma landing page.',
+    learning:
+      'Aprimorei a montagem de formulários e a distribuição de conteúdo em seções de fácil leitura.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Agencia-de-Viagens',
+    website: demoUrl('project-demos/agencia-de-viagens/index.html'),
+    image: AgenciaViagens,
+    imageAlt: 'Screenshot do projeto Agência de Viagens',
+    category: 'estudo',
+    featured: false,
+    priority: 140,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'Landing Page',
+  },
+  {
+    id: 10,
+    slug: 'imobiliaria',
+    title: 'Imobiliária',
+    description:
+      'Página institucional para imobiliária, com apresentação de serviços, corretores e contatos.',
+    technologies: ['HTML5', 'CSS3', 'Institucional'],
+    details:
+      'Projeto pensado para comunicar serviços de forma objetiva, usando seções simples e chamadas de contato.',
+    learning:
+      'Reforcei o uso de estrutura semântica, links de contato e composição visual para negócios locais.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Imobiliária',
+    website: demoUrl('project-demos/imobiliaria/index.html'),
+    image: Imobiliaria,
+    imageAlt: 'Screenshot do projeto Imobiliária',
+    category: 'estudo',
+    featured: false,
+    priority: 150,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+  {
+    id: 11,
+    slug: 'padaria',
+    title: 'Padaria',
+    description:
+      'Landing page para padaria, com apresentação de produtos e visual simples para o usuário.',
+    technologies: ['HTML5', 'CSS3', 'Landing page'],
+    details:
+      'Projeto de página única, pensado para comunicar rapidamente os produtos e a identidade do negócio.',
+    learning:
+      'Trabalhei espaçamento, composição de textos e construção de uma experiência direta.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Padaria',
+    website: demoUrl('project-demos/padaria/index.html'),
+    image: Padaria,
+    imageAlt: 'Screenshot do projeto Padaria',
+    category: 'estudo',
+    featured: false,
+    priority: 160,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'Landing Page',
+  },
+  {
+    id: 12,
+    slug: 'divulgacao-livro',
+    title: 'Divulgação de Livro',
+    description:
+      'Página de divulgação de livro com informações sobre a obra, autor e chamada para compra.',
+    technologies: ['HTML5', 'CSS3', 'Landing page'],
+    details:
+      'Projeto de landing page editorial com foco em apresentação de produto e hierarquia de conteúdo.',
+    learning:
+      'Pratiquei construção de textos, destaque visual e organização de informações promocionais.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/Página-de-Divulgação-do-Livro',
+    website: demoUrl('project-demos/divulgacao-livro/index.html'),
+    image: DivulgacaoLivro,
+    imageAlt: 'Screenshot do projeto Divulgação de Livro',
+    category: 'estudo',
+    featured: false,
+    priority: 170,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'Landing Page',
+  },
+  {
+    id: 13,
+    slug: 'linkbio-neymar',
+    title: 'LinkBio Neymar Jr',
+    description:
+      'Página estilo link bio com vídeo, links, visual temático e tabela de estatísticas.',
+    technologies: ['HTML5', 'CSS3', 'Mídia'],
+    details:
+      'Projeto com foco em página pessoal temática, usando imagens, vídeo, links externos e tabela.',
+    learning:
+      'Pratiquei composição visual, uso de mídias e criação de uma página de links mais elaborada.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/devmedia/LinkBio-do-Neymar-Jr',
+    website: demoUrl('project-demos/linkbio-neymar/index.html'),
+    image: LinkBioNeymar,
+    imageAlt: 'Screenshot do projeto LinkBio Neymar Jr',
+    category: 'estudo',
+    featured: false,
+    priority: 180,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+  {
+    id: 14,
+    slug: 'parque-login',
+    title: 'Página de Login',
+    description:
+      'Página de login criada para praticar composição visual, formulário e layout centralizado.',
+    technologies: ['HTML5', 'CSS3', 'Formulário'],
+    details:
+      'Projeto simples para treinar campos de formulário, imagem de apoio e organização de uma tela de autenticação estática.',
+    learning:
+      'Trabalhei alinhamento, contraste, estados básicos de formulário e apresentação direta em uma tela pequena.',
+    repository:
+      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/mentoria/pagina-login',
+    website: demoUrl('project-demos/parque-login/index.html'),
+    image: ParqueLogin,
+    imageAlt: 'Screenshot do projeto Página de Login',
+    category: 'estudo',
+    featured: false,
+    priority: 190,
+    status: 'finalizado',
+    level: 'iniciante',
+    type: 'HTML/CSS',
+  },
+] satisfies Project[];
+
+export const sortProjectsByPriority = (projects: Project[]): Project[] =>
+  [...projects].sort((current, next) => current.priority - next.priority);
+
+export const getProjectsByCategory = (category: ProjectCategory): Project[] =>
+  sortProjectsByPriority(projectsData.filter((project) => project.category === category));
+
+export const featuredProjects = sortProjectsByPriority(
+  projectsData.filter((project) => project.featured)
+);
+
+export const sortedProjects = sortProjectsByPriority(projectsData);

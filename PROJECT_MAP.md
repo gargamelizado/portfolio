@@ -16,7 +16,7 @@ portfolio/
 ├── index.html
 ├── package.json
 ├── package-lock.json
-├── vite.config.js
+├── vite.config.ts
 ├── eslint.config.js
 ├── public/
 └── src/
@@ -26,12 +26,12 @@ portfolio/
 
 ```text
 src/
-├── main.jsx
-├── App.jsx
+├── main.tsx
+├── App.tsx
 ├── App.css
 ├── index.css
 ├── router/
-│   └── rotas.jsx
+│   └── rotas.tsx
 ├── assets/
 └── components/
     ├── About/
@@ -60,9 +60,9 @@ src/
 | `About` | `About.jsx`, `About.css` | Sobre |
 | `Skills` | `Skills.jsx`, `Skills.module.css` | Habilidades |
 | `Experience` | `Experience.jsx`, `Experience.css` | Experiencias/formacao |
-| `Project` | `Project.jsx`, `Project.module.css`, `projectsData.js` | Grade de projetos |
-| `ProjectDetails` | `ProjectDetails.jsx`, `ProjectDetails.module.css` | Detalhe por slug |
-| `CardProject` | `CardProject.jsx`, `CardProject.module.css` | Card individual |
+| `Project` | `Project.tsx`, `Project.module.css`, `projectsData.ts` | Grade de projetos |
+| `ProjectDetails` | `ProjectDetails.tsx`, `ProjectDetails.module.css` | Detalhe por slug |
+| `CardProject` | `CardProject.tsx`, `CardProject.module.css` | Card individual |
 | `Contact` | `Contact.jsx`, `Contact.css` | Formulario |
 | `Footer` | `Footer.jsx`, `Footer.css` | Rodape |
 | `Gallery` | `Gallery.jsx`, `Gallery.css` | Galeria reutilizavel |
@@ -77,17 +77,17 @@ src/components/Project/
 ├── devmedia/
 ├── mentoria/
 ├── img/
-├── projectsData.js
-├── Project.jsx
+├── projectsData.ts
+├── Project.tsx
 └── Project.module.css
 ```
 
-Essas pastas armazenam exercicios HTML/CSS/JS/Next e assets. O app principal importa principalmente screenshots de `img/` e dados de `projectsData.js`.
+Essas pastas armazenam exercicios HTML/CSS/JS/Next e assets. O app principal importa principalmente screenshots de `img/` e dados de `projectsData.ts`.
 
 ## Fluxo de Dados
 
 ```text
-projectsData.js
+projectsData.ts
 └── Project
     ├── CardProject
     └── ProjectDetails por slug
@@ -112,15 +112,15 @@ Contact
 | Arquivo | Uso |
 |---|---|
 | `package.json` | Scripts, dependencias e overrides |
-| `vite.config.js` | Vite + React plugin |
+| `vite.config.ts` | Vite + React plugin |
 | `eslint.config.js` | Regras ESLint |
 | `index.html` | HTML base |
 | `CNAME` | Dominio para deploy estatico |
 
 ## Checklist de Manutencao
 
-- Ao adicionar projeto, atualizar `projectsData.js`.
-- Ao adicionar rota, atualizar `src/router/rotas.jsx`.
+- Ao adicionar projeto, atualizar `projectsData.ts`.
+- Ao adicionar rota, atualizar `src/router/rotas.tsx`.
 - Ao criar componente com estilo isolado, preferir CSS Module.
 - Rodar `npm run lint` antes de finalizar.
 - Rodar `npm run build` para validar producao.

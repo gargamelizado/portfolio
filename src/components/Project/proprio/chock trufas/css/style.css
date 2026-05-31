@@ -78,6 +78,10 @@ main{
 }
 .menuMoblie{
   display:none;
+  border: 0;
+  background: transparent;
+  color: var(--color-tertiary);
+  line-height: 1;
 }
 
 .nav.is-open {
@@ -389,7 +393,7 @@ footer {
 /* =========================
   Responsividade
 ========================= */
-@media (max-width: 700px) {
+@media (max-width: 1023px) {
   .header{
     padding: 1rem;
   }
@@ -401,6 +405,9 @@ footer {
   }
   .nav{
     display:none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
   }
   .nav.is-open {
     display: flex;
@@ -433,6 +440,24 @@ footer {
   .card img {
    width: 100%;
    height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nav,
+  .nav.is-open {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
+
+  .menuMoblie {
+    display: none;
   }
 }
 

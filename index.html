@@ -1,15 +1,50 @@
 <!doctype html>
-<!-- HTML estático: o React monta a aplicação dentro de #root via src/main.jsx -->
+<!-- HTML estático: o React monta a aplicação dentro de #root via src/main.tsx -->
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/log2.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Marcelo dev</title>
+    <meta name="author" content="Marcelo Henrique" />
+    <meta
+      name="description"
+      content="Portfólio de Marcelo Henrique, desenvolvedor Full Stack Júnior em formação. Projetos com React, TypeScript, JavaScript, HTML, CSS, Node.js, Express e MySQL."
+    />
+    <meta name="theme-color" content="#1d72e2" />
+    <link rel="canonical" href="https://www.marcelohdev.com.br/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <meta property="og:title" content="Marcelo Henrique | Desenvolvedor Full Stack Júnior" />
+    <meta
+      property="og:description"
+      content="Portfólio de Marcelo Henrique, desenvolvedor Full Stack Júnior em formação. Projetos com React, TypeScript, JavaScript, HTML, CSS, Node.js, Express e MySQL."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.marcelohdev.com.br/" />
+    <meta property="og:image" content="https://www.marcelohdev.com.br/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marcelo Henrique | Desenvolvedor Full Stack Júnior" />
+    <meta
+      name="twitter:description"
+      content="Portfólio de Marcelo Henrique, desenvolvedor Full Stack Júnior em formação. Projetos com React, TypeScript, JavaScript, HTML, CSS, Node.js, Express e MySQL."
+    />
+    <meta name="twitter:image" content="https://www.marcelohdev.com.br/og-image.png" />
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const redirectPath = params.get('spa-redirect');
+        if (redirectPath && redirectPath.startsWith('/')) {
+          window.history.replaceState(null, '', redirectPath);
+        }
+      })();
+    </script>
+    <title>Marcelo Henrique | Desenvolvedor Full Stack Júnior</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

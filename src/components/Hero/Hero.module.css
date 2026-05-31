@@ -26,8 +26,9 @@
 }
 
 .fotoPerfil img {
-    width: min(360px, 34vw);
-    height: min(360px, 34vw);
+    width: min(500px, 38vw);
+    height: min(500px, 38vw);
+    max-width: 100%;
     object-fit: cover;
     border-radius: 18px;
     border: 1px solid rgba(191, 219, 254, 0.28);
@@ -46,7 +47,7 @@
 .eyebrow {
     color: #93c5fd;
     display: inline-flex;
-    font-size: 0.82rem;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
@@ -54,10 +55,10 @@
 }
 
 .boxText h1 {
-    font-size: clamp(2.35rem, 5vw, 4.5rem);
+    font-size: clamp(2.1rem, 4vw, 3.7rem);
     font-weight: 800;
     margin-bottom: 0.5rem;
-    line-height: 1;
+    line-height: 1.05;
     color: #f1f5f9;
 }
 

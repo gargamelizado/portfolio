@@ -3,17 +3,17 @@
  *
  * - `/` — landing completa (Hero … Footer) via <Home />
  * - `/projects` — só a grade de projetos
- * - `*` — redireciona para `/`
+ * - `*` — página 404 controlada
  *
  * <Layout> mantém o Header; <Outlet> renderiza Home ou Project.
  *
- * Exemplo futuro: /projects/:slug com useParams().
  */   
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from '../components/Layout/Layout.jsx';
-import Home from '../components/Home/Home.jsx';
-import Project from '../components/Project/Project.jsx';
-import ProjectDetails from '../components/ProjectDetails/ProjectDetails.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from '../components/Layout/Layout';
+import Home from '../components/Home/Home';
+import Project from '../components/Project/Project';
+import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
+import NotFound from '../components/NotFound/NotFound';
 // import TypeScriptExample from '../components/TypeScriptExample/TypeScriptExample.tsx';
 
 export default function Rotas() {
@@ -33,7 +33,7 @@ export default function Rotas() {
             />
           */}
         </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

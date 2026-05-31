@@ -3,7 +3,7 @@
  */
 import style from './Hero.module.css'
 import Perfil from '../../assets/foto perfil.jpeg'
-import Cv from '../cv/Marcelo deve frod-end.pdf'
+import Cv from '../cv/Marcelo-Henrique-Curriculo.pdf'
 
 export default function Hero() {
   return (
@@ -19,32 +19,34 @@ export default function Hero() {
           />
         </div>
         <div className={style.boxText}>
-        
-          <h1>Marcelo Henrique</h1>
-          <p className={style.subtitle}>Desenvolvedor Full Stack Júnior</p>
+          <p className={style.eyebrow}>Marcelo Henrique</p>
+          <h1>Desenvolvedor Full Stack Júnior em formação</h1>
           <p className={style.description}>
-            Crio interfaces web modernas, responsivas e acessíveis com foco em usabilidade, performance e organização de código. Tenho formação em Análise e Desenvolvimento de Sistemas e experiência prática com HTML, CSS, JavaScript, React e Node.js.
+            Crio interfaces responsivas com React, JavaScript, TypeScript, HTML e CSS, aplicando boas práticas de componentização, organização de código e experiência do usuário.
           </p>
           <p className={style.description}>
-            Busco evoluir em equipes colaborativas, entregando soluções bem estruturadas, fáceis de manter e orientadas à experiência do usuário.
+            Estou construindo projetos próprios e estudos práticos para evoluir como desenvolvedor e atuar em aplicações web modernas.
           </p>
           <ul className={style.highlights} aria-label="Destaques profissionais">
             <li>React + Vite</li>
+            <li>TypeScript</li>
             <li>UI responsiva</li>
-            <li>Git e boas práticas</li>
           </ul>
           <div className={style.heroActions}>
+            <a href="#projects" className={style.primaryAction}>
+              Ver projetos
+            </a>
             <a
               href={Cv}
               target="_blank"
               rel="noopener noreferrer"
               referrerPolicy="strict-origin-when-cross-origin"
-              className={style.primaryAction}
+              className={style.secondaryAction}
             >
-              Ver currículo
+              Baixar currículo
             </a>
-            <a href="#projects" className={style.secondaryAction}>
-              Ver projetos
+            <a href="#contact" className={style.secondaryAction}>
+              Entrar em contato
             </a>
           </div>
         </div>

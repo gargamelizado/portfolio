@@ -96,6 +96,18 @@
   text-align: center;
 }
 
+.form-status--error {
+  color: #fecaca;
+}
+
+.form-status--success {
+  color: #bbf7d0;
+}
+
+.form-status--info {
+  color: #bfdbfe;
+}
+
 /* Tablet (720px - 1024px) */
 @media (max-width: 1024px) {
   #contact {

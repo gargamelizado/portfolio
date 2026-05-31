@@ -1,7 +1,6 @@
 /**
  * Grade de tecnologias; dados em array local (fácil de estender).
  */
-import React from 'react';
 import html from '../../assets/html.png';
 import css from '../../assets/css.png';
 import js from '../../assets/js.png';
@@ -11,8 +10,16 @@ import git from '../../assets/git.png';
 import figma from '../../assets/figma.png';
 import Mysql from '../../assets/mysql.png';
 import styles from './Skills.module.css';
+import python from '../../assets/python.svg';
+import java from '../../assets/Java.svg';
+import typescript from '../../assets/Typescript.svg';
 
-const skills = [
+type Skill = {
+  name: string;
+  icon: string;
+};
+
+const skills: Skill[] = [
   { name: 'HTML5', icon: html },
   { name: 'CSS3', icon: css },
   { name: 'JavaScript', icon: js },
@@ -20,7 +27,10 @@ const skills = [
   { name: 'Node.js', icon: node },
   { name: 'Git', icon: git },
   { name: 'Figma', icon: figma },
-  { name: 'MySQL', icon: Mysql }
+  { name: 'MySQL', icon: Mysql },
+  { name: 'Python', icon: python },
+  { name: 'Java', icon: java },
+  { name: 'TypeScript', icon: typescript },
 ];
 
 export default function Skills() {

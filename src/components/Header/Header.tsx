@@ -5,17 +5,18 @@
 import styles from "./Header.module.css";
 import LogoGithub from "../../assets/github-logo2.png";
 import LogoHeader from "../../assets/log2.jpeg";
+import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import iconCloser from "../../assets/menu-closer.svg";
 import iconBars from "../../assets/menu-togle.svg";
 import Off from "../../assets/toggle_off.png";
 import On from "../../assets/toggle_on.png";
-import Cv from "../cv/Marcelo deve frod-end.pdf"
+import Cv from "../cv/Marcelo-Henrique-Curriculo.pdf"
 
 const storageThemeKey = 'portfolio-theme';
 
-const getSavedTheme = () => {
+const getSavedTheme = (): string | null => {
   try {
     return localStorage.getItem(storageThemeKey);
   } catch {
@@ -23,7 +24,7 @@ const getSavedTheme = () => {
   }
 };
 
-const saveTheme = (theme) => {
+const saveTheme = (theme: 'dark' | 'light'): void => {
   try {
     localStorage.setItem(storageThemeKey, theme);
   } catch {
@@ -31,12 +32,23 @@ const saveTheme = (theme) => {
   }
 };
 
+type SocialLink = {
+  href: string;
+  label: string;
+  icon: ReactNode;
+};
+
 /** Links externos exibidos à direita no desktop */
-const socialLinks = [
+const socialLinks: SocialLink[] = [
   {
     href: "https://github.com/gargamelizado",
     label: "GitHub",
     icon: <img src={LogoGithub} alt="GitHub" className={styles.socialIcon} />,
+  },
+  {
+    href: "https://www.linkedin.com/in/marcelo-henrique-sarzedas-justo-64841440b/",
+    label: "LinkedIn",
+    icon: <span aria-hidden="true">in</span>,
   },
   {
     href: Cv,
@@ -89,7 +101,7 @@ const Header = () => {
       return undefined;
     }
 
-    const handleEscape = (event) => {
+    const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeMenu();
       }
@@ -107,7 +119,7 @@ const Header = () => {
   }, [menuActive]);
 
   /** Scroll suave até um elemento com id (só útil quando esse id existe no DOM). */
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string): void => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -116,7 +128,7 @@ const Header = () => {
   };
 
   /** Na home faz scroll; em /projects volta para / e Home usa location.state para rolar depois do mount. */
-  const goToSection = (id) => {
+  const goToSection = (id: string): void => {
     if (location.pathname !== "/") {
       navigate('/', { state: { scrollTo: id } });
     } else {
@@ -126,7 +138,7 @@ const Header = () => {
   };
 
   /** Destaque visual do item de menu cuja rota está ativa (NavLink). */
-  const navClass = ({ isActive }) =>
+  const navClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? `${styles.navLinkActive}` : undefined;
 
   return (

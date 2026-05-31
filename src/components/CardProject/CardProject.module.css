@@ -27,6 +27,22 @@
   font-weight: 600;
 }
 
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 0.8rem;
+}
+
+.metaRow span {
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 999px;
+  color: #dbeafe;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.22rem 0.52rem;
+}
+
 .thumbWrap {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -102,9 +118,9 @@
   margin-top: 0.75rem;
 }
 .card .legenda {
-  color: #dbe0e7;
-  font-size: 20px;
- 
+  color: #bfdbfe;
+  font-size: 0.86rem;
+  margin: 0.8rem 0 0;
 }
 
 @keyframes fadeUp {
