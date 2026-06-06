@@ -43,6 +43,7 @@ Principais recursos:
 - Prettier `3.8.1`
 - CSS Modules + CSS global
 
+
 ## Estrutura Principal
 
 ```text
