@@ -13,14 +13,14 @@ O projeto foi pensado para transformar uma landing page estática em uma aplica�
 
 ## Stack principal
 
-| Camada | Tecnologias |
-| --- | --- |
-| Front-end | React, Vite, JavaScript/JSX, CSS modular |
-| Back-end | Node.js, Express, TypeScript, Zod |
-| Dados | Prisma, MySQL |
-| Estado | React Query, Zustand |
+| Camada    | Tecnologias                               |
+| --------- | ----------------------------------------- |
+| Front-end | React, Vite, JavaScript/JSX, CSS modular  |
+| Back-end  | Node.js, Express, TypeScript, Zod         |
+| Dados     | Prisma, MySQL                             |
+| Estado    | React Query, Zustand                      |
 | Qualidade | Vitest, Testing Library, ESLint, Prettier |
-| Segurança | JWT, bcryptjs |
+| Segurança | JWT, bcryptjs                             |
 
 ## Arquitetura
 
