@@ -6,7 +6,7 @@ describe('Contact', () => {
   it('valida campos obrigatórios antes do envio', () => {
     render(<Contact />);
 
-    const form = screen.getByRole('button', { name: 'Enviar' }).closest('form');
+    const form = screen.getByRole('button', { name: 'Enviar mensagem' }).closest('form');
     expect(form).not.toBeNull();
     if (!form) return;
 

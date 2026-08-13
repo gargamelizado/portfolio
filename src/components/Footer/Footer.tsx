@@ -6,7 +6,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer>
-      © {new Date().getFullYear()} Marcelo Henrique • Desenvolvedor Web
+      © {new Date().getFullYear()} Marcelo Henrique • Desenvolvedor Full Stack Júnior
     </footer>
   );
 }

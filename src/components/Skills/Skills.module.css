@@ -1,17 +1,18 @@
 .skillsSection {
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
-  border-radius: 0;
-  margin: 2rem 0;
-  box-shadow: none;
-  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  background: linear-gradient(135deg, var(--surface-soft) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border-radius: 18px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--border-soft);
 }
 
 .skillsSection h2 {
   text-align: center;
   margin-bottom: 2.5rem;
   font-size: 2.2rem;
-  color: #f1f5f9;
+  color: var(--text-strong);
   font-weight: 700;
 }
 
@@ -25,18 +26,18 @@
 }
 
 .skillCard {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+  background: var(--surface-card);
   border-radius: 10px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.18);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  color: #f1f5f9;
+  color: var(--text-strong);
   font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid var(--border-soft);
 }
 .skillCard img {
   width: 50px;

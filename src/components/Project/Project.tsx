@@ -94,8 +94,8 @@ export default function Project({ mode = "all" }: ProjectProps) {
       </h1>
       <p className={styles.projectIntro}>
         {isFeaturedMode
-          ? "Alguns projetos que representam melhor minha evolução com React, HTML, CSS, responsividade e organização de código."
-          : "Aqui estão projetos principais e estudos práticos que desenvolvi durante minha evolução como desenvolvedor."}
+          ? "Projetos selecionados que refletem meu processo de criação com React, TypeScript, HTML e CSS, com foco em interfaces funcionais, responsivas e bem estruturadas."
+          : "Abaixo estão projetos principais e estudos práticos desenvolvidos ao longo da minha evolução como desenvolvedor, com foco em aplicação real de conceitos, qualidade de código e boa experiência de uso."}
       </p>
 
       {!isFeaturedMode ? (

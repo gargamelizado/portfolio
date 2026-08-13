@@ -140,7 +140,7 @@ export default function Contact() {
 
   return (
     <section id="contact">
-      <h2>Contato</h2>
+      <h2>Vamos conversar</h2>
       <form onSubmit={handleSubmit} className="contact-form" noValidate>
         <div className="form-group">
           <label htmlFor="contact-name">Nome</label>
@@ -197,7 +197,7 @@ export default function Contact() {
           />
         </div>
         <button type="submit" className="submit-btn" disabled={isSending}>
-          {isSending ? 'Enviando...' : 'Enviar'}
+          {isSending ? 'Enviando...' : 'Enviar mensagem'}
         </button>
         {statusMessage && (
           <p className={`form-status form-status--${statusMessage.type}`} role="status" aria-live="polite">

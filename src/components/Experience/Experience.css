@@ -5,7 +5,7 @@
 }
 
 .experience-section h2 {
-  color: #f1f5f9;
+  color: var(--text-strong);
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0 0 2rem;
@@ -18,17 +18,17 @@
 }
 
 .experience-item {
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(147, 197, 253, 0.24);
+  background: var(--surface-card);
+  border: 1px solid var(--border-soft);
   border-radius: 12px;
   padding: 1.25rem;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(10px);
   animation: fadeUp 0.55s ease both;
 }
 
 .experience-item span {
-  color: #93c5fd;
+  color: var(--accent);
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 700;
@@ -36,13 +36,13 @@
 }
 
 .experience-item h3 {
-  color: #f8fafc;
+  color: var(--text-strong);
   font-size: 1.15rem;
   margin: 0 0 0.5rem;
 }
 
 .experience-item p {
-  color: #e0f2fe;
+  color: var(--text-main);
   line-height: 1.7;
   margin: 0;
 }

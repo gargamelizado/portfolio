@@ -9,17 +9,16 @@ export default function About() {
       <h2>Sobre Mim</h2>
       <div className="about-content">
         <p>
-          Sou Marcelo Henrique, desenvolvedor web em formação com foco em Front-end e fundamentos de Back-end.
-          Antes de me dedicar ao desenvolvimento, trabalhei em contextos que exigiam organização, atenção ao cliente,
-          resolução de problemas e cumprimento de prazos, o que me ajudou a construir uma postura mais responsável e orientada a resultados.
+          Sou Marcelo Henrique, desenvolvedor web com foco em front-end e base sólida em back-end.
+          Antes de migrar para a tecnologia, atuava em ambientes que exigiam organização, atenção ao cliente,
+          resolução de problemas e cumprimento de prazos — habilidades que hoje me ajudam a criar produtos mais claros, úteis e orientados a resultado.
         </p>
         <p>
-          Essa experiência me ensinou a transformar demandas em soluções práticas, ouvir o usuário e entregar experiências mais claras e úteis.
-          Hoje, aplico essa mesma lógica no desenvolvimento de interfaces e sistemas: código limpo, comunicação objetiva, foco na jornada do usuário e preocupação com a entrega real do produto.
+          Essa experiência me ensinou a transformar demandas em soluções práticas e a pensar cada projeto pela experiência de quem vai usar o produto.
+          Hoje, aplico essa mesma lógica no desenvolvimento de interfaces e aplicações web: código limpo, comunicação objetiva, raciocínio técnico e atenção à jornada do usuário.
         </p>
         <p>
-          Meu objetivo é conquistar minha primeira oportunidade como desenvolvedor júnior, contribuindo com dedicação,
-          aprendizado constante e uma visão que combina técnica, boa comunicação e preocupação com a experiência de quem usa o sistema.
+          Meu objetivo é contribuir em um ambiente de tecnologia com dedicação, aprendizado contínuo e uma visão que combina técnica, organização e foco em entregar valor real.
         </p>
       </div>
     </section>

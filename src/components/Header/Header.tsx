@@ -15,6 +15,9 @@ import On from "../../assets/toggle_on.png";
 import Cv from "../cv/Marcelo-Henrique-Curriculo.pdf"
 
 const storageThemeKey = 'portfolio-theme';
+const storageVisualThemeKey = 'portfolio-visual-theme';
+
+type VisualTheme = 'cyberpunk' | 'minimal';
 
 const getSavedTheme = (): string | null => {
   try {
@@ -29,6 +32,23 @@ const saveTheme = (theme: 'dark' | 'light'): void => {
     localStorage.setItem(storageThemeKey, theme);
   } catch {
     // O tema continua funcionando na sessão mesmo se o navegador bloquear storage.
+  }
+};
+
+const getSavedVisualTheme = (): VisualTheme => {
+  try {
+    const savedTheme = localStorage.getItem(storageVisualThemeKey);
+    return savedTheme === 'minimal' ? 'minimal' : 'cyberpunk';
+  } catch {
+    return 'cyberpunk';
+  }
+};
+
+const saveVisualTheme = (theme: VisualTheme): void => {
+  try {
+    localStorage.setItem(storageVisualThemeKey, theme);
+  } catch {
+    // O tema visual continua funcionando mesmo se o navegador bloquear storage.
   }
 };
 
@@ -65,6 +85,7 @@ const Header = () => {
     const savedTheme = getSavedTheme();
     return savedTheme === 'dark';
   });
+  const [visualTheme, setVisualTheme] = useState<VisualTheme>(() => getSavedVisualTheme());
 
   const toggleMenu = () => {
     setMenuActive((prevState) => !prevState);
@@ -84,6 +105,12 @@ const Header = () => {
   useEffect(() => {
     document.body.classList.toggle('darkmode', darkMode);
   }, [darkMode]);
+
+  useEffect(() => {
+    document.body.classList.toggle('theme-cyberpunk', visualTheme === 'cyberpunk');
+    document.body.classList.toggle('theme-minimal', visualTheme === 'minimal');
+    saveVisualTheme(visualTheme);
+  }, [visualTheme]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -254,6 +281,24 @@ const Header = () => {
               {link.icon}
             </a>
           ))}
+          <div className={styles.visualThemeToggle} aria-label="Selecionar direção visual">
+            <button
+              type="button"
+              className={visualTheme === 'cyberpunk' ? styles.visualThemeButtonActive : styles.visualThemeButton}
+              onClick={() => setVisualTheme('cyberpunk')}
+              aria-pressed={visualTheme === 'cyberpunk'}
+            >
+              Cyber
+            </button>
+            <button
+              type="button"
+              className={visualTheme === 'minimal' ? styles.visualThemeButtonActive : styles.visualThemeButton}
+              onClick={() => setVisualTheme('minimal')}
+              aria-pressed={visualTheme === 'minimal'}
+            >
+              Minimal
+            </button>
+          </div>
           <div className={styles.darkModeToggle}>
             <button
               type="button"

@@ -20,18 +20,19 @@ export default function Hero() {
         </div>
         <div className={style.boxText}>
           <p className={style.eyebrow}>Marcelo Henrique</p>
-          <p className={style.status}>Disponível para oportunidades</p>
-          <h1>Desenvolvedor Full Stack Júnior em formação</h1>
+          <p className={style.status}>Disponível para projetos e oportunidades</p>
+          <h1>Desenvolvedor Full Stack Júnior criando interfaces digitais com clareza, performance e valor</h1>
           <p className={style.description}>
-            Crio interfaces responsivas com React, JavaScript, TypeScript, HTML e CSS, aplicando boas práticas de componentização, organização de código e experiência do usuário.
+            Construo aplicações web com React, TypeScript, HTML e CSS, com foco em experiência do usuário, organização da interface e qualidade de entrega.
           </p>
           <p className={style.description}>
-            Estou construindo projetos próprios e estudos práticos para evoluir como desenvolvedor e atuar em aplicações web modernas.
+            Minha abordagem combina lógica técnica, comunicação clara e atenção aos detalhes para transformar ideias em produtos digitais mais úteis, consistentes e confiáveis.
           </p>
           <ul className={style.highlights} aria-label="Destaques profissionais">
-            <li>React + Vite</li>
-            <li>TypeScript</li>
-            <li>UI responsiva</li>
+            <li>React &amp; TypeScript</li>
+            <li>UI/UX</li>
+            <li>Aplicações web</li>
+            <li>Performance</li>
           </ul>
           <div className={style.heroActions}>
             <a href="#projects" className={style.primaryAction}>
