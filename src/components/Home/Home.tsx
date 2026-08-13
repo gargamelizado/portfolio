@@ -31,14 +31,16 @@ export default function Home() {
   }, [location.key, state]);
 
   return (
-    <section id="home">
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Project mode="featured" />
-      <Contact />
-      <Footer />
-    </section>
+    <main id="main-content" aria-label="Conteúdo principal">
+      <section id="home">
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Project mode="featured" />
+        <Contact />
+        <Footer />
+      </section>
+    </main>
   );
 }

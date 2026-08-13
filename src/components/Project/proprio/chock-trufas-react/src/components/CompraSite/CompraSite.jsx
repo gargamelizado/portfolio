@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import catalogoBase from "../../data/catalog.json";
+import { useCartStore } from "../../store/cartStore";
 import "./CompraSite.css";
 
 const nomesCategoriaCombo = {
@@ -24,8 +26,28 @@ const enderecoEntregaInicial = {
 
 // Página completa de compra: carrega o catálogo, monta o carrinho e envia o pedido para a API.
 export default function CompraSite() {
-  const [produtos, setProdutos] = useState(produtosBase);
-  const [itensCarrinho, setItensCarrinho] = useState([]);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const setCartItems = useCartStore((state) => state.setCartItems);
+  const addCartItem = useCartStore((state) => state.addCartItem);
+  const removeCartItem = useCartStore((state) => state.removeCartItem);
+  const clearCartItems = useCartStore((state) => state.clearCartItems);
+
+  const { data: catalogoApi, isLoading, isError } = useQuery({
+    queryKey: ["catalogo-chock-trufas"],
+    queryFn: async () => {
+      const response = await fetch("/api/catalog");
+      if (!response.ok) {
+        throw new Error("Não foi possível carregar o catálogo.");
+      }
+      const data = await response.json();
+      return Array.isArray(data.products) ? data.products : produtosBase;
+    },
+    initialData: produtosBase,
+    staleTime: 60_000,
+  });
+
+  const [produtos, setProdutos] = useState(catalogoApi ?? produtosBase);
+  const [itensCarrinho, setItensCarrinho] = useState(cartItems);
   const [quantidades, setQuantidades] = useState({});
   const [recheios, setRecheios] = useState({});
   const [comboEscolhas, setComboEscolhas] = useState({});
@@ -41,23 +63,17 @@ export default function CompraSite() {
     orderId: "",
   });
 
-  // Sincroniza os produtos da tela com o catálogo do backend; se a API cair, mantém o catalog.json importado.
   useEffect(() => {
-    async function carregarCatalogo() {
-      try {
-        const response = await fetch("/api/catalog");
-        const data = await response.json();
+    setProdutos(catalogoApi ?? produtosBase);
+  }, [catalogoApi]);
 
-        if (response.ok && Array.isArray(data.products)) {
-          setProdutos(data.products);
-        }
-      } catch {
-        setProdutos(produtosBase);
-      }
-    }
+  useEffect(() => {
+    setItensCarrinho(cartItems);
+  }, [cartItems]);
 
-    carregarCatalogo();
-  }, []);
+  useEffect(() => {
+    setCartItems(itensCarrinho);
+  }, [itensCarrinho, setCartItems]);
 
   function encontrarProduto(produtoId) {
     return produtos.find((produto) => produto.id === produtoId);
@@ -282,16 +298,17 @@ export default function CompraSite() {
   }
 
   function adicionarAoCarrinho(produtoId) {
-    setItensCarrinho((itensAtuais) => [
-      ...itensAtuais,
-      {
-        cartItemId: criarItemCarrinhoId(produtoId),
-        productId: produtoId,
-      },
-    ]);
+    const item = {
+      cartItemId: criarItemCarrinhoId(produtoId),
+      productId: produtoId,
+    };
+
+    addCartItem(item);
+    setItensCarrinho((itensAtuais) => [...itensAtuais, item]);
   }
 
   function removerDoCarrinho(cartItemId) {
+    removeCartItem(cartItemId);
     setItensCarrinho((itensAtuais) =>
       itensAtuais.filter((item) => item.cartItemId !== cartItemId)
     );
@@ -637,6 +654,7 @@ export default function CompraSite() {
       );
 
       event.currentTarget.reset();
+      clearCartItems();
       setItensCarrinho([]);
       setQuantidades({});
       setRecheios({});
@@ -688,6 +706,12 @@ export default function CompraSite() {
           </div>
 
           {/* Catálogo visual: o cliente adiciona produtos ao carrinho sem depender de checkbox cru. */}
+          {isLoading ? (
+            <p className="statusCatalogo">Carregando catálogo...</p>
+          ) : null}
+          {isError ? (
+            <p className="statusCatalogo erro">Não foi possível carregar o catálogo. Usando catálogo local.</p>
+          ) : null}
           <fieldset className="catalogoProdutos">
             <legend>Adicionar produtos</legend>
             <div className="catalogoGrid">

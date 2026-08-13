@@ -20,6 +20,7 @@ export default function Hero() {
         </div>
         <div className={style.boxText}>
           <p className={style.eyebrow}>Marcelo Henrique</p>
+          <p className={style.status}>Disponível para oportunidades</p>
           <h1>Desenvolvedor Full Stack Júnior em formação</h1>
           <p className={style.description}>
             Crio interfaces responsivas com React, JavaScript, TypeScript, HTML e CSS, aplicando boas práticas de componentização, organização de código e experiência do usuário.

@@ -31,6 +31,22 @@ body {
     filter 0.45s ease;
 }
 
+:focus-visible {
+  outline: 3px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body.darkmode {
   --page-bg-start: var(--theme-dark-bg-start);
   --page-bg-mid: var(--theme-dark-bg-mid);

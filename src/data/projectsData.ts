@@ -39,6 +39,16 @@ export const projectsData = [
     status: 'em-evolucao',
     level: 'intermediario',
     type: 'React',
+    caseStudy: {
+      problem:
+        'A Chock Trufas precisava evoluir de uma venda informal em WhatsApp para uma experiência de compra mais clara, organizada e escalável.',
+      challenge:
+        'Transformar a ideia visual em uma solução com catalogação de produtos, carrinho e fluxo de pedido sem perder a identidade da marca.',
+      solution:
+        'Reestruturei a interface em React, organizei o catálogo em componentes reutilizáveis e adicionei um fluxo de compra mais didático e consistente para o cliente.',
+      learning:
+        'A principal aprendizagem foi enxergar que a experiência do usuário melhora quando a interface reduz atrito, dá clareza ao produto e fortalece a confiança na compra.',
+    },
     futureImprovements: [
       'Aprimorar responsividade fina em telas muito pequenas.',
       'Evoluir a página de compra com validações e estados mais completos.',

@@ -12,6 +12,13 @@ export type ProjectType =
   | 'TypeScript'
   | 'Projeto próprio';
 
+export type ProjectCaseStudy = {
+  problem: string;
+  challenge: string;
+  solution: string;
+  learning: string;
+};
+
 export type Project = {
   id: number;
   slug: string;
@@ -31,4 +38,5 @@ export type Project = {
   level?: ProjectLevel;
   type?: ProjectType;
   futureImprovements?: string[];
+  caseStudy?: ProjectCaseStudy;
 };

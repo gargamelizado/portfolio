@@ -66,6 +66,21 @@ export default function ProjectDetails() {
           <p>{project.details ?? 'Projeto prático desenvolvido para consolidar fundamentos de desenvolvimento web.'}</p>
           <h2>O que pratiquei neste projeto</h2>
           <p>{project.learning ?? 'Estruturação de página, organização visual e publicação de uma experiência navegável.'}</p>
+          {project.caseStudy ? (
+            <>
+              <h2>Estudo de caso</h2>
+              <div>
+                <h3>Problema</h3>
+                <p>{project.caseStudy.problem}</p>
+                <h3>Desafio</h3>
+                <p>{project.caseStudy.challenge}</p>
+                <h3>Solução</h3>
+                <p>{project.caseStudy.solution}</p>
+                <h3>Aprendizado</h3>
+                <p>{project.caseStudy.learning}</p>
+              </div>
+            </>
+          ) : null}
           <ul className={styles.tags} aria-label={`Tecnologias usadas em ${project.title}`}>
             {project.technologies.map((technology) => (
               <li key={technology}>{technology}</li>

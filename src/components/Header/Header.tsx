@@ -143,6 +143,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <a href="#main-content" className={styles.skipLink}>
+        Pular para o conteúdo
+      </a>
       <div className={styles.wrapperHeader}>
         <NavLink to="/" className={styles.logoButton} end aria-label="Início">
           <img src={LogoHeader} alt="" />

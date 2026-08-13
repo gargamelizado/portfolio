@@ -10,7 +10,7 @@ import Espaco from "./components/Espaco/Espaco";
 
 // App controla a composição das páginas: site institucional na raiz e compra em /compra.
 function App() {
-  const paginaCompra = window.location.pathname === "/compra";
+  const paginaCompra = typeof window !== "undefined" && window.location.pathname === "/compra";
 
   if (paginaCompra) {
     return (
