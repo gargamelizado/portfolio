@@ -1,13 +1,27 @@
 /* Estilos globais herdados do template Vite + ajustes do app (#root, body). */
 :root {
-  --theme-light-bg-start: #1d72e2;
-  --theme-light-bg-mid: #0d0c7a;
-  --theme-light-bg-end: #2563eb;
-  --theme-light-accent: rgba(255, 255, 255, 0.58);
-  --theme-dark-bg-start: #0f172a;
-  --theme-dark-bg-mid: #1e3a8a;
-  --theme-dark-bg-end: #082f49;
-  --theme-dark-accent: rgba(56, 189, 248, 0.22);
+  --theme-light-bg-start: #eaf2ff;
+  --theme-light-bg-mid: #d6e8ff;
+  --theme-light-bg-end: #a9ccff;
+  --theme-light-accent: rgba(96, 165, 250, 0.14);
+  --theme-dark-bg-start: #020817;
+  --theme-dark-bg-mid: #081327;
+  --theme-dark-bg-end: #0b1732;
+  --theme-dark-accent: rgba(59, 130, 246, 0.2);
+  --surface-strong: rgba(15, 23, 42, 0.92);
+  --surface-soft: rgba(15, 23, 42, 0.72);
+  --surface-card: rgba(10, 16, 32, 0.78);
+  --surface-card-strong: rgba(15, 23, 42, 0.94);
+  --surface-muted: rgba(20, 35, 58, 0.72);
+  --text-strong: #f8fbff;
+  --text-main: #dfeafc;
+  --text-soft: #a5b9d8;
+  --text-inverse: #020817;
+  --border-soft: rgba(96, 165, 250, 0.28);
+  --border-strong: rgba(96, 165, 250, 0.4);
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --success-soft: rgba(34, 197, 94, 0.12);
 }
 
 #root {
@@ -15,13 +29,28 @@
 }
 
 body {
-  --page-bg-start: var(--theme-light-bg-start);
-  --page-bg-mid: var(--theme-light-bg-mid);
-  --page-bg-end: var(--theme-light-bg-end);
-  --page-accent: var(--theme-light-accent);
+  --page-bg-start: var(--theme-dark-bg-start);
+  --page-bg-mid: var(--theme-dark-bg-mid);
+  --page-bg-end: var(--theme-dark-bg-end);
+  --page-accent: var(--theme-dark-accent);
+  --surface-strong: rgba(15, 23, 42, 0.92);
+  --surface-soft: rgba(15, 23, 42, 0.72);
+  --surface-card: rgba(10, 16, 32, 0.78);
+  --surface-card-strong: rgba(15, 23, 42, 0.94);
+  --surface-muted: rgba(20, 35, 58, 0.72);
+  --text-strong: #f8fbff;
+  --text-main: #dfeafc;
+  --text-soft: #a5b9d8;
+  --text-inverse: #020817;
+  --border-soft: rgba(96, 165, 250, 0.28);
+  --border-strong: rgba(96, 165, 250, 0.4);
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --success-soft: rgba(34, 197, 94, 0.12);
   background:
-    radial-gradient(circle at 18% 12%, var(--page-accent) 0%, transparent 30%),
-    linear-gradient(135deg, var(--page-bg-start) 0%, var(--page-bg-mid) 42%, var(--page-bg-end) 100%);
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.24) 0%, transparent 22%),
+    radial-gradient(circle at 80% 0%, rgba(96, 165, 250, 0.18) 0%, transparent 24%),
+    linear-gradient(135deg, var(--page-bg-start) 0%, var(--page-bg-mid) 48%, var(--page-bg-end) 100%);
   background-attachment: fixed;
   background-size: 140% 140%;
   transition:
@@ -29,6 +58,42 @@ body {
     background-position 0.55s ease,
     color 0.45s ease,
     filter 0.45s ease;
+  color: var(--text-main);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at center, black 48%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+:focus-visible {
+  outline: 3px solid #7dd3fc;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body.darkmode {
@@ -36,7 +101,83 @@ body.darkmode {
   --page-bg-mid: var(--theme-dark-bg-mid);
   --page-bg-end: var(--theme-dark-bg-end);
   --page-accent: var(--theme-dark-accent);
+  --surface-strong: rgba(15, 23, 42, 0.95);
+  --surface-soft: rgba(15, 23, 42, 0.8);
+  --surface-card: rgba(8, 14, 28, 0.85);
+  --surface-card-strong: rgba(15, 23, 42, 0.96);
+  --surface-muted: rgba(20, 35, 58, 0.8);
+  --text-strong: #f8fbff;
+  --text-main: #dfeafc;
+  --text-soft: #a5b9d8;
+  --text-inverse: #020817;
+  --border-soft: rgba(96, 165, 250, 0.28);
+  --border-strong: rgba(96, 165, 250, 0.4);
+  --accent: #7dd3fc;
+  --accent-strong: #60a5fa;
+  --success-soft: rgba(34, 197, 94, 0.12);
   background-position: 100% 100%;
+  color: var(--text-main);
+}
+
+body.theme-cyberpunk {
+  --page-bg-start: #030712;
+  --page-bg-mid: #071427;
+  --page-bg-end: #0f172a;
+  --page-accent: rgba(59, 130, 246, 0.32);
+  --surface-strong: rgba(9, 14, 28, 0.94);
+  --surface-soft: rgba(12, 18, 34, 0.82);
+  --surface-card: rgba(11, 19, 38, 0.8);
+  --surface-card-strong: rgba(14, 22, 42, 0.96);
+  --surface-muted: rgba(15, 23, 42, 0.8);
+  --text-strong: #f5fbff;
+  --text-main: #dfeafc;
+  --text-soft: #a8bedf;
+  --text-inverse: #020817;
+  --border-soft: rgba(125, 211, 252, 0.3);
+  --border-strong: rgba(96, 165, 250, 0.52);
+  --accent: #67e8f9;
+  --accent-strong: #60a5fa;
+  --success-soft: rgba(34, 197, 94, 0.1);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.28) 0%, transparent 18%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.26) 0%, transparent 22%),
+    linear-gradient(140deg, #020817 0%, #071427 38%, #0f172a 100%);
+}
+
+body.theme-cyberpunk::before {
+  background-image:
+    linear-gradient(rgba(103, 232, 249, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 232, 249, 0.08) 1px, transparent 1px);
+}
+
+body.theme-minimal {
+  --page-bg-start: #0a1120;
+  --page-bg-mid: #101c2d;
+  --page-bg-end: #15253d;
+  --page-accent: rgba(125, 211, 252, 0.12);
+  --surface-strong: rgba(17, 24, 39, 0.84);
+  --surface-soft: rgba(15, 23, 42, 0.7);
+  --surface-card: rgba(13, 20, 34, 0.72);
+  --surface-card-strong: rgba(17, 24, 39, 0.9);
+  --surface-muted: rgba(30, 41, 59, 0.72);
+  --text-strong: #f8fafc;
+  --text-main: #dfe7f5;
+  --text-soft: #b3c2da;
+  --text-inverse: #0b1120;
+  --border-soft: rgba(148, 163, 184, 0.2);
+  --border-strong: rgba(96, 165, 250, 0.22);
+  --accent: #93c5fd;
+  --accent-strong: #60a5fa;
+  --success-soft: rgba(34, 197, 94, 0.12);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(148, 163, 184, 0.12) 0%, transparent 22%),
+    linear-gradient(135deg, #0a1120 0%, #101c2d 42%, #15253d 100%);
+}
+
+body.theme-minimal::before {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
 }
 
 body,

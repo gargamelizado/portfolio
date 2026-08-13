@@ -45,6 +45,22 @@
   color: #f8fafc;
 }
 
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.metaRow span {
+  border: 1px solid rgba(96, 165, 250, 0.38);
+  border-radius: 999px;
+  color: #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.28rem 0.6rem;
+}
+
 .text h1 {
   margin: 0 0 1rem;
   font-size: 2.2rem;
@@ -58,6 +74,11 @@
 .text p {
   margin: 0;
   line-height: 1.7;
+}
+
+.lead {
+  color: #dbeafe;
+  font-size: 1.04rem;
 }
 
 .tags {
@@ -75,6 +96,17 @@
   color: #bfdbfe;
   font-weight: 700;
   padding: 0.3rem 0.7rem;
+}
+
+.futureList {
+  color: #f8fafc;
+  line-height: 1.7;
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.futureList li + li {
+  margin-top: 0.35rem;
 }
 
 .actions {

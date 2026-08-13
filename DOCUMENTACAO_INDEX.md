@@ -30,7 +30,7 @@ Este indice aponta para os arquivos de documentacao da raiz do projeto.
 - Rotas `/`, `/projects` e `/projects/:slug`.
 - Header compartilhado via `Layout`.
 - Formulario com endpoint opcional e fallback para email.
-- Projetos alimentados por `projectsData.js`.
+- Projetos alimentados por `projectsData.ts`.
 - Documentacao revisada em abril de 2026.
 
 ## Validacao

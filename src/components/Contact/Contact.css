@@ -9,7 +9,7 @@
   font-size: 2.2rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: #f1f5f9;
+  color: var(--text-strong);
   font-weight: 700;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .form-group label {
-  color: #dbeafe;
+  color: var(--text-main);
   display: inline-block;
   font-size: 0.95rem;
   font-weight: 700;
@@ -35,24 +35,24 @@
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid var(--border-soft);
   border-radius: 8px;
   font-family: inherit;
-  color: #f1f5f9;
-  background: rgba(15, 23, 42, 0.8);
+  color: var(--text-strong);
+  background: var(--surface-card-strong);
   transition: all 0.3s ease;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #94a3b8;
+  color: var(--text-soft);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #60a5fa;
-  background: rgba(15, 23, 42, 0.95);
+  border-color: var(--accent);
+  background: var(--surface-card-strong);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
@@ -90,10 +90,22 @@
 
 .form-status {
   margin: 1rem 0 0;
-  color: #bfdbfe;
+  color: var(--text-main);
   font-size: 0.95rem;
   line-height: 1.5;
   text-align: center;
+}
+
+.form-status--error {
+  color: #fecaca;
+}
+
+.form-status--success {
+  color: #bbf7d0;
+}
+
+.form-status--info {
+  color: #bfdbfe;
 }
 
 /* Tablet (720px - 1024px) */

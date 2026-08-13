@@ -1,0 +1,20 @@
+# Conventional Commits
+#
+# Examples:
+#   feat: add catalog API endpoints
+#   fix: adjust cart persistence on checkout
+#   docs: update project architecture readme
+#   refactor: split catalog service into domain layers
+#   test: add API integration coverage
+#   chore: update dependencies and CI config
+#
+# <type>: <short summary>
+#
+# body: optional details
+#
+# footer: optional issue reference
+#
+# Remember:
+# - Use lowercase type
+# - Keep the first line under 72 chars
+# - Separate body and footer with a blank line
