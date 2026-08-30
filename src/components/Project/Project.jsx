@@ -10,28 +10,19 @@ import {
   getProjectsByCategory,
   sortedProjects,
 } from "../../data/projectsData";
-import type { Project as ProjectItem } from "../../types/project";
 
-type ProjectMode = "featured" | "all";
+const projectMode = "featured";
 
-type ProjectProps = {
-  mode?: ProjectMode;
-};
+const filterOptionsList = [
+  "todos",
+  "principais",
+  "estudos",
+  "react",
+  "html-css",
+  "typescript",
+];
 
-export type ProjectFilter =
-  | "todos"
-  | "principais"
-  | "estudos"
-  | "react"
-  | "html-css"
-  | "typescript";
-
-type FilterOption = {
-  label: string;
-  value: ProjectFilter;
-};
-
-const baseFilters: FilterOption[] = [
+const baseFilters = [
   { label: "Todos", value: "todos" },
   { label: "Principais", value: "principais" },
   { label: "Estudos", value: "estudos" },
@@ -43,11 +34,11 @@ const hasTypeScriptProjects = sortedProjects.some((project) =>
   project.technologies.some((technology) => technology.toLowerCase().includes("typescript"))
 );
 
-const filterOptions: FilterOption[] = hasTypeScriptProjects
+const filterOptions = hasTypeScriptProjects
   ? [...baseFilters, { label: "TypeScript", value: "typescript" }]
   : baseFilters;
 
-const projectMatchesFilter = (project: ProjectItem, filter: ProjectFilter): boolean => {
+const projectMatchesFilter = (project, filter) => {
   const normalizedTechs = project.technologies.map((technology) => technology.toLowerCase());
 
   if (filter === "principais") return project.category === "principal";
@@ -67,7 +58,7 @@ const projectMatchesFilter = (project: ProjectItem, filter: ProjectFilter): bool
   return true;
 };
 
-const renderProjectGrid = (projects: ProjectItem[]) => (
+const renderProjectGrid = (projects) => (
   <div className={styles.projectGrid}>
     {projects.map((project) => (
       <CardProject key={project.id} project={project} />
@@ -75,8 +66,8 @@ const renderProjectGrid = (projects: ProjectItem[]) => (
   </div>
 );
 
-export default function Project({ mode = "all" }: ProjectProps) {
-  const [activeFilter, setActiveFilter] = useState<ProjectFilter>("todos");
+export default function Project({ mode = "all" }) {
+  const [activeFilter, setActiveFilter] = useState("todos");
   const isFeaturedMode = mode === "featured";
   const projects = isFeaturedMode
     ? featuredProjects

@@ -14,12 +14,7 @@ import python from '../../assets/python.svg';
 import java from '../../assets/Java.svg';
 import typescript from '../../assets/Typescript.svg';
 
-type Skill = {
-  name: string;
-  icon: string;
-};
-
-const skills: Skill[] = [
+const skills = [
   { name: 'HTML5', icon: html },
   { name: 'CSS3', icon: css },
   { name: 'JavaScript', icon: js },

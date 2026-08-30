@@ -4,24 +4,19 @@
 import { Link } from 'react-router-dom';
 import styles from './CardProject.module.css';
 import defaultImg from '../../assets/logo.png';
-import type { Project } from '../../types/project';
-
-type CardProjectProps = {
-  project: Project;
-};
 
 const categoryLabel = {
   principal: 'Projeto principal',
   estudo: 'Projeto de estudo',
-} as const;
+};
 
 const statusLabel = {
   finalizado: 'Finalizado',
   'em-evolucao': 'Em evolução',
   manutencao: 'Em manutenção',
-} as const;
+};
 
-export default function CardProject({ project }: CardProjectProps) {
+export default function CardProject({ project }) {
   const imgSrc = project.image || defaultImg;
   const repositoryLabel = project.repository ? `Abrir repositório de ${project.title}` : undefined;
   const websiteLabel = project.website ? `Abrir website de ${project.title}` : undefined;

@@ -1,12 +1,6 @@
 import './Experience.css';
 
-type ExperienceItem = {
-  title: string;
-  period: string;
-  description: string;
-};
-
-const experiences: ExperienceItem[] = [
+const experiences = [
   {
     title: 'Projetos de estudo em desenvolvimento web',
     period: 'Prática contínua',
