@@ -7,29 +7,15 @@ import './Contact.css';
 const contactEmail = 'marcelohdjusto@gmail.com';
 const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
 
-type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
-  website: string;
-};
-
-type ContactCleanData = Omit<ContactFormData, 'website'>;
-
-type ContactStatus = {
-  type: 'success' | 'error' | 'info';
-  message: string;
-} | null;
-
-const initialFormData: ContactFormData = { name: '', email: '', message: '', website: '' };
+const initialFormData = { name: '', email: '', message: '', website: '' };
 const maxLengths = {
   name: 80,
   email: 120,
   message: 1500,
   website: 120,
-} satisfies Record<keyof ContactFormData, number>;
+};
 
-const isSafeContactEndpoint = (endpoint: string | undefined): endpoint is string => {
+const isSafeContactEndpoint = (endpoint) => {
   if (!endpoint) return false;
 
   try {
@@ -41,7 +27,7 @@ const isSafeContactEndpoint = (endpoint: string | undefined): endpoint is string
   }
 };
 
-const normalizeFormData = (data: ContactFormData): ContactCleanData => ({
+const normalizeFormData = (data) => ({
   name: data.name.trim(),
   email: data.email.trim(),
   message: data.message.trim(),
@@ -49,14 +35,14 @@ const normalizeFormData = (data: ContactFormData): ContactCleanData => ({
 
 export default function Contact() {
   const [formData, setFormData] = useState(initialFormData);
-  const [statusMessage, setStatusMessage] = useState<ContactStatus>(null);
+  const [statusMessage, setStatusMessage] = useState(null);
   const [isSending, setIsSending] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     if (!Object.prototype.hasOwnProperty.call(maxLengths, name)) return;
 
-    const fieldName = name as keyof ContactFormData;
+    const fieldName = name;
     setFormData((currentData) => ({
       ...currentData,
       [fieldName]: value.slice(0, maxLengths[fieldName]),
@@ -64,7 +50,7 @@ export default function Contact() {
     setStatusMessage(null);
   };
 
-  const openEmailClient = (data: ContactCleanData) => {
+  const openEmailClient = (data) => {
     const subject = encodeURIComponent(`Contato pelo portfolio - ${data.name}`);
     const body = encodeURIComponent(
       `Nome: ${data.name}\nEmail: ${data.email}\n\nMensagem:\n${data.message}`
@@ -73,7 +59,7 @@ export default function Contact() {
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const cleanData = normalizeFormData(formData);
 

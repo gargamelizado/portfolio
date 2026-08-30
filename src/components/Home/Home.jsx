@@ -11,13 +11,9 @@ import Project from '../Project/Project';
 import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
 
-type HomeLocationState = {
-  scrollTo?: string;
-} | null;
-
 export default function Home() {
   const location = useLocation();
-  const state = location.state as HomeLocationState;
+  const state = location.state;
 
   // Navegação vinda do Header em /projects: rola para a seção após render e limpa o state da history.
   useEffect(() => {

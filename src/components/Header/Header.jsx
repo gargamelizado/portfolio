@@ -5,7 +5,6 @@
 import styles from "./Header.module.css";
 import LogoGithub from "../../assets/github-logo2.png";
 import LogoHeader from "../../assets/log2.jpeg";
-import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import iconCloser from "../../assets/menu-closer.svg";
@@ -17,9 +16,7 @@ import Cv from "../cv/Marcelo-Henrique-Curriculo.pdf"
 const storageThemeKey = 'portfolio-theme';
 const storageVisualThemeKey = 'portfolio-visual-theme';
 
-type VisualTheme = 'cyberpunk' | 'minimal';
-
-const getSavedTheme = (): string | null => {
+const getSavedTheme = () => {
   try {
     return localStorage.getItem(storageThemeKey);
   } catch {
@@ -27,7 +24,7 @@ const getSavedTheme = (): string | null => {
   }
 };
 
-const saveTheme = (theme: 'dark' | 'light'): void => {
+const saveTheme = (theme) => {
   try {
     localStorage.setItem(storageThemeKey, theme);
   } catch {
@@ -35,7 +32,7 @@ const saveTheme = (theme: 'dark' | 'light'): void => {
   }
 };
 
-const getSavedVisualTheme = (): VisualTheme => {
+const getSavedVisualTheme = () => {
   try {
     const savedTheme = localStorage.getItem(storageVisualThemeKey);
     return savedTheme === 'minimal' ? 'minimal' : 'cyberpunk';
@@ -44,7 +41,7 @@ const getSavedVisualTheme = (): VisualTheme => {
   }
 };
 
-const saveVisualTheme = (theme: VisualTheme): void => {
+const saveVisualTheme = (theme) => {
   try {
     localStorage.setItem(storageVisualThemeKey, theme);
   } catch {
@@ -52,14 +49,8 @@ const saveVisualTheme = (theme: VisualTheme): void => {
   }
 };
 
-type SocialLink = {
-  href: string;
-  label: string;
-  icon: ReactNode;
-};
-
 /** Links externos exibidos à direita no desktop */
-const socialLinks: SocialLink[] = [
+const socialLinks = [
   {
     href: "https://github.com/gargamelizado",
     label: "GitHub",
@@ -85,7 +76,7 @@ const Header = () => {
     const savedTheme = getSavedTheme();
     return savedTheme === 'dark';
   });
-  const [visualTheme, setVisualTheme] = useState<VisualTheme>(() => getSavedVisualTheme());
+  const [visualTheme, setVisualTheme] = useState(() => getSavedVisualTheme());
 
   const toggleMenu = () => {
     setMenuActive((prevState) => !prevState);
@@ -128,7 +119,7 @@ const Header = () => {
       return undefined;
     }
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleEscape = (event) => {
       if (event.key === "Escape") {
         closeMenu();
       }
@@ -146,7 +137,7 @@ const Header = () => {
   }, [menuActive]);
 
   /** Scroll suave até um elemento com id (só útil quando esse id existe no DOM). */
-  const scrollToSection = (id: string): void => {
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -155,7 +146,7 @@ const Header = () => {
   };
 
   /** Na home faz scroll; em /projects volta para / e Home usa location.state para rolar depois do mount. */
-  const goToSection = (id: string): void => {
+  const goToSection = (id) => {
     if (location.pathname !== "/") {
       navigate('/', { state: { scrollTo: id } });
     } else {
@@ -165,7 +156,7 @@ const Header = () => {
   };
 
   /** Destaque visual do item de menu cuja rota está ativa (NavLink). */
-  const navClass = ({ isActive }: { isActive: boolean }) =>
+  const navClass = ({ isActive }) =>
     isActive ? `${styles.navLinkActive}` : undefined;
 
   return (

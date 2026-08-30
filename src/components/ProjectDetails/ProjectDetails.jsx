@@ -7,21 +7,21 @@ import NotFound from '../NotFound/NotFound';
 const categoryLabel = {
   principal: 'Projeto principal',
   estudo: 'Projeto de estudo',
-} as const;
+};
 
 const statusLabel = {
   finalizado: 'Finalizado',
   'em-evolucao': 'Em evolução',
   manutencao: 'Em manutenção',
-} as const;
+};
 
 const levelLabel = {
   iniciante: 'Iniciante',
   intermediario: 'Intermediário',
-} as const;
+};
 
 export default function ProjectDetails() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
   const project = projectsData.find((item) => item.slug === slug);
 
   if (!project) {
