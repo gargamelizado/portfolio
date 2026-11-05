@@ -3,7 +3,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import ProjectDetails from './ProjectDetails';
 
-const renderDetailsRoute = (path: string) => {
+const renderDetailsRoute = (path) => {
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>

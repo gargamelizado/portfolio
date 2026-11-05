@@ -6,42 +6,18 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export type OrderInput = {
-  customerName: string;
-  phone: string;
-  items: Array<{
-    productId: string;
-    product: string;
-    quantity?: string;
-    quantityNumber?: number;
-    unitPrice: number;
-    subtotal: number;
-    filling?: string;
-    selectedComboItems?: Record<string, unknown> | null;
-  }>;
-  desiredDate?: string;
-  deliveryMethod: 'Retirada' | 'Entrega';
-  paymentMethod?: string;
-  address?: string;
-  pickupDate?: string;
-  pickupTime?: string;
-  pickupPerson?: string;
-  pickupDocument?: string;
-  notes?: string;
-};
-
 export const orderService = {
   async listOrders() {
     const filePath = resolve(__dirname, '..', 'data', 'orders.json');
     const raw = await readFile(filePath, 'utf-8');
-    const parsed = JSON.parse(raw) as unknown[];
+    const parsed = JSON.parse(raw);
     return parsed;
   },
 
-  async createOrder(input: OrderInput) {
+  async createOrder(input) {
     const filePath = resolve(__dirname, '..', 'data', 'orders.json');
     const raw = await readFile(filePath, 'utf-8').catch(() => '[]');
-    const existing = JSON.parse(raw) as Array<Record<string, unknown>>;
+    const existing = JSON.parse(raw);
 
     const total = input.items.reduce((sum, item) => sum + Number(item.subtotal || 0), 0);
     const createdOrder = {

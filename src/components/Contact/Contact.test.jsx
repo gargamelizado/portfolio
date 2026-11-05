@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import Contact from './Contact';
 
 describe('Contact', () => {
-  it('valida campos obrigatórios antes do envio', () => {
+  it('valida os campos obrigatórios antes do envio', () => {
     render(<Contact />);
 
     const form = screen.getByRole('button', { name: 'Enviar mensagem' }).closest('form');

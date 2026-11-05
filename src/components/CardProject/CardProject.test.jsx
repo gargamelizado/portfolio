@@ -5,7 +5,7 @@ import { projectsData } from '../../data/projectsData';
 import CardProject from './CardProject';
 
 describe('CardProject', () => {
-  it('renderiza título, tecnologias e links principais', () => {
+  it('renderiza título, tecnologias e ações principais', () => {
     const project = projectsData.find((item) => item.slug === 'chock-trufas-react');
 
     expect(project).toBeDefined();

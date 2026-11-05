@@ -1,10 +1,10 @@
 # Portfolio Web - Marcelo Henrique
 
-Portfólio pessoal desenvolvido com React, Vite e TypeScript para apresentar perfil profissional, habilidades, experiências, projetos e contato.
+Portfólio pessoal desenvolvido com React, Vite e JavaScript/JSX para apresentar perfil profissional, habilidades, experiências, projetos e contato.
 
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen?style=flat-square)
 ![React](https://img.shields.io/badge/React-19.2.0-61dafb?style=flat-square&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-migra%C3%A7%C3%A3o%20gradual-3178c6?style=flat-square&logo=typescript)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-f7df1e?style=flat-square&logo=javascript)
 ![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite)
 
 ## Visão Geral
@@ -19,12 +19,12 @@ O projeto é uma SPA com rotas:
 Principais recursos:
 
 - React 19 com Vite.
-- Migração gradual para TypeScript em arquivos principais `.tsx` e dados `.ts`.
+- Código da aplicação, configurações e testes em JavaScript (`.js`) e JSX (`.jsx`).
 - React Router DOM para navegação.
 - CSS Modules nos componentes principais e CSS global nas seções legadas.
 - Menu mobile com abertura/fechamento, backdrop, Escape e fechamento por resize.
 - Tema escuro/claro usando classe no `body` e preferência em `localStorage`.
-- Projetos centralizados em `src/data/projectsData.ts`.
+- Projetos centralizados em `src/data/projectsData.js`.
 - Curadoria de projetos com `featured`, `category`, `priority`, `level`, `type` e `status`.
 - Home com projetos principais e `/projects` com todos, principais, estudos e filtros por tecnologia.
 - Formulário de contato com `VITE_CONTACT_ENDPOINT` opcional e fallback para `mailto`.
@@ -36,7 +36,7 @@ Principais recursos:
 - React `^19.2.0`
 - React DOM `^19.2.0`
 - React Router DOM `^7.13.2`
-- TypeScript
+- JavaScript / JSX
 - Vite
 - Vitest + Testing Library
 - ESLint `^9.39.1`
@@ -50,25 +50,20 @@ Principais recursos:
 portfolio/
 ├── index.html
 ├── package.json
-├── vite.config.ts
+├── vite.config.js
 ├── eslint.config.js
-├── tsconfig.json
-├── tsconfig.app.json
-├── tsconfig.node.json
 ├── public/
 │   ├── 404.html
 │   ├── og-image.png
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
-│   ├── main.tsx
-│   ├── App.tsx
+│   ├── main.jsx
+│   ├── App.jsx
 │   ├── router/
-│   │   └── rotas.tsx
+│   │   └── rotas.jsx
 │   ├── data/
-│   │   └── projectsData.ts
-│   ├── types/
-│   │   └── project.ts
+│   │   └── projectsData.js
 │   ├── assets/
 │   └── components/
 │       ├── Layout/
@@ -103,7 +98,6 @@ npm run dev       # servidor de desenvolvimento
 npm run build     # build de produção em dist/
 npm run preview   # preview do build
 npm run lint      # análise com ESLint
-npm run typecheck # validação TypeScript sem emitir arquivos
 npm run test      # Vitest em modo watch
 npm run test:run  # Vitest em execução única
 ```
@@ -128,8 +122,7 @@ O `index.html` lê o parâmetro temporário `spa-redirect` e restaura a rota ori
 
 ## Alterações Recentes
 
-- Migração gradual dos componentes principais de `.jsx` para `.tsx`.
-- Criação de `src/types/project.ts` e `src/data/projectsData.ts`.
+- Padronização do app, dados, testes e configurações em `.js` e `.jsx`.
 - Reordenação dos projetos por força técnica usando `priority`.
 - Separação entre projetos principais e projetos de estudo.
 - Filtros em `/projects`.
@@ -146,7 +139,6 @@ O `index.html` lê o parâmetro temporário `spa-redirect` e restaura a rota ori
 Validações executadas nesta etapa:
 
 - `npm run lint`
-- `npm run typecheck`
 - `npm run test:run`
 - `npm run build`
 

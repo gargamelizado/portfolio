@@ -1,4 +1,4 @@
-import { cp, rm } from 'node:fs/promises';
+import { access, cp, rm } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,10 +12,14 @@ const chockTrufasReactDir = path.join(
 
 function run(command, args, cwd) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
+    const executable = process.platform === 'win32' ? process.env.ComSpec : command;
+    const spawnArgs =
+      process.platform === 'win32'
+        ? ['/d', '/s', '/c', `${command}.cmd`, ...args]
+        : args;
+    const child = spawn(executable, spawnArgs, {
       cwd,
       stdio: 'inherit',
-      shell: process.platform === 'win32',
     });
 
     child.on('error', reject);
@@ -28,6 +32,15 @@ function run(command, args, cwd) {
       reject(new Error(`${command} ${args.join(' ')} failed with code ${code}`));
     });
   });
+}
+
+async function commandExists(filePath) {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 const demos = [
@@ -46,6 +59,17 @@ const demos = [
   ['src/components/Project/proprio/chock trufas', 'chock-trufas'],
   ['src/components/Project/proprio/chock-trufas-react/dist', 'chock-trufas-react'],
 ];
+
+const viteBin = path.join(
+  chockTrufasReactDir,
+  'node_modules',
+  '.bin',
+  process.platform === 'win32' ? 'vite.cmd' : 'vite',
+);
+
+if (!(await commandExists(viteBin))) {
+  await run('npm', ['ci', '--ignore-scripts'], chockTrufasReactDir);
+}
 
 await run('npm', ['run', 'build'], chockTrufasReactDir);
 await rm(outputDir, { recursive: true, force: true });

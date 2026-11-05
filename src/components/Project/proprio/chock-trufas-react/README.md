@@ -16,8 +16,8 @@ O projeto foi pensado para transformar uma landing page estática em uma aplica�
 | Camada    | Tecnologias                               |
 | --------- | ----------------------------------------- |
 | Front-end | React, Vite, JavaScript/JSX, CSS modular  |
-| Back-end  | Node.js, Express, TypeScript, Zod         |
-| Dados     | Prisma, MySQL                             |
+| Back-end  | Node.js, Express, JavaScript, Zod          |
+| Dados     | Arquivos JSON                             |
 | Estado    | React Query, Zustand                      |
 | Qualidade | Vitest, Testing Library, ESLint, Prettier |
 | Segurança | JWT, bcryptjs                             |
@@ -31,8 +31,7 @@ flowchart LR
   B --> D[Zustand Cart]
   C --> E[Express API]
   E --> F[Services]
-  F --> G[Prisma ORM]
-  G --> H[(MySQL)]
+  F --> G[(Arquivos JSON)]
   E --> I[JWT Auth]
 ```
 
@@ -88,7 +87,7 @@ erDiagram
 - Pedido com validação de dados e cálculo automático de total
 - API de health check e catálogo
 - Autenticação JWT para admin
-- Estrutura pronta para banco MySQL com Prisma
+- Armazenamento local em arquivos JSON, com possibilidade de migração futura para banco persistente
 
 ## Guia de instalação
 
@@ -112,21 +111,7 @@ PORT=3001
 NODE_ENV=development
 JWT_SECRET=change-me-in-production
 JWT_EXPIRES_IN=7d
-DATABASE_URL="mysql://root:root@localhost:3306/chock_trufas"
 ORDERS_ADMIN_TOKEN=change-me
-```
-
-5. Geração do cliente Prisma:
-
-```bash
-npx prisma generate
-```
-
-6. (Opcional) Popular banco com dados iniciais:
-
-```bash
-npx prisma db push
-npx tsx prisma/seed.ts
 ```
 
 ## Comandos úteis
@@ -138,7 +123,6 @@ npm run dev:api
 npm run build
 npm run lint
 npm run test:run
-npm run typecheck
 ```
 
 ## Fluxo de dados do pedido
@@ -147,14 +131,14 @@ npm run typecheck
 2. Carrinho é persistido com Zustand.
 3. Formulário envia payload para `/api/orders`.
 4. API valida campos, calcula subtotal e total.
-5. Pedido é salvo em JSON ou persistido no banco via Prisma.
+5. Pedido é salvo em JSON.
 6. Mensagem de confirmação é aberta no WhatsApp.
 
 ## Qualidade e automação
 
 - Testes de API com Vitest + Supertest
 - Testes de interface com React Testing Library
-- CI com GitHub Actions para lint, typecheck e testes
+- CI com GitHub Actions para lint e testes
 - Estrutura preparada para padronização de commits
 
 ## Convenção de commits
@@ -172,5 +156,5 @@ git commit -m "docs: update project architecture readme"
 ## Observações
 
 - A aplicação usa fallback local em `server/data/catalog.json` durante desenvolvimento.
-- O modelo de dados em Prisma foi preparado para evoluir para ambiente real com MySQL.
+- O armazenamento atual usa arquivos JSON e pode evoluir para um banco de dados persistente.
 - A API foi estruturada para servir de base para um sistema de gestão administrativa de pedidos.

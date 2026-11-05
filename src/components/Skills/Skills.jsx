@@ -12,7 +12,6 @@ import Mysql from '../../assets/mysql.png';
 import styles from './Skills.module.css';
 import python from '../../assets/python.svg';
 import java from '../../assets/Java.svg';
-import typescript from '../../assets/Typescript.svg';
 
 const skills = [
   { name: 'HTML5', icon: html },
@@ -25,7 +24,6 @@ const skills = [
   { name: 'MySQL', icon: Mysql },
   { name: 'Python', icon: python },
   { name: 'Java', icon: java },
-  { name: 'TypeScript', icon: typescript },
 ];
 
 export default function Skills() {

@@ -14,9 +14,6 @@ dist-ssr
 .env
 public/project-demos/
 
-# Development-only demo
-src/components/TypeScriptExample/
-
 # Editor directories and files
 .vscode
 !.vscode/extensions.json

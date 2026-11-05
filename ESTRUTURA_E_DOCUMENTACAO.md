@@ -18,7 +18,7 @@ Portfolio em React com Vite, organizado como SPA com React Router. A aplicacao p
 ## Arquitetura
 
 ```text
-App.tsx
+App.jsx
 └── Rotas
     └── BrowserRouter
         └── Routes
@@ -37,7 +37,7 @@ App.tsx
 |---|---|---|
 | `/` | `Home` | Landing completa |
 | `/projects` | `Project` | Lista todos os projetos |
-| `/projects/:slug` | `ProjectDetails` | Busca dados em `projectsData.ts` |
+| `/projects/:slug` | `ProjectDetails` | Busca dados em `projectsData.js` |
 | `*` | `Navigate` | Redireciona para `/` |
 
 ## Componentes
@@ -77,13 +77,13 @@ Tambem recebe `location.state.scrollTo` quando o usuario clica em uma ancora a p
 
 ### Project
 
-`src/components/Project/Project.tsx`
+`src/components/Project/Project.jsx`
 
 Renderiza a grade de projetos a partir de `projectsData`.
 
 ### ProjectDetails
 
-`src/components/ProjectDetails/ProjectDetails.tsx`
+`src/components/ProjectDetails/ProjectDetails.jsx`
 
 Usa `useParams` para pegar `slug`, procura o projeto correspondente e renderiza:
 
@@ -98,7 +98,7 @@ Se o `slug` nao existir, redireciona para `/projects`.
 
 ### CardProject
 
-`src/components/CardProject/CardProject.tsx`
+`src/components/CardProject/CardProject.jsx`
 
 Mostra imagem, titulo, descricao, tecnologias e acoes:
 
@@ -129,7 +129,7 @@ Envio:
 Arquivo:
 
 ```text
-src/data/projectsData.ts
+src/data/projectsData.js
 ```
 
 Formato esperado:

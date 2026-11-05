@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import Project from './Project';
 
 describe('Project', () => {
-  it('filtra a lista de projetos sem recarregar a página', () => {
+  it('filtra projetos sem recarregar a página', () => {
     render(
       <MemoryRouter>
         <Project />

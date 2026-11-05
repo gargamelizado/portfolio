@@ -1,22 +1,12 @@
 import { useMemo, useState } from 'react';
 
-type StatusTarefa = 'Pendente' | 'Em andamento' | 'Concluida';
-type Filtro = StatusTarefa | 'Todas';
-
-interface Tarefa {
-  id: number;
-  titulo: string;
-  horas: number;
-  status: StatusTarefa;
-}
-
-const tarefasIniciais: Tarefa[] = [
+const tarefasIniciais = [
   { id: 1, titulo: 'Levantamento de requisitos', horas: 3, status: 'Concluida' },
   { id: 2, titulo: 'Protótipo no Figma', horas: 2, status: 'Em andamento' },
   { id: 3, titulo: 'Integração da API', horas: 4, status: 'Pendente' },
 ];
 
-const pageStyle: React.CSSProperties = {
+const pageStyle = {
   minHeight: 'calc(100vh - 100px)',
   display: 'grid',
   placeItems: 'center',
@@ -25,7 +15,7 @@ const pageStyle: React.CSSProperties = {
     'radial-gradient(circle at top right, #bae6fd 0%, #e0f2fe 36%, #f8fafc 100%)',
 };
 
-const cardStyle: React.CSSProperties = {
+const cardStyle = {
   width: '100%',
   maxWidth: '760px',
   borderRadius: '16px',
@@ -35,7 +25,7 @@ const cardStyle: React.CSSProperties = {
   padding: '1.5rem',
 };
 
-const buttonBase: React.CSSProperties = {
+const buttonBase = {
   border: '1px solid #cbd5e1',
   borderRadius: '999px',
   padding: '0.35rem 0.8rem',
@@ -44,13 +34,13 @@ const buttonBase: React.CSSProperties = {
   background: 'white',
 };
 
-function calcularTotalHoras(tarefas: Tarefa[]): number {
+function calcularTotalHoras(tarefas) {
   return tarefas.reduce((acumulador, tarefa) => acumulador + tarefa.horas, 0);
 }
 
-export default function TypeScriptExample() {
-  const [tarefas, setTarefas] = useState<Tarefa[]>(tarefasIniciais);
-  const [filtro, setFiltro] = useState<Filtro>('Todas');
+export default function JavaScriptExample() {
+  const [tarefas, setTarefas] = useState(tarefasIniciais);
+  const [filtro, setFiltro] = useState('Todas');
 
   const tarefasFiltradas = useMemo(() => {
     if (filtro === 'Todas') {
@@ -61,7 +51,7 @@ export default function TypeScriptExample() {
 
   const totalHoras = useMemo(() => calcularTotalHoras(tarefasFiltradas), [tarefasFiltradas]);
 
-  const marcarConcluida = (id: number) => {
+  const marcarConcluida = (id) => {
     setTarefas((estadoAtual) =>
       estadoAtual.map((tarefa) =>
         tarefa.id === id ? { ...tarefa, status: 'Concluida' } : tarefa
@@ -72,14 +62,13 @@ export default function TypeScriptExample() {
   return (
     <main style={pageStyle}>
       <section style={cardStyle}>
-        <h1 style={{ margin: 0, color: '#0f172a' }}>Exemplo de Aplicacao em TypeScript</h1>
+        <h1 style={{ margin: 0, color: '#0f172a' }}>Exemplo de Aplicação em JavaScript</h1>
         <p style={{ color: '#334155', marginTop: '0.5rem' }}>
-          Esta tela usa tipagem com <code>interface</code>, <code>type</code>,
-          <code>useState&lt;T&gt;</code> e funcoes tipadas.
+          Esta tela demonstra gerenciamento de estado e filtros de tarefas com React.
         </p>
 
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-          {(['Todas', 'Pendente', 'Em andamento', 'Concluida'] as const).map((item) => {
+          {['Todas', 'Pendente', 'Em andamento', 'Concluida'].map((item) => {
             const ativo = item === filtro;
             return (
               <button
@@ -128,7 +117,7 @@ export default function TypeScriptExample() {
                   onClick={() => marcarConcluida(tarefa.id)}
                   style={{ ...buttonBase, borderColor: '#059669', color: '#065f46' }}
                 >
-                  Marcar como concluida
+                  Marcar como concluída
                 </button>
               )}
             </li>
@@ -136,7 +125,7 @@ export default function TypeScriptExample() {
         </ul>
 
         <p style={{ marginBottom: 0, color: '#0f172a', fontWeight: 600 }}>
-          Total de horas visiveis: {totalHoras}h
+          Total de horas visíveis: {totalHoras}h
         </p>
       </section>
     </main>

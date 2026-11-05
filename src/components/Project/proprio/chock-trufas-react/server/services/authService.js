@@ -9,7 +9,7 @@ const userRecord = {
 };
 
 export const authService = {
-  async login(email: string, password: string) {
+  async login(email, password) {
     const isValid = email === userRecord.email && (await bcrypt.compare(password, userRecord.passwordHash));
 
     if (!isValid) {
@@ -21,10 +21,10 @@ export const authService = {
     });
   },
 
-  verifyToken(token: string) {
+  verifyToken(token) {
     try {
-      const decoded = jwt.verify(token, config.jwtSecret) as { email: string; role: string };
-      return Boolean(decoded?.email && decoded?.role);
+      const decoded = jwt.verify(token, config.jwtSecret);
+      return typeof decoded === 'object' && Boolean(decoded?.email && decoded?.role);
     } catch {
       return false;
     }

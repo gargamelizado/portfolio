@@ -44,7 +44,7 @@ editar
 ## Adicionar um Projeto
 
 1. Coloque a imagem em `src/components/Project/img/`.
-2. Importe a imagem em `src/data/projectsData.ts`.
+2. Importe a imagem em `src/data/projectsData.js`.
 3. Adicione um objeto novo com `slug`, `title`, `description`, `technologies`, `details`, `learning`, `link`, `web` e `image`.
 4. Rode `npm run lint` e `npm run build`.
 
@@ -92,7 +92,7 @@ Prioridade media:
 
 Prioridade baixa:
 
-- Migracao gradual para TypeScript.
+- Componentes e dados do app em JavaScript/JSX.
 - CI com GitHub Actions.
 - Analytics.
 - PWA.
@@ -105,7 +105,7 @@ Prioridade baixa:
 | Mudar apresentacao | `src/components/Hero/Hero.jsx` |
 | Mudar skills | `src/components/Skills/Skills.jsx` |
 | Mudar experiencias | `src/components/Experience/Experience.jsx` |
-| Mudar projetos | `src/data/projectsData.ts` |
-| Mudar detalhes | `src/components/ProjectDetails/ProjectDetails.tsx` |
+| Mudar projetos | `src/data/projectsData.js` |
+| Mudar detalhes | `src/components/ProjectDetails/ProjectDetails.jsx` |
 | Mudar contato | `src/components/Contact/Contact.jsx` |
-| Mudar rotas | `src/router/rotas.tsx` |
+| Mudar rotas | `src/router/rotas.jsx` |

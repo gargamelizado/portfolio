@@ -169,7 +169,7 @@ export default function Contact() {
             rows={5}
           />
         </div>
-        <div className="form-honeypot" aria-hidden="true">
+        <div className="form-honeypot" aria-hidden="true" hidden>
           <label htmlFor="contact-website">Website</label>
           <input
             id="contact-website"

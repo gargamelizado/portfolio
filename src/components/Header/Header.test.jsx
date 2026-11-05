@@ -15,4 +15,14 @@ describe('Header', () => {
 
     expect(skipLink).toHaveAttribute('href', '#main-content');
   });
+
+  it('direciona o item Projetos para a rota /projects', () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByRole('link', { name: 'Projetos' })).toHaveAttribute('href', '/projects');
+  });
 });

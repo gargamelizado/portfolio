@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { describe, expect, it } from 'vitest';
 
-import app from '../app';
+import app from '../app.js';
 
 describe('Chock Trufas API', () => {
   it('health check should return service status', async () => {

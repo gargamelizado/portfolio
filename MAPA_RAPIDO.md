@@ -28,9 +28,9 @@ npm run preview
 
 ```text
 index.html
-└── src/main.tsx
-    └── App.tsx
-        └── router/rotas.tsx
+└── src/main.jsx
+    └── App.jsx
+        └── router/rotas.jsx
             └── Layout
                 ├── Header
                 └── Outlet
@@ -63,11 +63,11 @@ index.html
 
 | O que mudar | Arquivo |
 |---|---|
-| Rotas | `src/router/rotas.tsx` |
+| Rotas | `src/router/rotas.jsx` |
 | Menu/topo/tema | `src/components/Header/Header.jsx` |
-| Lista de projetos | `src/data/projectsData.ts` |
-| Card de projeto | `src/components/CardProject/CardProject.tsx` |
-| Detalhe de projeto | `src/components/ProjectDetails/ProjectDetails.tsx` |
+| Lista de projetos | `src/data/projectsData.js` |
+| Card de projeto | `src/components/CardProject/CardProject.jsx` |
+| Detalhe de projeto | `src/components/ProjectDetails/ProjectDetails.jsx` |
 | Home | `src/components/Home/Home.jsx` |
 | Formulario | `src/components/Contact/Contact.jsx` |
 | Estilos globais | `src/index.css` e `src/App.css` |
@@ -77,7 +77,7 @@ index.html
 Projetos ficam em:
 
 ```text
-src/data/projectsData.ts
+src/data/projectsData.js
 ```
 
 Cada item usa, em geral:

@@ -6,7 +6,7 @@ describe('cartStore', () => {
     useCartStore.setState({ cartItems: [] });
   });
 
-  it('adds items to the cart', () => {
+  it('adds products to the cart', () => {
     useCartStore.getState().addCartItem({ cartItemId: 'abc-1', productId: 'cone-trufado' });
 
     expect(useCartStore.getState().cartItems).toHaveLength(1);

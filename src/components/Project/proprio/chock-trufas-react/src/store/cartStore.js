@@ -1,20 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type CartItem = {
-  cartItemId: string;
-  productId: string;
-};
-
-type CartStore = {
-  cartItems: CartItem[];
-  setCartItems: (items: CartItem[]) => void;
-  addCartItem: (item: CartItem) => void;
-  removeCartItem: (cartItemId: string) => void;
-  clearCartItems: () => void;
-};
-
-export const useCartStore = create<CartStore>()(
+export const useCartStore = create()(
   persist(
     (set) => ({
       cartItems: [],

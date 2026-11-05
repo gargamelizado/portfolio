@@ -1,4 +1,3 @@
-import type { Project, ProjectCategory } from '../types/project';
 import Petshop from '../components/Project/img/pet-shop.webp';
 import ClinicaMedica from '../components/Project/img/clinica-medica.webp';
 import Padaria from '../components/Project/img/padaria.webp';
@@ -14,7 +13,7 @@ import BurgerHeaven from '../components/Project/img/BURGER-HEAVEN.webp';
 import ChockTrufas from '../components/Project/img/Chock-Trufas.webp';
 import ChockTrufasReact from '../components/Project/img/Chock Trufas React.webp';
 
-const demoUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const demoUrl = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 export const projectsData = [
   {
@@ -22,14 +21,13 @@ export const projectsData = [
     slug: 'chock-trufas-react',
     title: 'Chock Trufas em React',
     description:
-      'Versão do projeto Chock Trufas criada com React, componentes reutilizáveis e organização de interface para cardápio e compra.',
-    technologies: ['React', 'JavaScript', 'CSS3', 'Componentização'],
+      'Sistema da minha própria confeitaria: conecta catálogo e pedidos a uma API Node.js e Express, tornando o atendimento pelo WhatsApp mais organizado.',
+    technologies: ['React', 'Node.js', 'Express', 'API REST', 'JWT'],
     details:
-      'Projeto próprio recriado em React para evoluir uma landing page real para uma experiência mais organizada, com componentes, páginas internas e fluxo de apresentação dos produtos.',
+      'Aplicação criada para a Chock Trufas, meu próprio negócio de confeitaria. O catálogo e o formulário estruturam os pedidos antes da confirmação pelo WhatsApp; uma API Express fornece catálogo, cadastro de pedidos e autenticação administrativa. Os dados são armazenados em arquivos JSON nesta versão.',
     learning:
-      'Pratiquei componentização, organização de pastas, reaproveitamento de seções, controle de estado e melhoria progressiva de uma ideia própria.',
-    repository:
-      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock-trufas-react',
+      'Pratiquei integração entre React e API REST, validação de dados, autenticação JWT e organização de um fluxo de pedidos para um negócio real.',
+    repository: 'https://github.com/gargamelizado/Chock-Trufas/tree/main/chock-trufas-react',
     website: demoUrl('project-demos/chock-trufas-react/index.html'),
     image: ChockTrufasReact,
     imageAlt: 'Screenshot do projeto Chock Trufas em React',
@@ -41,18 +39,18 @@ export const projectsData = [
     type: 'React',
     caseStudy: {
       problem:
-        'A Chock Trufas precisava evoluir de uma venda informal em WhatsApp para uma experiência de compra mais clara, organizada e escalável.',
+        'No meu próprio negócio de confeitaria, os pedidos chegavam de forma informal pelo WhatsApp, dificultando organizar produtos, quantidades e detalhes de retirada ou entrega.',
       challenge:
         'Transformar a ideia visual em uma solução com catalogação de produtos, carrinho e fluxo de pedido sem perder a identidade da marca.',
       solution:
-        'Reestruturei a interface em React, organizei o catálogo em componentes reutilizáveis e adicionei um fluxo de compra mais didático e consistente para o cliente.',
+        'Criei um catálogo e um fluxo de pedidos em React conectados a uma API Express. A API valida os dados e registra os pedidos em JSON antes da confirmação pelo WhatsApp, deixando as informações mais claras para o cliente e para a gestão da confeitaria.',
       learning:
         'A principal aprendizagem foi enxergar que a experiência do usuário melhora quando a interface reduz atrito, dá clareza ao produto e fortalece a confiança na compra.',
     },
     futureImprovements: [
       'Aprimorar responsividade fina em telas muito pequenas.',
       'Evoluir a página de compra com validações e estados mais completos.',
-      'Adicionar testes para os principais componentes do fluxo.',
+      'Migrar os pedidos do armazenamento em JSON para um banco de dados persistente.',
     ],
   },
   {
@@ -93,8 +91,7 @@ export const projectsData = [
       'Projeto próprio em HTML e CSS usado como base para evoluir a comunicação visual da marca e preparar a versão posterior em React.',
     learning:
       'Pratiquei estruturação de página comercial, organização de imagens, seções de produtos e chamadas para ação.',
-    repository:
-      'https://github.com/gargamelizado/portfolio/tree/master/src/components/Project/proprio/chock%20trufas',
+    repository: 'https://github.com/gargamelizado/Chock-Trufas',
     website: demoUrl('project-demos/chock-trufas/index.html'),
     image: ChockTrufas,
     imageAlt: 'Screenshot do projeto Chock Trufas',
@@ -370,12 +367,12 @@ export const projectsData = [
     level: 'iniciante',
     type: 'HTML/CSS',
   },
-] satisfies Project[];
+];
 
-export const sortProjectsByPriority = (projects: Project[]): Project[] =>
+export const sortProjectsByPriority = (projects) =>
   [...projects].sort((current, next) => current.priority - next.priority);
 
-export const getProjectsByCategory = (category: ProjectCategory): Project[] =>
+export const getProjectsByCategory = (category) =>
   sortProjectsByPriority(projectsData.filter((project) => project.category === category));
 
 export const featuredProjects = sortProjectsByPriority(

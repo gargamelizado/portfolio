@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import { z } from 'zod';
-import { randomUUID } from 'node:crypto';
 
 import { config } from './config.js';
 import { catalogService } from './services/catalogService.js';
@@ -89,7 +88,7 @@ app.post('/api/orders', async (req, res, next) => {
   }
 });
 
-app.use((error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+app.use((error, _req, res, _next) => {
   if (error instanceof z.ZodError) {
     return res.status(400).json({
       message: 'Dados inválidos.',

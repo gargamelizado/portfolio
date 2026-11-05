@@ -9,17 +9,17 @@
       │
       ▼
 ┌──────────┐
-│ main.tsx │  createRoot + StrictMode
+│ main.jsx │  createRoot + StrictMode
 └────┬─────┘
      │
      ▼
 ┌─────────┐
-│ App.tsx │  retorna <Rotas />
+│ App.jsx │  retorna <Rotas />
 └────┬────┘
      │
      ▼
 ┌──────────────────┐
-│ router/rotas.tsx │  BrowserRouter + Routes
+│ router/rotas.jsx │  BrowserRouter + Routes
 └────┬─────────────┘
      │
      ▼
@@ -132,8 +132,8 @@ src/
 │   ├── Gallery/
 │   ├── Button/
 │   └── Footer/
-├── App.tsx
-├── main.tsx
+├── App.jsx
+├── main.jsx
 ├── App.css
 └── index.css
 ```
@@ -142,13 +142,13 @@ src/
 
 | Area | Responsabilidade |
 |---|---|
-| `router/rotas.tsx` | Define URLs e layout compartilhado |
+| `router/rotas.jsx` | Define URLs e layout compartilhado |
 | `Layout` | Mantem `Header` em todas as paginas |
 | `Header` | Navegacao, menu mobile, tema, links externos |
 | `Home` | Composicao das secoes da landing |
 | `Project` | Lista todos os projetos |
 | `ProjectDetails` | Mostra uma pagina por projeto |
-| `projectsData.ts` | Fonte dos dados dos projetos |
+| `projectsData.js` | Fonte dos dados dos projetos |
 | `Contact` | Envio por endpoint ou fallback email |
 
 ## Pipeline de Qualidade

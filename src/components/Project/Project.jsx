@@ -11,17 +11,6 @@ import {
   sortedProjects,
 } from "../../data/projectsData";
 
-const projectMode = "featured";
-
-const filterOptionsList = [
-  "todos",
-  "principais",
-  "estudos",
-  "react",
-  "html-css",
-  "typescript",
-];
-
 const baseFilters = [
   { label: "Todos", value: "todos" },
   { label: "Principais", value: "principais" },
@@ -30,13 +19,7 @@ const baseFilters = [
   { label: "HTML/CSS", value: "html-css" },
 ];
 
-const hasTypeScriptProjects = sortedProjects.some((project) =>
-  project.technologies.some((technology) => technology.toLowerCase().includes("typescript"))
-);
-
-const filterOptions = hasTypeScriptProjects
-  ? [...baseFilters, { label: "TypeScript", value: "typescript" }]
-  : baseFilters;
+const filterOptions = baseFilters;
 
 const projectMatchesFilter = (project, filter) => {
   const normalizedTechs = project.technologies.map((technology) => technology.toLowerCase());
@@ -51,10 +34,6 @@ const projectMatchesFilter = (project, filter) => {
         normalizedTechs.some((technology) => technology.includes("css")))
     );
   }
-  if (filter === "typescript") {
-    return normalizedTechs.some((technology) => technology.includes("typescript")) || project.type === "TypeScript";
-  }
-
   return true;
 };
 
@@ -85,7 +64,7 @@ export default function Project({ mode = "all" }) {
       </h1>
       <p className={styles.projectIntro}>
         {isFeaturedMode
-          ? "Projetos selecionados que refletem meu processo de criação com React, TypeScript, HTML e CSS, com foco em interfaces funcionais, responsivas e bem estruturadas."
+          ? "Projetos que combinam interfaces funcionais e responsivas com APIs e fluxos reais de negócio, incluindo o sistema de pedidos da minha própria confeitaria."
           : "Abaixo estão projetos principais e estudos práticos desenvolvidos ao longo da minha evolução como desenvolvedor, com foco em aplicação real de conceitos, qualidade de código e boa experiência de uso."}
       </p>
 

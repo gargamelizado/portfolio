@@ -14,7 +14,7 @@ import Home from '../components/Home/Home';
 import Project from '../components/Project/Project';
 import ProjectDetails from '../components/ProjectDetails/ProjectDetails';
 import NotFound from '../components/NotFound/NotFound';
-// import TypeScriptExample from '../components/TypeScriptExample/TypeScriptExample.tsx';
+// import JavaScriptExample from '../components/JavaScriptExample/JavaScriptExample.jsx';
 
 export default function Rotas() {
   return (
@@ -26,9 +26,9 @@ export default function Rotas() {
           <Route path="/projects/:slug" element={<ProjectDetails />} />
           {/*
             <Route
-              path="/typescript-demo"
+              path="/javascript-demo"
               element={
-                <TypeScriptExample />
+                <JavaScriptExample />
               }
             />
           */}

@@ -236,11 +236,11 @@ const Header = () => {
             {/*
               <li className={styles.navLi}>
                 <NavLink
-                  to="/typescript-demo"
+                  to="/javascript-demo"
                   className={navClass}
                   onClick={closeMenu}
                 >
-                  TS Demo
+                  JS Demo
                 </NavLink>
               </li>
             */}
